@@ -1,0 +1,115 @@
+{
+  "overview": {
+    "label": "Flagship Project",
+    "title": "TRANSACT: <span class=\"gold\">Transparency in Action</span>",
+    "tagline": "Measuring the gap between FOI law on paper and FOI law in practice",
+    "paragraphs": [
+      "TRANSACT is a large-scale research project that measures the gap between formal adoption of Freedom of Information laws and their actual implementation. Using a controlled experimental protocol, we sent FOI requests to all 581 municipalities in Belgium using five different requester profiles &mdash; from ordinary citizens to university professors and civil society organisations. Each municipality was randomly assigned one treatment, stratified by region and population size. Responses were coded on a five-point scale from no reply to complete disclosure.",
+      "The project mobilised 36 graduate students from the &ldquo;Innovations in Policy Evaluation&rdquo; course at ULB as citizen scientists. They sent requests, managed responses, and coded outcomes under strict non-disclosure protocols &mdash; generating one of the most comprehensive empirical pictures of FOI implementation in Europe."
+    ],
+    "stats": [
+      { "number": "581", "label": "Municipalities" },
+      { "number": "5", "label": "Treatments" },
+      { "number": "36", "label": "Citizen Scientists" },
+      { "number": "3", "label": "Regions" }
+    ]
+  },
+  "methodology": [
+    {
+      "step": 1,
+      "title": "Experimental Design",
+      "description": "FOI requests are standardised across a controlled set of requester profiles. Each administration is randomly assigned one treatment, stratified by region and population size, to ensure causal identification."
+    },
+    {
+      "step": 2,
+      "title": "Citizen Science Deployment",
+      "description": "Graduate students and civil society members send requests, manage responses, and code outcomes. Participants are organised into groups with defined roles and follow non-disclosure protocols."
+    },
+    {
+      "step": 3,
+      "title": "Response Coding",
+      "description": "Every response is classified on a five-point scale: no reply, denial, unsatisfactory reply, partial reply, or complete reply. The coding framework is adapted from Worthy, John, and Vannoni (2017, J-PART)."
+    },
+    {
+      "step": 4,
+      "title": "Computational Text Analysis",
+      "description": "For platform data, we apply a full NLP pipeline: HTML cleaning, tokenisation, TF-IDF filtering, lemmatisation, LDA topic modeling (K=6), and sentiment analysis using the FEEL lexicon for French."
+    },
+    {
+      "step": 5,
+      "title": "Statistical Modeling",
+      "description": "Multinomial logistic regression predicts outcomes (successful, not successful, asleep) as a function of topic, accountability-seeking potential, sentiment, request complexity, and administrative type."
+    }
+  ],
+  "profiles": [
+    { "letter": "A", "label": "Common citizen", "description": "standard request, no mention of FOI law" },
+    { "letter": "B", "label": "Citizen + FOI", "description": "standard citizen citing the legal right of access" },
+    { "letter": "C", "label": "Professor", "description": "request signed by a university professor" },
+    { "letter": "D", "label": "Professor + FOI", "description": "academic status combined with legal citation" },
+    { "letter": "E", "label": "Civil society", "description": "request from Anticor Belgique (NGO)" }
+  ],
+  "findings": [
+    {
+      "icon": "&#x1F6AB;",
+      "stat": "36%",
+      "title": "The Silence Problem",
+      "description": "More than a third of Belgian municipalities did not respond to FOI requests at all, regardless of who was asking. The legal right of access exists on paper but not always in practice."
+    },
+    {
+      "icon": "&#x1F914;",
+      "stat": null,
+      "title": "The Expertise Paradox",
+      "description": "Counter-intuitively, requesters perceived as more knowledgeable about FOI rights &mdash; professors, civil society actors, those citing the law &mdash; faced greater resistance. Administrations appear more cautious with informed requesters."
+    },
+    {
+      "icon": "&#x1F4CD;",
+      "stat": null,
+      "title": "Regional Disparities",
+      "description": "Compliance varied sharply across Belgium&rsquo;s three regions: Brussels achieved ~58% response rates, Flanders ~46%, and Wallonia only ~21%. Larger municipalities consistently outperformed smaller ones."
+    },
+    {
+      "icon": "&#x1F50D;",
+      "stat": null,
+      "title": "Selective Transparency",
+      "description": "Requests with higher accountability-seeking potential (policing, internal deliberations, procurement) are significantly less likely to receive any response. Administrations appear risk-averse on sensitive topics."
+    },
+    {
+      "icon": "&#x1F4AC;",
+      "stat": null,
+      "title": "Tone Matters",
+      "description": "Positive communication tone consistently increases the likelihood of administrative engagement. How you ask matters as much as what you ask for."
+    },
+    {
+      "icon": "&#x1F4CF;",
+      "stat": null,
+      "title": "Complexity Barrier",
+      "description": "Longer, more complex requests are significantly less likely to result in successful disclosure. Simplicity and clarity improve citizen outcomes in FOI interactions."
+    }
+  ],
+  "expansion": [
+    {
+      "icon": "&#x1F1E8;&#x1F1ED;",
+      "country": "Switzerland",
+      "description": "Replicating TRANSACT across cantonal and municipal FOI systems in Switzerland&rsquo;s unique federal structure. Partnered with the University of Lausanne and Loitransparence.ch.",
+      "tags": ["Federal System", "Cantonal FOI"]
+    },
+    {
+      "icon": "&#x1F1F7;&#x1F1F4;",
+      "country": "Romania",
+      "description": "Examining FOI transparency in a post-transition European context. Testing whether post-communist administrative cultures produce distinct patterns of responsiveness.",
+      "tags": ["Post-Transition", "University of Bucharest"]
+    },
+    {
+      "icon": "&#x1F1FF;&#x1F1E6;",
+      "country": "South Africa",
+      "description": "Applying TRANSACT methodology in a Global South context through collaboration with the University of the Witwatersrand (Wits), Johannesburg.",
+      "tags": ["Global South", "Wits University"]
+    },
+    {
+      "icon": "&#x1F1FA;&#x1F1EC;",
+      "country": "Uganda",
+      "description": "East African field experiment partner via Makerere University, Kampala. Extending the comparative framework to Sub-Saharan Africa&rsquo;s diverse administrative environments.",
+      "tags": ["East Africa", "Makerere University"]
+    }
+  ]
+}

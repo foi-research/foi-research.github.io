@@ -1,0 +1,90 @@
+{
+  "academic": [
+    {
+      "name": "Universit&eacute; libre de Bruxelles (ULB)",
+      "country": "Belgium &mdash; Coordinator",
+      "flag": "&#x1F1E7;&#x1F1EA;",
+      "description": "Home institution and coordinator of the FOI Research Group, based at CEPAP (Centre d'&Eacute;tude des Politiques et de l'Administration Publique)."
+    },
+    {
+      "name": "University of Lausanne",
+      "country": "Switzerland",
+      "flag": "&#x1F1E8;&#x1F1ED;",
+      "description": "Partner in comparative FOI research, contributing expertise on Swiss transparency legislation and administrative responsiveness."
+    },
+    {
+      "name": "University of Bucharest",
+      "country": "Romania",
+      "flag": "&#x1F1F7;&#x1F1F4;",
+      "description": "Collaborating on the extension of TRANSACT methodology to Romania, expanding comparative evidence on FOI implementation in Eastern Europe."
+    },
+    {
+      "name": "Wits University",
+      "country": "South Africa",
+      "flag": "&#x1F1FF;&#x1F1E6;",
+      "description": "Key partner for extending FOI field experiments to the African continent, studying transparency under the Promotion of Access to Information Act."
+    },
+    {
+      "name": "Makerere University",
+      "country": "Uganda",
+      "flag": "&#x1F1FA;&#x1F1EC;",
+      "description": "Collaborating on FOI research in East Africa, examining the implementation of access to information legislation in Uganda."
+    },
+    {
+      "name": "Universit&agrave; di Napoli L'Orientale",
+      "country": "Italy",
+      "flag": "&#x1F1EE;&#x1F1F9;",
+      "description": "Partner in quantitative public policy research, contributing expertise in economic analysis and evaluation of transparency policies."
+    },
+    {
+      "name": "Johannes Kepler University Linz",
+      "country": "Austria",
+      "flag": "&#x1F1E6;&#x1F1F9;",
+      "description": "Academic partner contributing comparative perspectives on FOI implementation in the Austrian and broader German-speaking context."
+    },
+    {
+      "name": "University of Genoa",
+      "country": "Italy",
+      "flag": "&#x1F1EE;&#x1F1F9;",
+      "description": "Collaborating on research methodology and comparative analysis of transparency policies across Southern European institutions."
+    }
+  ],
+  "civil_society": [
+    {
+      "name": "Transparencia.be / Anticor Belgique",
+      "country": "Belgium",
+      "flag": "&#x1F1E7;&#x1F1EA;",
+      "description": "Belgium&rsquo;s national FOI platform, providing the dataset of 4,266 citizen requests analysed in our computational text analysis research."
+    },
+    {
+      "name": "Access Info Europe / AskTheEU.org",
+      "country": "European Union",
+      "flag": "&#x1F1EA;&#x1F1FA;",
+      "description": "European transparency advocacy organisation operating AskTheEU.org, the platform for FOI requests to EU institutions."
+    },
+    {
+      "name": "mySociety (WhatDoTheyKnow.com)",
+      "country": "United Kingdom",
+      "flag": "&#x1F1EC;&#x1F1E7;",
+      "description": "UK-based civic technology organisation operating WhatDoTheyKnow.com, one of the world&rsquo;s largest FOI request platforms."
+    },
+    {
+      "name": "Article 19",
+      "country": "International",
+      "flag": "&#x1F30D;",
+      "description": "International human rights organisation defending and promoting freedom of expression and freedom of information worldwide."
+    },
+    {
+      "name": "Loitransparence.ch",
+      "country": "Switzerland",
+      "flag": "&#x1F1E8;&#x1F1ED;",
+      "description": "Swiss transparency platform supporting citizens in exercising their right to access government information under Swiss FOI law."
+    },
+    {
+      "name": "Ma Dada",
+      "country": "France",
+      "flag": "&#x1F1EB;&#x1F1F7;",
+      "description": "French civic technology platform facilitating FOI requests to public administrations, promoting transparency and open government in France."
+    }
+  ]
+}

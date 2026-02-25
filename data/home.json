@@ -1,0 +1,30 @@
+{
+  "hero": {
+    "badge": "CEPAP &mdash; Universit&eacute; libre de Bruxelles",
+    "title": "Putting <span class=\"accent\">Transparency</span> to the Test",
+    "description": "We study Freedom of Information laws through field experiments and citizen science. Our research measures the gap between formal adoption of transparency legislation and its real-world implementation across countries and institutions.",
+    "primaryBtn": { "text": "Explore TRANSACT &rarr;", "link": "transact.html" },
+    "secondaryBtn": { "text": "Our Publications", "link": "publications.html" }
+  },
+  "researchCards": [
+    {
+      "icon": "&#x1F3AF;",
+      "title": "TRANSACT",
+      "description": "Our flagship field experiment testing FOI responsiveness across all 581 Belgian municipalities, using five randomised requester profiles and citizen science methodology.",
+      "link": "transact.html"
+    },
+    {
+      "icon": "&#x1F4CA;",
+      "title": "Transparencia.be Analysis",
+      "description": "Computational text analysis of 4,266 citizen FOI requests from Belgium&rsquo;s national transparency platform, using topic modeling, sentiment analysis, and multinomial regression.",
+      "link": "research.html"
+    },
+    {
+      "icon": "&#x1F30D;",
+      "title": "International Expansion",
+      "description": "Extending TRANSACT methodology to Switzerland, Romania, South Africa, and Uganda &mdash; building comparative evidence on FOI implementation across legal frameworks.",
+      "link": "research.html"
+    }
+  ],
+  "teamPreview": "Directed by <strong>Prof. Giovanni Esposito</strong>, Director of CEPAP at the Universit&eacute; libre de Bruxelles, our group brings together an international team of scholars, graduate students, and civil society partners from Belgium, Italy, Austria, Switzerland, South Africa, and Uganda."
+}

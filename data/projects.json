@@ -1,0 +1,41 @@
+{
+  "featured": {
+    "label": "Flagship Project",
+    "title": "TRANSACT: <span class=\"gold\">Transparency in Action</span>",
+    "tagline": "Evaluating FOI implementation through field experiments and citizen science",
+    "description": "TRANSACT is a large-scale research project that measures the gap between formal adoption of Freedom of Information laws and their actual implementation. Using a controlled experimental protocol, we sent FOI requests to all 581 municipalities in Belgium using five different requester profiles &mdash; from ordinary citizens to university professors and civil society organisations. Each municipality was randomly assigned one treatment, stratified by region and population size. Responses were coded on a five-point scale from no reply to complete disclosure.",
+    "stats": [
+      { "number": "581", "label": "Municipalities" },
+      { "number": "5", "label": "Treatments" },
+      { "number": "36", "label": "Citizen Scientists" },
+      { "number": "3", "label": "Regions" }
+    ],
+    "link": "transact.html"
+  },
+  "grid": [
+    {
+      "icon": "&#x1F4CA;",
+      "title": "Transparencia.be Analysis",
+      "description": "Computational text analysis of 4,266 citizen FOI requests submitted through Belgium's national transparency platform over 10 years (2016&ndash;2025). We built a full NLP pipeline including HTML cleaning, tokenisation, TF-IDF filtering, and lemmatisation, followed by LDA topic modeling (K=6) and sentiment analysis using the FEEL lexicon for French. Multinomial logistic regression predicts outcomes as a function of topic, accountability-seeking potential, sentiment, and request complexity.",
+      "tags": ["NLP", "LDA Topic Modeling", "Sentiment Analysis", "Belgium", "2016&ndash;2025"]
+    },
+    {
+      "icon": "&#x1F91D;",
+      "title": "FOI-RESPOND",
+      "description": "A proposed 36-month co-research project with Anticor Belgique (operator of Transparencia.be), submitted to the INNOVIRIS Co-Create 2026 call. The project aims to understand and improve FOI responsiveness in the Brussels-Capital Region through qualitative investigation with 15&ndash;20 public official interviews, citizen focus groups, and an action-research component. Requested budget: &euro;360,000.",
+      "tags": ["INNOVIRIS Co-Create", "Co-Research", "&euro;360K", "36 Months", "Anticor Belgique"]
+    },
+    {
+      "icon": "&#x2696;&#xFE0F;",
+      "title": "Gender &amp; FOI",
+      "description": "Investigating whether different genders have different FOI information needs and whether administrations respond differently based on the requester&rsquo;s gender. Analysis of 4,266 requests from Transparencia.be with gender derived from first-name categorisation. A collaboration between Julia Trautendorfer (JKU Linz), Enrico Quaglia (Genoa/CEPAP), Giovanni Esposito (ULB), and Vincent Mabillard (ULB).",
+      "tags": ["Gender Studies", "Equity", "Regression", "Trautendorfer/Quaglia/Esposito/Mabillard"]
+    },
+    {
+      "icon": "&#x1F30D;",
+      "title": "International Replication",
+      "description": "Extending the TRANSACT methodology beyond Belgium to build comparative evidence on FOI implementation worldwide. Current expansion targets: Switzerland (cantonal and municipal FOI across the federal system), Romania (post-transition transparency contexts), South Africa (via Wits University, Global South perspective), and Uganda (via Makerere University, East African context).",
+      "tags": ["Switzerland", "Romania", "South Africa", "Uganda", "Comparative"]
+    }
+  ]
+}

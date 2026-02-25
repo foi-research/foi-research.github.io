@@ -1,0 +1,48 @@
+{
+  "mission": [
+    "The FOI Research Group is based at CEPAP (Centre d'&Eacute;tude des Politiques et de l'Administration Publique) at the Universit&eacute; libre de Bruxelles. Directed by Professor Giovanni Esposito, we investigate how public administrations respond to citizens&rsquo; requests for information &mdash; and why the reality often falls short of the law.",
+    "Our research centres on the gap between the formal adoption of Freedom of Information legislation and its real-world implementation. Using a rigorous field experiment methodology, we send standardised FOI requests to public administrations under controlled conditions, varying the requester profile while keeping the requested information constant. This allows us to measure what actually drives administrative responsiveness &mdash; or silence.",
+    "We combine experimental approaches with computational text analysis &mdash; topic modeling, sentiment analysis, and multinomial logistic regression &mdash; on large-scale datasets from Belgium&rsquo;s national FOI platform, <strong>Transparencia.be</strong>. The result is one of the most comprehensive empirical pictures of FOI implementation in Europe."
+  ],
+  "highlights": [
+    {
+      "title": "Field Experiments",
+      "text": "Controlled experimental protocols across entire national systems &mdash; testing every municipality in Belgium, with expansions to Switzerland, Romania, and South Africa."
+    },
+    {
+      "title": "Citizen Science",
+      "text": "Graduate students and civil society organisations participate as co-researchers, building civic capacity while generating robust empirical data on transparency."
+    },
+    {
+      "title": "Computational Analysis",
+      "text": "NLP pipelines processing thousands of FOI requests &mdash; LDA topic modeling, sentiment analysis, and multinomial logistic regression on 10 years of platform data."
+    },
+    {
+      "title": "International Comparison",
+      "text": "Replicating our methodology across different legal frameworks and administrative cultures to build comparative evidence on FOI implementation worldwide."
+    }
+  ],
+  "legal": [
+    "Belgium&rsquo;s commitment to transparency is enshrined in <strong>Article 32 of the Constitution</strong>, which guarantees every person the right to consult any administrative document and to obtain a copy, except in cases and conditions stipulated by law. This constitutional provision forms the bedrock of all FOI legislation in the country.",
+    "The federal FOI law was adopted in <strong>1994</strong> (Loi relative &agrave; la publicit&eacute; de l&rsquo;administration / Wet openbaarheid van bestuur), establishing a formal framework for citizens to request access to administrative documents. Each region and community has subsequently adopted its own complementary legislation, creating a layered system of transparency obligations across the country.",
+    "Belgium&rsquo;s federal structure adds considerable complexity to FOI implementation. The country comprises <strong>3 communities</strong> (French, Flemish, and German-speaking), <strong>3 regions</strong> (Wallonia, Flanders, and Brussels-Capital), <strong>10 provinces</strong>, and <strong>581 municipalities</strong>. Each level of government operates under its own FOI regime, with varying degrees of compliance, resources, and institutional culture. The general statutory deadline for responding to an FOI request is <strong>30 days</strong>, although extensions are possible in specific circumstances."
+  ],
+  "legalCards": [
+    {
+      "title": "Constitutional Foundation",
+      "text": "Article 32 of the Belgian Constitution guarantees every person the right to consult and obtain copies of administrative documents."
+    },
+    {
+      "title": "FOI Law Since 1994",
+      "text": "The federal law on administrative transparency was adopted in 1994, with complementary legislation at the regional and community levels."
+    },
+    {
+      "title": "Federal Complexity",
+      "text": "3 communities, 3 regions, 10 provinces, and 581 municipalities &mdash; each with its own FOI obligations, resources, and institutional culture."
+    },
+    {
+      "title": "30-Day Response Deadline",
+      "text": "Administrations are generally required to respond to FOI requests within 30 days, though extensions are permitted under specific circumstances."
+    }
+  ]
+}

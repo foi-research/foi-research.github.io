@@ -1,0 +1,32 @@
+[
+  {
+    "date": "2026 &mdash; Ottawa, Canada",
+    "title": "IWPP5 &mdash; International Workshop on Public Policy",
+    "location": "Ottawa, Canada",
+    "description": "Presenting the paper &ldquo;Selective Transparency at Scale: Topic Modeling, Sentiment Analysis, and Multinomial Evidence on FOI Responsiveness&rdquo; in Track T09W02 &mdash; Machine Learning, NLP and LLMs for Policy Issues."
+  },
+  {
+    "date": "2026 &mdash; Ottawa, Canada",
+    "title": "GCTR 2026 &mdash; Global Conference on Transparency Research",
+    "location": "Ottawa, Canada",
+    "description": "Biennial Global Conference on Transparency Research, bringing together scholars, policymakers, and practitioners to discuss the latest advances in transparency and accountability research worldwide."
+  },
+  {
+    "date": "March 27&ndash;28, 2025 &mdash; ULB, Brussels",
+    "title": "International Research Meeting on FOI",
+    "location": "Universit&eacute; libre de Bruxelles, Belgium",
+    "description": "Two-day international research meeting on Freedom of Information, hosted at ULB Brussels. Gathered 49 participants from more than 10 countries. Funded by the FNRS (Fonds de la Recherche Scientifique)."
+  },
+  {
+    "date": "May 2024 &mdash; Brussels",
+    "title": "GCTR 2024 &mdash; Global Conference on Transparency Research",
+    "location": "Brussels, Belgium",
+    "description": "Co-organised the 2024 edition of the Global Conference on Transparency Research, held in Brussels. Presented findings on FOI implementation and responsiveness from our Belgian field experiment and platform analysis."
+  },
+  {
+    "date": "2023 &mdash; Brussels, Belgium",
+    "title": "TRANSACT Belgian Field Experiment",
+    "location": "Brussels, Belgium",
+    "description": "Launch and execution of the TRANSACT field experiment across all 581 Belgian municipalities. FOI requests sent between March 13&ndash;15, 2023; data collection officially closed on May 10, 2023."
+  }
+]

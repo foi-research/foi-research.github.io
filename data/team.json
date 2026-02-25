@@ -1,0 +1,53 @@
+{
+  "pi": {
+    "name": "Prof. Giovanni Esposito",
+    "initials": "GE",
+    "role": "Director of CEPAP &bull; Principal Investigator",
+    "affiliation": "Universit&eacute; libre de Bruxelles &bull; HEC Li&egrave;ge &bull; University of Antwerp (IOB)",
+    "bio": [
+      "Giovanni Esposito is Charg&eacute; de cours (Lecturer) in Public Administration at ULB and Director of CEPAP, the Centre for the Study of Public Policy and Public Administration. He holds a PhD in Economics and Management from the Universit&eacute; de Li&egrave;ge (2018), with doctoral research on New Public Management models in EU governance of public infrastructure projects.",
+      "His research spans decision-making processes in the public sector, transport infrastructure, smart cities, and &mdash; most recently &mdash; Freedom of Information law implementation and citizen science approaches to policy evaluation. He has published in <em>Evaluation</em>, <em>Public Management Review</em>, <em>International Review of Administrative Sciences</em>, <em>Government Information Quarterly</em>, <em>Cities</em>, <em>Policy &amp; Society</em>, and other leading journals."
+    ],
+    "email": "giovanni.esposito@ulb.be",
+    "website": "https://cepap.phisoc.ulb.be"
+  },
+  "core": [
+    {
+      "name": "Prof. Vincent Mabillard",
+      "role": "Co-Promoter, TRANSACT",
+      "affiliation": "ULB &mdash; Faculty of Economics and Management"
+    },
+    {
+      "name": "Prof. Lorenzo Cicatiello",
+      "role": "Co-Author, TRANSACT",
+      "affiliation": "Universit&agrave; di Napoli L'Orientale, Italy"
+    },
+    {
+      "name": "Prof. Giuseppe Lucio Gaeta",
+      "role": "Co-Author, TRANSACT",
+      "affiliation": "Universit&agrave; di Napoli L'Orientale, Italy"
+    },
+    {
+      "name": "Enrico Quaglia",
+      "role": "Visiting Researcher &bull; NLP &amp; Data Analysis",
+      "affiliation": "University of Genoa, Italy &amp; CEPAP, ULB"
+    },
+    {
+      "name": "Julia Trautendorfer",
+      "role": "Co-Author, Gender &amp; FOI",
+      "affiliation": "Johannes Kepler University Linz, Austria"
+    },
+    {
+      "name": "Prof. Andrea Terlizzi",
+      "role": "Co-Editor, Policy &amp; Society Special Issue",
+      "affiliation": "University of Florence, Italy"
+    }
+  ],
+  "partners": [
+    {
+      "name": "Anticor Belgique ASBL",
+      "role": "Co-Research Partner &bull; Transparencia.be Operator",
+      "affiliation": "Belgium &mdash; National FOI Platform"
+    }
+  ]
+}
