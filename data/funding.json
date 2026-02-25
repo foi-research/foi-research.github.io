@@ -1,20 +1,22 @@
-[
-  {
-    "name": "INNOVIRIS Co-Create 2026",
-    "icon": "&#x1F4B0;",
-    "description": "FOI-RESPOND project: Understanding and Improving FOI Responsiveness in Brussels. 36-month co-research programme with Anticor Belgique. Requested budget: &euro;360,000.",
-    "tags": ["Proposed", "&euro;360K", "36 Months"]
-  },
-  {
-    "name": "FER &mdash; ULB",
-    "icon": "&#x1F3C6;",
-    "description": "Fonds d'Encouragement &agrave; la Recherche. Supporting TRANSACT international expansion: field experiments in Romania and Switzerland.",
-    "tags": ["Funded", "International"]
-  },
-  {
-    "name": "FNRS",
-    "icon": "&#x1F52C;",
-    "description": "Fonds de la Recherche Scientifique. Funded the International Research Meeting on FOI (March 2025, ULB Brussels) with 49 participants from 10+ countries.",
-    "tags": ["Funded", "Research Meeting", "49 Participants"]
-  }
-]
+{
+  "items": [
+    {
+      "name": "INNOVIRIS Co-Create 2026",
+      "icon": "&#x1F4B0;",
+      "description": "FOI-RESPOND project: Understanding and Improving FOI Responsiveness in Brussels. 36-month co-research programme with Anticor Belgique. Requested budget: &euro;360,000.",
+      "tags": ["Proposed", "&euro;360K", "36 Months"]
+    },
+    {
+      "name": "FER &mdash; ULB",
+      "icon": "&#x1F3C6;",
+      "description": "Fonds d'Encouragement &agrave; la Recherche. Supporting TRANSACT international expansion: field experiments in Romania and Switzerland.",
+      "tags": ["Funded", "International"]
+    },
+    {
+      "name": "FNRS",
+      "icon": "&#x1F52C;",
+      "description": "Fonds de la Recherche Scientifique. Funded the International Research Meeting on FOI (March 2025, ULB Brussels) with 49 participants from 10+ countries.",
+      "tags": ["Funded", "Research Meeting", "49 Participants"]
+    }
+  ]
+}

@@ -72,7 +72,8 @@ const CMS = {
         // Publications preview (show items with showOnHome=true)
         const pubsEl = document.getElementById('cms-home-publications');
         if (pubsEl && pubs) {
-            const homePubs = pubs.filter(p => p.showOnHome);
+            const pubList = pubs.items || pubs;
+            const homePubs = pubList.filter(p => p.showOnHome);
             pubsEl.innerHTML = homePubs.map((p, i) => `
                 <div class="pub-item reveal reveal-delay-${i + 1}">
                     <div class="pub-year">${p.year}</div>
@@ -210,7 +211,8 @@ const CMS = {
         // Publications list
         const pubsEl = document.getElementById('cms-publications');
         if (pubsEl && pubs) {
-            pubsEl.innerHTML = pubs.map((p, i) => `
+            const pubList = pubs.items || pubs;
+            pubsEl.innerHTML = pubList.map((p, i) => `
                 <div class="pub-item reveal reveal-delay-${(i % 4) + 1}">
                     <div class="pub-year">${p.year}</div>
                     <div class="pub-content">
@@ -225,7 +227,8 @@ const CMS = {
         // Funding
         const fundingEl = document.getElementById('cms-funding');
         if (fundingEl && funding) {
-            fundingEl.innerHTML = funding.map((f, i) => `
+            const fundList = funding.items || funding;
+            fundingEl.innerHTML = fundList.map((f, i) => `
                 <div class="project-card reveal reveal-delay-${(i % 4) + 1}">
                     <div class="project-card-icon">${f.icon}</div>
                     <h4>${f.name}</h4>
@@ -296,7 +299,8 @@ const CMS = {
         const el = document.getElementById('cms-events');
         if (!el) return;
 
-        el.innerHTML = data.map((e, i) => `
+        const eventList = data.items || data;
+        el.innerHTML = eventList.map((e, i) => `
             <div class="event-item reveal reveal-delay-${(i % 4) + 1}">
                 <div class="event-date">${e.date}</div>
                 <h4>${e.title}</h4>

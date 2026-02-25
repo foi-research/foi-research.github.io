@@ -13,307 +13,337 @@ collections:
   # ============================================
   - name: team
     label: "Team Members"
-    file: data/team.json
-    format: json
     description: "Principal Investigator, core researchers, and civil society partners"
-    fields:
-      - name: pi
-        label: "Principal Investigator"
-        widget: object
+    files:
+      - name: team-data
+        label: "Team Members"
+        file: data/team.json
+        format: json
         fields:
-          - { name: name, label: "Full Name", widget: string }
-          - { name: initials, label: "Initials (for avatar)", widget: string }
-          - { name: role, label: "Role / Title", widget: string }
-          - { name: affiliation, label: "Affiliation", widget: string }
-          - name: bio
-            label: "Biography Paragraphs"
+          - name: pi
+            label: "Principal Investigator"
+            widget: object
+            fields:
+              - { name: name, label: "Full Name", widget: string }
+              - { name: initials, label: "Initials (for avatar)", widget: string }
+              - { name: role, label: "Role / Title", widget: string }
+              - { name: affiliation, label: "Affiliation", widget: string }
+              - name: bio
+                label: "Biography Paragraphs"
+                widget: list
+                field: { name: paragraph, label: "Paragraph", widget: text }
+              - { name: email, label: "Email", widget: string }
+              - { name: website, label: "Website URL", widget: string, required: false }
+          - name: core
+            label: "Core Research Team"
             widget: list
-            field: { name: paragraph, label: "Paragraph", widget: text }
-          - { name: email, label: "Email", widget: string }
-          - { name: website, label: "Website URL", widget: string, required: false }
-      - name: core
-        label: "Core Research Team"
-        widget: list
-        fields:
-          - { name: name, label: "Full Name", widget: string }
-          - { name: role, label: "Role", widget: string }
-          - { name: affiliation, label: "Affiliation", widget: string }
-      - name: partners
-        label: "Civil Society Partners"
-        widget: list
-        fields:
-          - { name: name, label: "Organisation Name", widget: string }
-          - { name: role, label: "Role", widget: string }
-          - { name: affiliation, label: "Country / Description", widget: string }
+            fields:
+              - { name: name, label: "Full Name", widget: string }
+              - { name: role, label: "Role", widget: string }
+              - { name: affiliation, label: "Affiliation", widget: string }
+          - name: partners
+            label: "Civil Society Partners"
+            widget: list
+            fields:
+              - { name: name, label: "Organisation Name", widget: string }
+              - { name: role, label: "Role", widget: string }
+              - { name: affiliation, label: "Country / Description", widget: string }
 
   # ============================================
   # 2. PUBLICATIONS
   # ============================================
   - name: publications
     label: "Publications"
-    file: data/publications.json
-    format: json
     description: "Academic papers, working papers, and conference submissions"
-    fields:
-      - name: items
+    files:
+      - name: publications-data
         label: "Publications"
-        widget: list
+        file: data/publications.json
+        format: json
         fields:
-          - { name: title, label: "Title", widget: string }
-          - { name: authors, label: "Authors", widget: string }
-          - { name: year, label: "Year", widget: number, value_type: int }
-          - { name: venue, label: "Journal / Venue", widget: string }
-          - name: status
-            label: "Status"
-            widget: select
-            options:
-              - { label: "Published", value: "published" }
-              - { label: "Submitted", value: "submitted" }
-              - { label: "In Progress", value: "in-progress" }
-          - { name: showOnHome, label: "Show on Home Page?", widget: boolean, default: false }
+          - name: items
+            label: "Publications"
+            widget: list
+            fields:
+              - { name: title, label: "Title", widget: string }
+              - { name: authors, label: "Authors", widget: string }
+              - { name: year, label: "Year", widget: number, value_type: int }
+              - { name: venue, label: "Journal / Venue", widget: string }
+              - name: status
+                label: "Status"
+                widget: select
+                options:
+                  - { label: "Published", value: "published" }
+                  - { label: "Submitted", value: "submitted" }
+                  - { label: "In Progress", value: "in-progress" }
+              - { name: showOnHome, label: "Show on Home Page?", widget: boolean, default: false }
 
   # ============================================
   # 3. FUNDING
   # ============================================
   - name: funding
     label: "Research Funding"
-    file: data/funding.json
-    format: json
     description: "Research grants and funding sources"
-    fields:
-      - name: items
-        label: "Funding Sources"
-        widget: list
+    files:
+      - name: funding-data
+        label: "Research Funding"
+        file: data/funding.json
+        format: json
         fields:
-          - { name: name, label: "Grant / Funder Name", widget: string }
-          - { name: icon, label: "Emoji Icon", widget: string, default: "&#x1F4B0;" }
-          - { name: description, label: "Description", widget: text }
-          - name: tags
-            label: "Tags"
+          - name: items
+            label: "Funding Sources"
             widget: list
-            field: { name: tag, label: "Tag", widget: string }
+            fields:
+              - { name: name, label: "Grant / Funder Name", widget: string }
+              - { name: icon, label: "Emoji Icon", widget: string, default: "&#x1F4B0;" }
+              - { name: description, label: "Description", widget: text }
+              - name: tags
+                label: "Tags"
+                widget: list
+                field: { name: tag, label: "Tag", widget: string }
 
   # ============================================
   # 4. EVENTS
   # ============================================
   - name: events
     label: "Events"
-    file: data/events.json
-    format: json
     description: "Conferences, workshops, and meetings"
-    fields:
-      - name: items
+    files:
+      - name: events-data
         label: "Events"
-        widget: list
+        file: data/events.json
+        format: json
         fields:
-          - { name: date, label: "Date", widget: string, hint: "e.g. March 27-28, 2025 — ULB, Brussels" }
-          - { name: title, label: "Event Title", widget: string }
-          - { name: location, label: "Location", widget: string }
-          - { name: description, label: "Description", widget: text }
+          - name: items
+            label: "Events"
+            widget: list
+            fields:
+              - { name: date, label: "Date", widget: string, hint: "e.g. March 27-28, 2025 — ULB, Brussels" }
+              - { name: title, label: "Event Title", widget: string }
+              - { name: location, label: "Location", widget: string }
+              - { name: description, label: "Description", widget: text }
 
   # ============================================
   # 5. PROJECTS
   # ============================================
   - name: projects
     label: "Research Projects"
-    file: data/projects.json
-    format: json
     description: "Featured and grid research projects"
-    fields:
-      - name: featured
-        label: "Featured Project (TRANSACT)"
-        widget: object
+    files:
+      - name: projects-data
+        label: "Research Projects"
+        file: data/projects.json
+        format: json
         fields:
-          - { name: label, label: "Label", widget: string, default: "Flagship Project" }
-          - { name: title, label: "Title (HTML allowed)", widget: string }
-          - { name: tagline, label: "Tagline", widget: string }
-          - { name: description, label: "Description", widget: text }
-          - name: stats
-            label: "Statistics"
+          - name: featured
+            label: "Featured Project (TRANSACT)"
+            widget: object
+            fields:
+              - { name: label, label: "Label", widget: string, default: "Flagship Project" }
+              - { name: title, label: "Title (HTML allowed)", widget: string }
+              - { name: tagline, label: "Tagline", widget: string }
+              - { name: description, label: "Description", widget: text }
+              - name: stats
+                label: "Statistics"
+                widget: list
+                fields:
+                  - { name: number, label: "Number", widget: string }
+                  - { name: label, label: "Label", widget: string }
+              - { name: link, label: "Link", widget: string, default: "transact.html" }
+          - name: grid
+            label: "Other Projects"
             widget: list
             fields:
-              - { name: number, label: "Number", widget: string }
-              - { name: label, label: "Label", widget: string }
-          - { name: link, label: "Link", widget: string, default: "transact.html" }
-      - name: grid
-        label: "Other Projects"
-        widget: list
-        fields:
-          - { name: icon, label: "Emoji Icon", widget: string }
-          - { name: title, label: "Title", widget: string }
-          - { name: description, label: "Description", widget: text }
-          - name: tags
-            label: "Tags"
-            widget: list
-            field: { name: tag, label: "Tag", widget: string }
+              - { name: icon, label: "Emoji Icon", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: description, label: "Description", widget: text }
+              - name: tags
+                label: "Tags"
+                widget: list
+                field: { name: tag, label: "Tag", widget: string }
 
   # ============================================
   # 6. NETWORK
   # ============================================
   - name: network
     label: "International Network"
-    file: data/network.json
-    format: json
     description: "Academic and civil society partners"
-    fields:
-      - name: academic
-        label: "Academic Partners"
-        widget: list
+    files:
+      - name: network-data
+        label: "International Network"
+        file: data/network.json
+        format: json
         fields:
-          - { name: name, label: "Institution Name", widget: string }
-          - { name: country, label: "Country", widget: string }
-          - { name: flag, label: "Flag Emoji", widget: string }
-          - { name: description, label: "Description", widget: text }
-      - name: civil_society
-        label: "Civil Society Partners"
-        widget: list
-        fields:
-          - { name: name, label: "Organisation Name", widget: string }
-          - { name: country, label: "Country", widget: string }
-          - { name: flag, label: "Flag Emoji", widget: string }
-          - { name: description, label: "Description", widget: text }
+          - name: academic
+            label: "Academic Partners"
+            widget: list
+            fields:
+              - { name: name, label: "Institution Name", widget: string }
+              - { name: country, label: "Country", widget: string }
+              - { name: flag, label: "Flag Emoji", widget: string }
+              - { name: description, label: "Description", widget: text }
+          - name: civil_society
+            label: "Civil Society Partners"
+            widget: list
+            fields:
+              - { name: name, label: "Organisation Name", widget: string }
+              - { name: country, label: "Country", widget: string }
+              - { name: flag, label: "Flag Emoji", widget: string }
+              - { name: description, label: "Description", widget: text }
 
   # ============================================
   # 7. CONTACT
   # ============================================
   - name: contact
     label: "Contact Information"
-    file: data/contact.json
-    format: json
     description: "Address, email, phone, and map"
-    fields:
-      - { name: centre, label: "Centre Name", widget: string }
-      - { name: address, label: "Address (HTML allowed)", widget: text }
-      - { name: email, label: "Email", widget: string }
-      - { name: phone, label: "Phone", widget: string }
-      - { name: website, label: "Website URL", widget: string }
-      - { name: websiteLabel, label: "Website Display Text", widget: string }
-      - { name: mapEmbedUrl, label: "Google Maps Embed URL", widget: string }
+    files:
+      - name: contact-data
+        label: "Contact Information"
+        file: data/contact.json
+        format: json
+        fields:
+          - { name: centre, label: "Centre Name", widget: string }
+          - { name: address, label: "Address (HTML allowed)", widget: text }
+          - { name: email, label: "Email", widget: string }
+          - { name: phone, label: "Phone", widget: string }
+          - { name: website, label: "Website URL", widget: string }
+          - { name: websiteLabel, label: "Website Display Text", widget: string }
+          - { name: mapEmbedUrl, label: "Google Maps Embed URL", widget: string }
 
   # ============================================
   # 8. ABOUT PAGE
   # ============================================
   - name: about
     label: "About Page"
-    file: data/about.json
-    format: json
     description: "Mission, highlights, and legal context"
-    fields:
-      - name: mission
-        label: "Mission Text (paragraphs)"
-        widget: list
-        field: { name: paragraph, label: "Paragraph", widget: text }
-      - name: highlights
-        label: "Highlight Cards"
-        widget: list
+    files:
+      - name: about-data
+        label: "About Page"
+        file: data/about.json
+        format: json
         fields:
-          - { name: title, label: "Title", widget: string }
-          - { name: text, label: "Text", widget: text }
-      - name: legal
-        label: "Legal Context (paragraphs)"
-        widget: list
-        field: { name: paragraph, label: "Paragraph", widget: text }
-      - name: legalCards
-        label: "Legal Highlight Cards"
-        widget: list
-        fields:
-          - { name: title, label: "Title", widget: string }
-          - { name: text, label: "Text", widget: text }
+          - name: mission
+            label: "Mission Text (paragraphs)"
+            widget: list
+            field: { name: paragraph, label: "Paragraph", widget: text }
+          - name: highlights
+            label: "Highlight Cards"
+            widget: list
+            fields:
+              - { name: title, label: "Title", widget: string }
+              - { name: text, label: "Text", widget: text }
+          - name: legal
+            label: "Legal Context (paragraphs)"
+            widget: list
+            field: { name: paragraph, label: "Paragraph", widget: text }
+          - name: legalCards
+            label: "Legal Highlight Cards"
+            widget: list
+            fields:
+              - { name: title, label: "Title", widget: string }
+              - { name: text, label: "Text", widget: text }
 
   # ============================================
   # 9. HOME PAGE
   # ============================================
   - name: home
     label: "Home Page"
-    file: data/home.json
-    format: json
     description: "Hero section, research cards, and team preview"
-    fields:
-      - name: hero
-        label: "Hero Section"
-        widget: object
+    files:
+      - name: home-data
+        label: "Home Page"
+        file: data/home.json
+        format: json
         fields:
-          - { name: badge, label: "Badge Text", widget: string }
-          - { name: title, label: "Title (HTML allowed)", widget: string }
-          - { name: description, label: "Description", widget: text }
-          - name: primaryBtn
-            label: "Primary Button"
+          - name: hero
+            label: "Hero Section"
             widget: object
             fields:
-              - { name: text, label: "Button Text", widget: string }
-              - { name: link, label: "Button Link", widget: string }
-          - name: secondaryBtn
-            label: "Secondary Button"
-            widget: object
+              - { name: badge, label: "Badge Text", widget: string }
+              - { name: title, label: "Title (HTML allowed)", widget: string }
+              - { name: description, label: "Description", widget: text }
+              - name: primaryBtn
+                label: "Primary Button"
+                widget: object
+                fields:
+                  - { name: text, label: "Button Text", widget: string }
+                  - { name: link, label: "Button Link", widget: string }
+              - name: secondaryBtn
+                label: "Secondary Button"
+                widget: object
+                fields:
+                  - { name: text, label: "Button Text", widget: string }
+                  - { name: link, label: "Button Link", widget: string }
+          - name: researchCards
+            label: "Research Preview Cards"
+            widget: list
             fields:
-              - { name: text, label: "Button Text", widget: string }
-              - { name: link, label: "Button Link", widget: string }
-      - name: researchCards
-        label: "Research Preview Cards"
-        widget: list
-        fields:
-          - { name: icon, label: "Emoji Icon", widget: string }
-          - { name: title, label: "Title", widget: string }
-          - { name: description, label: "Description", widget: text }
-          - { name: link, label: "Link", widget: string }
-      - { name: teamPreview, label: "Team Preview Text (HTML allowed)", widget: text }
+              - { name: icon, label: "Emoji Icon", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: description, label: "Description", widget: text }
+              - { name: link, label: "Link", widget: string }
+          - { name: teamPreview, label: "Team Preview Text (HTML allowed)", widget: text }
 
   # ============================================
   # 10. TRANSACT PAGE
   # ============================================
   - name: transact
     label: "TRANSACT Page"
-    file: data/transact.json
-    format: json
     description: "Overview, methodology, findings, and expansion"
-    fields:
-      - name: overview
-        label: "Project Overview"
-        widget: object
+    files:
+      - name: transact-data
+        label: "TRANSACT Page"
+        file: data/transact.json
+        format: json
         fields:
-          - { name: label, label: "Section Label", widget: string }
-          - { name: title, label: "Title (HTML allowed)", widget: string }
-          - { name: tagline, label: "Tagline", widget: string }
-          - name: paragraphs
-            label: "Description Paragraphs"
-            widget: list
-            field: { name: paragraph, label: "Paragraph", widget: text }
-          - name: stats
-            label: "Statistics"
+          - name: overview
+            label: "Project Overview"
+            widget: object
+            fields:
+              - { name: label, label: "Section Label", widget: string }
+              - { name: title, label: "Title (HTML allowed)", widget: string }
+              - { name: tagline, label: "Tagline", widget: string }
+              - name: paragraphs
+                label: "Description Paragraphs"
+                widget: list
+                field: { name: paragraph, label: "Paragraph", widget: text }
+              - name: stats
+                label: "Statistics"
+                widget: list
+                fields:
+                  - { name: number, label: "Number", widget: string }
+                  - { name: label, label: "Label", widget: string }
+          - name: methodology
+            label: "Methodology Steps"
             widget: list
             fields:
-              - { name: number, label: "Number", widget: string }
-              - { name: label, label: "Label", widget: string }
-      - name: methodology
-        label: "Methodology Steps"
-        widget: list
-        fields:
-          - { name: step, label: "Step Number", widget: number, value_type: int }
-          - { name: title, label: "Title", widget: string }
-          - { name: description, label: "Description", widget: text }
-      - name: profiles
-        label: "Requester Profiles"
-        widget: list
-        fields:
-          - { name: letter, label: "Letter (A-E)", widget: string }
-          - { name: label, label: "Profile Name", widget: string }
-          - { name: description, label: "Description", widget: string }
-      - name: findings
-        label: "Key Findings"
-        widget: list
-        fields:
-          - { name: icon, label: "Emoji Icon", widget: string }
-          - { name: stat, label: "Statistic (optional)", widget: string, required: false }
-          - { name: title, label: "Title", widget: string }
-          - { name: description, label: "Description", widget: text }
-      - name: expansion
-        label: "International Expansion"
-        widget: list
-        fields:
-          - { name: icon, label: "Flag Emoji", widget: string }
-          - { name: country, label: "Country", widget: string }
-          - { name: description, label: "Description", widget: text }
-          - name: tags
-            label: "Tags"
+              - { name: step, label: "Step Number", widget: number, value_type: int }
+              - { name: title, label: "Title", widget: string }
+              - { name: description, label: "Description", widget: text }
+          - name: profiles
+            label: "Requester Profiles"
             widget: list
-            field: { name: tag, label: "Tag", widget: string }
+            fields:
+              - { name: letter, label: "Letter (A-E)", widget: string }
+              - { name: label, label: "Profile Name", widget: string }
+              - { name: description, label: "Description", widget: string }
+          - name: findings
+            label: "Key Findings"
+            widget: list
+            fields:
+              - { name: icon, label: "Emoji Icon", widget: string }
+              - { name: stat, label: "Statistic (optional)", widget: string, required: false }
+              - { name: title, label: "Title", widget: string }
+              - { name: description, label: "Description", widget: text }
+          - name: expansion
+            label: "International Expansion"
+            widget: list
+            fields:
+              - { name: icon, label: "Flag Emoji", widget: string }
+              - { name: country, label: "Country", widget: string }
+              - { name: description, label: "Description", widget: text }
+              - name: tags
+                label: "Tags"
+                widget: list
+                field: { name: tag, label: "Tag", widget: string }
