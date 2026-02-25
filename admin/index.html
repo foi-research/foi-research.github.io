@@ -8,6 +8,368 @@
   <link href="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.css" rel="stylesheet" />
 </head>
 <body>
+  <script>window.CMS_MANUAL_INIT = true;</script>
   <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+  <script>
+    window.CMS.init({
+      config: {
+        load_config_file: false,
+        backend: {
+          name: "github",
+          repo: "foi-research/foi-research.github.io",
+          branch: "main",
+          base_url: "https://foi-cms-auth.eq-enrico.workers.dev"
+        },
+        media_folder: "assets",
+        public_folder: "/assets",
+        collections: [
+          {
+            name: "team",
+            label: "Team Members",
+            files: [
+              {
+                name: "team-data",
+                label: "Team Members",
+                file: "data/team.json",
+                format: "json",
+                fields: [
+                  {
+                    name: "pi",
+                    label: "Principal Investigator",
+                    widget: "object",
+                    fields: [
+                      { name: "name", label: "Full Name", widget: "string" },
+                      { name: "initials", label: "Initials (for avatar)", widget: "string" },
+                      { name: "role", label: "Role / Title", widget: "string" },
+                      { name: "affiliation", label: "Affiliation", widget: "string" },
+                      { name: "bio", label: "Biography Paragraphs", widget: "list", field: { name: "paragraph", label: "Paragraph", widget: "text" } },
+                      { name: "email", label: "Email", widget: "string" },
+                      { name: "website", label: "Website URL", widget: "string", required: false }
+                    ]
+                  },
+                  {
+                    name: "core",
+                    label: "Core Research Team",
+                    widget: "list",
+                    fields: [
+                      { name: "name", label: "Full Name", widget: "string" },
+                      { name: "role", label: "Role", widget: "string" },
+                      { name: "affiliation", label: "Affiliation", widget: "string" }
+                    ]
+                  },
+                  {
+                    name: "partners",
+                    label: "Civil Society Partners",
+                    widget: "list",
+                    fields: [
+                      { name: "name", label: "Organisation Name", widget: "string" },
+                      { name: "role", label: "Role", widget: "string" },
+                      { name: "affiliation", label: "Country / Description", widget: "string" }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            name: "publications",
+            label: "Publications",
+            files: [
+              {
+                name: "publications-data",
+                label: "Publications",
+                file: "data/publications.json",
+                format: "json",
+                fields: [
+                  {
+                    name: "items",
+                    label: "Publications",
+                    widget: "list",
+                    fields: [
+                      { name: "title", label: "Title", widget: "string" },
+                      { name: "authors", label: "Authors", widget: "string" },
+                      { name: "year", label: "Year", widget: "number", value_type: "int" },
+                      { name: "venue", label: "Journal / Venue", widget: "string" },
+                      { name: "status", label: "Status", widget: "select", options: [{ label: "Published", value: "published" }, { label: "Submitted", value: "submitted" }, { label: "In Progress", value: "in-progress" }] },
+                      { name: "showOnHome", label: "Show on Home Page?", widget: "boolean", default: false }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            name: "funding",
+            label: "Research Funding",
+            files: [
+              {
+                name: "funding-data",
+                label: "Research Funding",
+                file: "data/funding.json",
+                format: "json",
+                fields: [
+                  {
+                    name: "items",
+                    label: "Funding Sources",
+                    widget: "list",
+                    fields: [
+                      { name: "name", label: "Grant / Funder Name", widget: "string" },
+                      { name: "icon", label: "Emoji Icon", widget: "string", default: "&#x1F4B0;" },
+                      { name: "description", label: "Description", widget: "text" },
+                      { name: "tags", label: "Tags", widget: "list", field: { name: "tag", label: "Tag", widget: "string" } }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            name: "events",
+            label: "Events",
+            files: [
+              {
+                name: "events-data",
+                label: "Events",
+                file: "data/events.json",
+                format: "json",
+                fields: [
+                  {
+                    name: "items",
+                    label: "Events",
+                    widget: "list",
+                    fields: [
+                      { name: "date", label: "Date", widget: "string", hint: "e.g. March 27-28, 2025 — ULB, Brussels" },
+                      { name: "title", label: "Event Title", widget: "string" },
+                      { name: "location", label: "Location", widget: "string" },
+                      { name: "description", label: "Description", widget: "text" }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            name: "projects",
+            label: "Research Projects",
+            files: [
+              {
+                name: "projects-data",
+                label: "Research Projects",
+                file: "data/projects.json",
+                format: "json",
+                fields: [
+                  {
+                    name: "featured",
+                    label: "Featured Project (TRANSACT)",
+                    widget: "object",
+                    fields: [
+                      { name: "label", label: "Label", widget: "string", default: "Flagship Project" },
+                      { name: "title", label: "Title (HTML allowed)", widget: "string" },
+                      { name: "tagline", label: "Tagline", widget: "string" },
+                      { name: "description", label: "Description", widget: "text" },
+                      { name: "stats", label: "Statistics", widget: "list", fields: [{ name: "number", label: "Number", widget: "string" }, { name: "label", label: "Label", widget: "string" }] },
+                      { name: "link", label: "Link", widget: "string", default: "transact.html" }
+                    ]
+                  },
+                  {
+                    name: "grid",
+                    label: "Other Projects",
+                    widget: "list",
+                    fields: [
+                      { name: "icon", label: "Emoji Icon", widget: "string" },
+                      { name: "title", label: "Title", widget: "string" },
+                      { name: "description", label: "Description", widget: "text" },
+                      { name: "tags", label: "Tags", widget: "list", field: { name: "tag", label: "Tag", widget: "string" } }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            name: "network",
+            label: "International Network",
+            files: [
+              {
+                name: "network-data",
+                label: "International Network",
+                file: "data/network.json",
+                format: "json",
+                fields: [
+                  {
+                    name: "academic",
+                    label: "Academic Partners",
+                    widget: "list",
+                    fields: [
+                      { name: "name", label: "Institution Name", widget: "string" },
+                      { name: "country", label: "Country", widget: "string" },
+                      { name: "flag", label: "Flag Emoji", widget: "string" },
+                      { name: "description", label: "Description", widget: "text" }
+                    ]
+                  },
+                  {
+                    name: "civil_society",
+                    label: "Civil Society Partners",
+                    widget: "list",
+                    fields: [
+                      { name: "name", label: "Organisation Name", widget: "string" },
+                      { name: "country", label: "Country", widget: "string" },
+                      { name: "flag", label: "Flag Emoji", widget: "string" },
+                      { name: "description", label: "Description", widget: "text" }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            name: "contact",
+            label: "Contact Information",
+            files: [
+              {
+                name: "contact-data",
+                label: "Contact Information",
+                file: "data/contact.json",
+                format: "json",
+                fields: [
+                  { name: "centre", label: "Centre Name", widget: "string" },
+                  { name: "address", label: "Address (HTML allowed)", widget: "text" },
+                  { name: "email", label: "Email", widget: "string" },
+                  { name: "phone", label: "Phone", widget: "string" },
+                  { name: "website", label: "Website URL", widget: "string" },
+                  { name: "websiteLabel", label: "Website Display Text", widget: "string" },
+                  { name: "mapEmbedUrl", label: "Google Maps Embed URL", widget: "string" }
+                ]
+              }
+            ]
+          },
+          {
+            name: "about",
+            label: "About Page",
+            files: [
+              {
+                name: "about-data",
+                label: "About Page",
+                file: "data/about.json",
+                format: "json",
+                fields: [
+                  { name: "mission", label: "Mission Text (paragraphs)", widget: "list", field: { name: "paragraph", label: "Paragraph", widget: "text" } },
+                  { name: "highlights", label: "Highlight Cards", widget: "list", fields: [{ name: "title", label: "Title", widget: "string" }, { name: "text", label: "Text", widget: "text" }] },
+                  { name: "legal", label: "Legal Context (paragraphs)", widget: "list", field: { name: "paragraph", label: "Paragraph", widget: "text" } },
+                  { name: "legalCards", label: "Legal Highlight Cards", widget: "list", fields: [{ name: "title", label: "Title", widget: "string" }, { name: "text", label: "Text", widget: "text" }] }
+                ]
+              }
+            ]
+          },
+          {
+            name: "home",
+            label: "Home Page",
+            files: [
+              {
+                name: "home-data",
+                label: "Home Page",
+                file: "data/home.json",
+                format: "json",
+                fields: [
+                  {
+                    name: "hero",
+                    label: "Hero Section",
+                    widget: "object",
+                    fields: [
+                      { name: "badge", label: "Badge Text", widget: "string" },
+                      { name: "title", label: "Title (HTML allowed)", widget: "string" },
+                      { name: "description", label: "Description", widget: "text" },
+                      { name: "primaryBtn", label: "Primary Button", widget: "object", fields: [{ name: "text", label: "Button Text", widget: "string" }, { name: "link", label: "Button Link", widget: "string" }] },
+                      { name: "secondaryBtn", label: "Secondary Button", widget: "object", fields: [{ name: "text", label: "Button Text", widget: "string" }, { name: "link", label: "Button Link", widget: "string" }] }
+                    ]
+                  },
+                  {
+                    name: "researchCards",
+                    label: "Research Preview Cards",
+                    widget: "list",
+                    fields: [
+                      { name: "icon", label: "Emoji Icon", widget: "string" },
+                      { name: "title", label: "Title", widget: "string" },
+                      { name: "description", label: "Description", widget: "text" },
+                      { name: "link", label: "Link", widget: "string" }
+                    ]
+                  },
+                  { name: "teamPreview", label: "Team Preview Text (HTML allowed)", widget: "text" }
+                ]
+              }
+            ]
+          },
+          {
+            name: "transact",
+            label: "TRANSACT Page",
+            files: [
+              {
+                name: "transact-data",
+                label: "TRANSACT Page",
+                file: "data/transact.json",
+                format: "json",
+                fields: [
+                  {
+                    name: "overview",
+                    label: "Project Overview",
+                    widget: "object",
+                    fields: [
+                      { name: "label", label: "Section Label", widget: "string" },
+                      { name: "title", label: "Title (HTML allowed)", widget: "string" },
+                      { name: "tagline", label: "Tagline", widget: "string" },
+                      { name: "paragraphs", label: "Description Paragraphs", widget: "list", field: { name: "paragraph", label: "Paragraph", widget: "text" } },
+                      { name: "stats", label: "Statistics", widget: "list", fields: [{ name: "number", label: "Number", widget: "string" }, { name: "label", label: "Label", widget: "string" }] }
+                    ]
+                  },
+                  {
+                    name: "methodology",
+                    label: "Methodology Steps",
+                    widget: "list",
+                    fields: [
+                      { name: "step", label: "Step Number", widget: "number", value_type: "int" },
+                      { name: "title", label: "Title", widget: "string" },
+                      { name: "description", label: "Description", widget: "text" }
+                    ]
+                  },
+                  {
+                    name: "profiles",
+                    label: "Requester Profiles",
+                    widget: "list",
+                    fields: [
+                      { name: "letter", label: "Letter (A-E)", widget: "string" },
+                      { name: "label", label: "Profile Name", widget: "string" },
+                      { name: "description", label: "Description", widget: "string" }
+                    ]
+                  },
+                  {
+                    name: "findings",
+                    label: "Key Findings",
+                    widget: "list",
+                    fields: [
+                      { name: "icon", label: "Emoji Icon", widget: "string" },
+                      { name: "stat", label: "Statistic (optional)", widget: "string", required: false },
+                      { name: "title", label: "Title", widget: "string" },
+                      { name: "description", label: "Description", widget: "text" }
+                    ]
+                  },
+                  {
+                    name: "expansion",
+                    label: "International Expansion",
+                    widget: "list",
+                    fields: [
+                      { name: "icon", label: "Flag Emoji", widget: "string" },
+                      { name: "country", label: "Country", widget: "string" },
+                      { name: "description", label: "Description", widget: "text" },
+                      { name: "tags", label: "Tags", widget: "list", field: { name: "tag", label: "Tag", widget: "string" } }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    });
+  </script>
 </body>
 </html>
