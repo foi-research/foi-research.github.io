@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: foi-research/foi-research-ulb.github.io
+  repo: foi-research/foi-research.github.io
   branch: main
 
 media_folder: assets
