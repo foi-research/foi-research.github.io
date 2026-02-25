@@ -2,6 +2,7 @@ backend:
   name: github
   repo: foi-research/foi-research.github.io
   branch: main
+  base_url: https://foi-cms-auth.eq-enrico.workers.dev
 
 media_folder: assets
 public_folder: /assets
