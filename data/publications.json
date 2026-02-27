@@ -9,6 +9,14 @@
       "showOnHome": true
     },
     {
+      "title": "[Publication title]",
+      "authors": "[Author 1, Author 2, ...]",
+      "year": 2026,
+      "venue": "[Journal / Conference]",
+      "status": "in-progress",
+      "showOnHome": true
+    },
+    {
       "title": "FOI Responsiveness as Managerial Accountability: Evidence from the Belgian Transparency Platform",
       "authors": "Quaglia, E. &amp; Esposito, G.",
       "year": 2026,
