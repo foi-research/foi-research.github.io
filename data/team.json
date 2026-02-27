@@ -12,34 +12,24 @@
   },
   "core": [
     {
+      "name": "Prof. Giovanni Esposito",
+      "role": "[Role to be defined]",
+      "affiliation": "Universit&eacute; libre de Bruxelles"
+    },
+    {
       "name": "Prof. Vincent Mabillard",
-      "role": "Co-Promoter, TRANSACT",
-      "affiliation": "ULB &mdash; Faculty of Economics and Management"
-    },
-    {
-      "name": "Prof. Lorenzo Cicatiello",
-      "role": "Co-Author, TRANSACT",
-      "affiliation": "Universit&agrave; di Napoli L'Orientale, Italy"
-    },
-    {
-      "name": "Prof. Giuseppe Lucio Gaeta",
-      "role": "Co-Author, TRANSACT",
-      "affiliation": "Universit&agrave; di Napoli L'Orientale, Italy"
-    },
-    {
-      "name": "Enrico Quaglia",
-      "role": "Visiting Researcher &bull; NLP &amp; Data Analysis",
-      "affiliation": "University of Genoa, Italy &amp; CEPAP, ULB"
+      "role": "[Role to be defined]",
+      "affiliation": "Universit&eacute; libre de Bruxelles"
     },
     {
       "name": "Julia Trautendorfer",
-      "role": "Co-Author, Gender &amp; FOI",
+      "role": "[Role to be defined]",
       "affiliation": "Johannes Kepler University Linz, Austria"
     },
     {
-      "name": "Prof. Andrea Terlizzi",
-      "role": "Co-Editor, Policy &amp; Society Special Issue",
-      "affiliation": "University of Florence, Italy"
+      "name": "Enrico Quaglia",
+      "role": "[Role to be defined]",
+      "affiliation": "University of Genoa, Italy &amp; CEPAP, ULB"
     }
   ],
   "partners": [
