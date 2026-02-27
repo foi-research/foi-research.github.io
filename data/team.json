@@ -1,13 +1,13 @@
 {
   "pi": {
-    "name": "TEXT HERE",
-    "initials": "TEXT HERE",
-    "role": "TEXT HERE",
-    "affiliation": "TEXT HERE",
+    "name": "[Name Surname]",
+    "initials": "[XX]",
+    "role": "[Role / Title]",
+    "affiliation": "[University / Institution]",
     "bio": [
-      "TEXT HERE"
+      "[Short biography to be defined]"
     ],
-    "email": "TEXT HERE",
+    "email": "[email@university.be]",
     "website": ""
   },
   "core": [
