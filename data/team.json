@@ -1,15 +1,14 @@
 {
   "pi": {
-    "name": "Prof. Giovanni Esposito",
-    "initials": "GE",
-    "role": "Director of CEPAP &bull; Principal Investigator",
-    "affiliation": "Universit&eacute; libre de Bruxelles &bull; HEC Li&egrave;ge &bull; University of Antwerp (IOB)",
+    "name": "TEXT HERE",
+    "initials": "TEXT HERE",
+    "role": "TEXT HERE",
+    "affiliation": "TEXT HERE",
     "bio": [
-      "Giovanni Esposito is Charg&eacute; de cours (Lecturer) in Public Administration at ULB and Director of CEPAP, the Centre for the Study of Public Policy and Public Administration. He holds a PhD in Economics and Management from the Universit&eacute; de Li&egrave;ge (2018), with doctoral research on New Public Management models in EU governance of public infrastructure projects.",
-      "His research spans decision-making processes in the public sector, transport infrastructure, smart cities, and &mdash; most recently &mdash; Freedom of Information law implementation and citizen science approaches to policy evaluation. He has published in <em>Evaluation</em>, <em>Public Management Review</em>, <em>International Review of Administrative Sciences</em>, <em>Government Information Quarterly</em>, <em>Cities</em>, <em>Policy &amp; Society</em>, and other leading journals."
+      "TEXT HERE"
     ],
-    "email": "giovanni.esposito@ulb.be",
-    "website": "https://cepap.phisoc.ulb.be"
+    "email": "TEXT HERE",
+    "website": ""
   },
   "core": [
     {

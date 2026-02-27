@@ -1,6 +1,6 @@
 {
   "mission": [
-    "The FOI Research Group is based at CEPAP (Centre d'&Eacute;tude des Politiques et de l'Administration Publique) at the Universit&eacute; libre de Bruxelles. Directed by Professor Giovanni Esposito, we investigate how public administrations respond to citizens&rsquo; requests for information &mdash; and why the reality often falls short of the law.",
+    "TEXT HERE",
     "Our research centres on the gap between the formal adoption of Freedom of Information legislation and its real-world implementation. Using a rigorous field experiment methodology, we send standardised FOI requests to public administrations under controlled conditions, varying the requester profile while keeping the requested information constant. This allows us to measure what actually drives administrative responsiveness &mdash; or silence.",
     "We combine experimental approaches with computational text analysis &mdash; topic modeling, sentiment analysis, and multinomial logistic regression &mdash; on large-scale datasets from Belgium&rsquo;s national FOI platform, <strong>Transparencia.be</strong>. The result is one of the most comprehensive empirical pictures of FOI implementation in Europe."
   ],
