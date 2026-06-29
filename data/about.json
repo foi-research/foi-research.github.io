@@ -1,48 +1,9 @@
 {
-  "mission": [
-    "[Mission statement to be defined — this section will describe the research group, its focus, and its institutional home.]",
-    "[Description of research methodology — to be determined]",
-    "[Description of data sources and analytical approaches — to be determined]"
-  ],
-  "highlights": [
-    {
-      "title": "Field Experiments",
-      "text": "Controlled experimental protocols across entire national systems &mdash; testing every municipality in Belgium, with expansions to Switzerland, Romania, and South Africa."
-    },
-    {
-      "title": "Citizen Science",
-      "text": "Graduate students and civil society organisations participate as co-researchers, building civic capacity while generating robust empirical data on transparency."
-    },
-    {
-      "title": "Computational Analysis",
-      "text": "NLP pipelines processing thousands of FOI requests &mdash; LDA topic modeling, sentiment analysis, and multinomial logistic regression on 10 years of platform data."
-    },
-    {
-      "title": "International Comparison",
-      "text": "Replicating our methodology across different legal frameworks and administrative cultures to build comparative evidence on FOI implementation worldwide."
-    }
-  ],
-  "legal": [
-    "Belgium&rsquo;s commitment to transparency is enshrined in <strong>Article 32 of the Constitution</strong>, which guarantees every person the right to consult any administrative document and to obtain a copy, except in cases and conditions stipulated by law. This constitutional provision forms the bedrock of all FOI legislation in the country.",
-    "The federal FOI law was adopted in <strong>1994</strong> (Loi relative &agrave; la publicit&eacute; de l&rsquo;administration / Wet openbaarheid van bestuur), establishing a formal framework for citizens to request access to administrative documents. Each region and community has subsequently adopted its own complementary legislation, creating a layered system of transparency obligations across the country.",
-    "Belgium&rsquo;s federal structure adds considerable complexity to FOI implementation. The country comprises <strong>3 communities</strong> (French, Flemish, and German-speaking), <strong>3 regions</strong> (Wallonia, Flanders, and Brussels-Capital), <strong>10 provinces</strong>, and <strong>581 municipalities</strong>. Each level of government operates under its own FOI regime, with varying degrees of compliance, resources, and institutional culture. The general statutory deadline for responding to an FOI request is <strong>30 days</strong>, although extensions are possible in specific circumstances."
-  ],
-  "legalCards": [
-    {
-      "title": "Constitutional Foundation",
-      "text": "Article 32 of the Belgian Constitution guarantees every person the right to consult and obtain copies of administrative documents."
-    },
-    {
-      "title": "FOI Law Since 1994",
-      "text": "The federal law on administrative transparency was adopted in 1994, with complementary legislation at the regional and community levels."
-    },
-    {
-      "title": "Federal Complexity",
-      "text": "3 communities, 3 regions, 10 provinces, and 581 municipalities &mdash; each with its own FOI obligations, resources, and institutional culture."
-    },
-    {
-      "title": "30-Day Response Deadline",
-      "text": "Administrations are generally required to respond to FOI requests within 30 days, though extensions are permitted under specific circumstances."
-    }
+  "bodyParagraphs": [
+    "Freedom of Information (FOI) laws are a cornerstone of democratic governance. They give citizens, journalists, and civil society organizations the right to access government-held information and to hold public authorities accountable.",
+    "Yet, in practice, FOI laws often fail to deliver the transparency formally promised by legislation. Public administrations may respond fully, provide only partial information, refuse access, delay responses, or fail to respond at all.",
+    "TRANSACT studies this gap between formal transparency rights and everyday administrative practice. The project examines how FOI laws are implemented through concrete interactions between citizens and bureaucrats, and how these interactions are shaped by request characteristics, bureaucratic discretion, and broader political, administrative, and socio-economic contexts.",
+    "The project combines randomized field experiments with computational analysis of large-scale FOI platform data. It covers several national and supranational settings, including Belgium, Romania, Switzerland, South Africa, South Korea, Canada, and the European Union platform AskTheEU.",
+    "By explaining when and why FOI laws work in practice, TRANSACT aims to advance research on transparency governance, democratic accountability, and citizen–state relations."
   ]
 }

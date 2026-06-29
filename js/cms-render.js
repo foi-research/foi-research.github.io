@@ -122,107 +122,108 @@ const CMS = {
     },
 
     // =========================================
-    // ABOUT PAGE
+    // ABOUT PAGE  (TRANSACT content)
     // =========================================
     async renderAbout() {
         const data = await this.fetchJSON('about.json');
         if (!data) return;
 
-        // Mission
-        const missionText = document.getElementById('cms-about-mission');
-        if (missionText && data.mission) {
-            missionText.setAttribute('data-edit-array', 'about.json:mission');
-            missionText.innerHTML = data.mission.map((p, i) => `<p data-edit-index="${i}" data-edit="about.json:mission.${i}">${p}</p>`).join('');
-        }
-
-        const missionHighlights = document.getElementById('cms-about-highlights');
-        if (missionHighlights && data.highlights) {
-            missionHighlights.setAttribute('data-edit-array', 'about.json:highlights');
-            missionHighlights.innerHTML = data.highlights.map((h, i) => `
-                <div class="highlight-card" data-edit-index="${i}">
-                    <h4 data-edit="about.json:highlights.${i}.title">${h.title}</h4>
-                    <p data-edit="about.json:highlights.${i}.text">${h.text}</p>
-                </div>
-            `).join('');
-        }
-
-        // Legal
-        const legalText = document.getElementById('cms-about-legal');
-        if (legalText && data.legal) {
-            legalText.setAttribute('data-edit-array', 'about.json:legal');
-            legalText.innerHTML = data.legal.map((p, i) => `<p data-edit-index="${i}" data-edit="about.json:legal.${i}">${p}</p>`).join('');
-        }
-
-        const legalCards = document.getElementById('cms-about-legal-cards');
-        if (legalCards && data.legalCards) {
-            legalCards.setAttribute('data-edit-array', 'about.json:legalCards');
-            legalCards.innerHTML = data.legalCards.map((c, i) => `
-                <div class="highlight-card" data-edit-index="${i}">
-                    <h4 data-edit="about.json:legalCards.${i}.title">${c.title}</h4>
-                    <p data-edit="about.json:legalCards.${i}.text">${c.text}</p>
-                </div>
-            `).join('');
+        const bodyEl = document.getElementById('cms-about-body');
+        if (bodyEl && data.bodyParagraphs) {
+            bodyEl.setAttribute('data-edit-array', 'about.json:bodyParagraphs');
+            bodyEl.innerHTML = data.bodyParagraphs.map((p, i) =>
+                `<p data-edit-index="${i}" data-edit="about.json:bodyParagraphs.${i}">${p}</p>`).join('');
         }
 
         this.done();
     },
 
     // =========================================
-    // TEAM PAGE
+    // TEAM PAGE  (grouped: PI, Co-PI, Advisory Board, Research Team,
+    //             Local Research Teams [subgroups], Collaborators)
     // =========================================
+    memberCard(base, i, m) {
+        return `
+            <div class="team-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
+                <h4 data-edit="${base}.${i}.name">${m.name}</h4>
+                ${m.role ? `<div class="team-card-role" data-edit="${base}.${i}.role">${m.role}</div>` : ''}
+                <div class="team-card-affiliation" data-edit="${base}.${i}.affiliation">${m.affiliation}</div>
+            </div>`;
+    },
     async renderTeam() {
         const data = await this.fetchJSON('team.json');
+        if (!data || !data.groups) return;
+
+        const el = document.getElementById('cms-team-groups');
+        if (!el) return;
+
+        el.innerHTML = data.groups.map((g, gi) => {
+            let inner = '';
+            if (g.members) {
+                const base = `team.json:groups.${gi}.members`;
+                inner = `<div class="team-grid" data-edit-array="${base}">
+                    ${g.members.map((m, i) => this.memberCard(base, i, m)).join('')}
+                </div>`;
+            } else if (g.subgroups) {
+                inner = g.subgroups.map((sg, si) => {
+                    const base = `team.json:groups.${gi}.subgroups.${si}.members`;
+                    return `
+                        <h4 class="team-subheading" data-edit="team.json:groups.${gi}.subgroups.${si}.subheading">${sg.subheading}</h4>
+                        <div class="team-grid" data-edit-array="${base}">
+                            ${sg.members.map((m, i) => this.memberCard(base, i, m)).join('')}
+                        </div>`;
+                }).join('');
+            }
+            return `
+                <div class="team-group reveal">
+                    <h3 class="team-members-title" data-edit="team.json:groups.${gi}.heading">${g.heading}</h3>
+                    ${inner}
+                </div>`;
+        }).join('');
+
+        this.done();
+    },
+
+    // =========================================
+    // PARTNERS PAGE
+    // =========================================
+    async renderPartners() {
+        const data = await this.fetchJSON('partners.json');
         if (!data) return;
+        const el = document.getElementById('cms-partners');
+        if (!el) return;
+        const list = data.items || data;
+        el.setAttribute('data-edit-array', 'partners.json:items');
+        el.innerHTML = list.map((n, i) => `
+            <div class="network-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
+                ${n.flag ? `<div class="network-card-flag" data-edit="partners.json:items.${i}.flag">${n.flag}</div>` : ''}
+                <h4 data-edit="partners.json:items.${i}.name">${n.name}</h4>
+                ${n.country ? `<div class="network-card-country" data-edit="partners.json:items.${i}.country">${n.country}</div>` : ''}
+                <p data-edit="partners.json:items.${i}.description">${n.description || ''}</p>
+            </div>
+        `).join('');
+        this.done();
+    },
 
-        // PI
-        const piEl = document.getElementById('cms-team-pi');
-        if (piEl && data.pi) {
-            const pi = data.pi;
-            piEl.innerHTML = `
-                <div class="team-pi reveal reveal-delay-1">
-                    <div class="team-pi-photo" data-edit="team.json:pi.initials">${pi.initials}</div>
-                    <div class="team-pi-info">
-                        <h3 data-edit="team.json:pi.name">${pi.name}</h3>
-                        <div class="team-pi-role" data-edit="team.json:pi.role">${pi.role}</div>
-                        <div class="team-pi-affiliation" data-edit="team.json:pi.affiliation">${pi.affiliation}</div>
-                        <div data-edit-array="team.json:pi.bio">
-                            ${pi.bio.map((b, i) => `<p class="team-pi-bio" data-edit-index="${i}" data-edit="team.json:pi.bio.${i}">${b}</p>`).join('')}
-                        </div>
-                        <div class="team-pi-links">
-                            <a href="mailto:${pi.email}" class="team-link">&#x2709; <span data-edit="team.json:pi.email">${pi.email}</span></a>
-                            ${pi.website ? `<a href="${pi.website}" target="_blank" rel="noopener" class="team-link">&#x1F3DB; CEPAP</a>` : ''}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Core
-        const coreEl = document.getElementById('cms-team-core');
-        if (coreEl && data.core) {
-            coreEl.setAttribute('data-edit-array', 'team.json:core');
-            coreEl.innerHTML = data.core.map((m, i) => `
-                <div class="team-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
-                    <h4 data-edit="team.json:core.${i}.name">${m.name}</h4>
-                    <div class="team-card-role" data-edit="team.json:core.${i}.role">${m.role}</div>
-                    <div class="team-card-affiliation" data-edit="team.json:core.${i}.affiliation">${m.affiliation}</div>
-                </div>
-            `).join('');
-        }
-
-        // Partners
-        const partnersEl = document.getElementById('cms-team-partners');
-        if (partnersEl && data.partners) {
-            partnersEl.setAttribute('data-edit-array', 'team.json:partners');
-            partnersEl.innerHTML = data.partners.map((m, i) => `
-                <div class="team-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
-                    <h4 data-edit="team.json:partners.${i}.name">${m.name}</h4>
-                    <div class="team-card-role" data-edit="team.json:partners.${i}.role">${m.role}</div>
-                    <div class="team-card-affiliation" data-edit="team.json:partners.${i}.affiliation">${m.affiliation}</div>
-                </div>
-            `).join('');
-        }
-
+    // =========================================
+    // MEDIAS PAGE
+    // =========================================
+    async renderMedias() {
+        const data = await this.fetchJSON('medias.json');
+        if (!data) return;
+        const el = document.getElementById('cms-medias');
+        if (!el) return;
+        const list = data.items || data;
+        el.setAttribute('data-edit-array', 'medias.json:items');
+        el.innerHTML = list.map((m, i) => `
+            <div class="event-item reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
+                <div class="event-date" data-edit="medias.json:items.${i}.date">${m.date}</div>
+                <h4><span data-edit="medias.json:items.${i}.title">${m.title}</span></h4>
+                ${m.outlet ? `<div class="event-location" data-edit="medias.json:items.${i}.outlet">${m.outlet}</div>` : ''}
+                <p class="event-description" data-edit="medias.json:items.${i}.description">${m.description || ''}</p>
+                ${m.link ? `<a href="${m.link}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">Open &rarr;</a>` : ''}
+            </div>
+        `).join('');
         this.done();
     },
 
@@ -565,7 +566,9 @@ document.addEventListener('DOMContentLoaded', () => {
         'events': () => CMS.renderEvents(),
         'network': () => CMS.renderNetwork(),
         'contact': () => CMS.renderContact(),
-        'transact': () => CMS.renderTransact()
+        'transact': () => CMS.renderTransact(),
+        'partners': () => CMS.renderPartners(),
+        'medias': () => CMS.renderMedias()
     };
 
     if (renderers[page]) {

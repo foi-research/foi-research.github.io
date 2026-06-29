@@ -1,0 +1,11 @@
+{
+  "items": [
+    {
+      "date": "2025",
+      "outlet": "Outlet name",
+      "title": "Title of the media item",
+      "link": "https://",
+      "description": "Short description of the press coverage, talk, interview or public engagement. Double-click to edit, or use + Add item."
+    }
+  ]
+}

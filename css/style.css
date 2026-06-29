@@ -1370,3 +1370,73 @@ h1, h2, h3, h4 {
     .project-featured-stats { flex-direction: column; }
     .pf-stat { text-align: left; }
 }
+
+/* ============================================
+   RIGHT-SIDE DRAWER NAVIGATION (all screen sizes)
+   ============================================ */
+.nav-toggle { display: flex !important; }
+.nav-toggle { z-index: 1101; }
+
+.nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(330px, 84vw);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    background: #ffffff;
+    box-shadow: -14px 0 44px rgba(15, 23, 42, 0.18);
+    padding: 5.5rem 2rem 2rem;
+    transform: translateX(100%);
+    transition: transform 0.34s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1100;
+    overflow-y: auto;
+}
+.nav-links.open { transform: translateX(0); }
+.nav-links li { width: 100%; list-style: none; }
+.nav-links a {
+    display: block;
+    width: 100%;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--gray-700);
+    padding: 0.95rem 0;
+    border-bottom: 1px solid var(--gray-100);
+}
+.nav-links a::after { display: none !important; }
+.nav-links a:hover { color: var(--blue-deep); padding-left: 6px; }
+.nav-links a.active { color: var(--blue-deep); font-weight: 700; }
+
+.nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 1090;
+}
+.nav-backdrop.open { opacity: 1; visibility: visible; }
+
+/* ============================================
+   ABOUT / TRANSACT body + TEAM groups
+   ============================================ */
+.about-body { max-width: 860px; }
+.about-body p {
+    font-size: 1.08rem;
+    line-height: 1.95;
+    color: var(--gray-700);
+    margin-bottom: 1.35rem;
+}
+.team-group { margin-bottom: 3.5rem; }
+.team-group:last-child { margin-bottom: 0; }
+.team-subheading {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--blue-deep);
+    margin: 1.75rem 0 1.1rem;
+}

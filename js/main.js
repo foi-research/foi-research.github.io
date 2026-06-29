@@ -141,3 +141,27 @@ document.addEventListener('DOMContentLoaded', () => {
         heroObserver.observe(heroSection);
     }
 });
+
+/* --- Right-side drawer: backdrop + Esc-to-close --- */
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    if (!toggle || !links) return;
+
+    const backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+
+    const syncBackdrop = () => backdrop.classList.toggle('open', links.classList.contains('open'));
+    const close = () => {
+        toggle.classList.remove('active');
+        links.classList.remove('open');
+        backdrop.classList.remove('open');
+        document.body.style.overflow = '';
+    };
+
+    // run after the existing toggle handler has flipped the classes
+    toggle.addEventListener('click', () => setTimeout(syncBackdrop, 0));
+    backdrop.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+});

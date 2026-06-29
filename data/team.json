@@ -1,42 +1,129 @@
 {
-  "pi": {
-    "name": "[Name Surname]",
-    "initials": "[XX]",
-    "role": "[Role / Title]",
-    "affiliation": "[University / Institution]",
-    "bio": [
-      "[Short biography to be defined]"
-    ],
-    "email": "[email@university.be]",
-    "website": ""
-  },
-  "core": [
+  "groups": [
     {
-      "name": "Prof. Giovanni Esposito",
-      "role": "[Role to be defined]",
-      "affiliation": "Universit&eacute; libre de Bruxelles"
+      "heading": "Principal Investigator",
+      "members": [
+        {
+          "name": "Giovanni Esposito",
+          "affiliation": "Université libre de Bruxelles (ULB), Belgium",
+          "role": "Director, Centre d’Étude des Politiques et de l’Administration Publique (CEPAP)"
+        }
+      ]
     },
     {
-      "name": "Prof. Vincent Mabillard",
-      "role": "[Role to be defined]",
-      "affiliation": "Universit&eacute; libre de Bruxelles"
+      "heading": "Co-Principal Investigator",
+      "members": [
+        {
+          "name": "Vincent Mabillard",
+          "affiliation": "Université libre de Bruxelles (ULB), Belgium",
+          "role": "Solvay Brussels School of Economics and Management"
+        }
+      ]
     },
     {
-      "name": "Julia Trautendorfer",
-      "role": "[Role to be defined]",
-      "affiliation": "Johannes Kepler University Linz, Austria"
+      "heading": "Advisory Board",
+      "members": [
+        {
+          "name": "Giuseppe Lucio Gaeta",
+          "affiliation": "University of Naples “L’Orientale”, Italy",
+          "role": ""
+        },
+        {
+          "name": "Lorenzo Cicatiello",
+          "affiliation": "University of Naples “L’Orientale”, Italy",
+          "role": ""
+        },
+        {
+          "name": "Ben Worthy",
+          "affiliation": "Birkbeck, University of London, United Kingdom",
+          "role": ""
+        }
+      ]
     },
     {
-      "name": "Enrico Quaglia",
-      "role": "[Role to be defined]",
-      "affiliation": "University of Genoa, Italy &amp; CEPAP, ULB"
-    }
-  ],
-  "partners": [
+      "heading": "Research Team",
+      "members": [
+        {
+          "name": "Enrico Quaglia",
+          "affiliation": "University of Genoa, Italy",
+          "role": "Research Assistant"
+        },
+        {
+          "name": "Lise Delfosse",
+          "affiliation": "Université libre de Bruxelles (ULB), Belgium",
+          "role": "Research Assistant"
+        },
+        {
+          "name": "Adrian Sabau",
+          "affiliation": "Université libre de Bruxelles (ULB), Belgium",
+          "role": "Research Assistant"
+        },
+        {
+          "name": "Aurore Neuray",
+          "affiliation": "Université libre de Bruxelles (ULB), Belgium",
+          "role": "Logistics and Project Support"
+        }
+      ]
+    },
     {
-      "name": "Anticor Belgique ASBL",
-      "role": "Co-Research Partner &bull; Transparencia.be Operator",
-      "affiliation": "Belgium &mdash; National FOI Platform"
+      "heading": "Local Research Teams",
+      "subgroups": [
+        {
+          "subheading": "Romania",
+          "members": [
+            {
+              "name": "Monica Ardeleanu",
+              "affiliation": "University of Bucharest, Romania",
+              "role": ""
+            },
+            {
+              "name": "Raluca Onufreiciuc",
+              "affiliation": "University of Suceava, Romania; Paris Panthéon-Assas University, France",
+              "role": ""
+            }
+          ]
+        },
+        {
+          "subheading": "Switzerland",
+          "members": [
+            {
+              "name": "Martial Pasquier",
+              "affiliation": "University of Lausanne (UNIL), Switzerland",
+              "role": ""
+            },
+            {
+              "name": "Dominique Hanni",
+              "affiliation": "University of Lausanne (UNIL), Switzerland",
+              "role": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Collaborators",
+      "members": [
+        {
+          "name": "Julia Trautendorfer",
+          "affiliation": "Johannes Kepler University Linz, Austria",
+          "role": ""
+        },
+        {
+          "name": "Igor Tkalec",
+          "affiliation": "University College London (UCL), United Kingdom",
+          "role": ""
+        },
+        {
+          "name": "Irene Cogliati Dezza",
+          "affiliation": "Université libre de Bruxelles (ULB), Belgium",
+          "role": ""
+        },
+        {
+          "name": "Andrea Terlizzi",
+          "affiliation": "University of Florence, Italy",
+          "role": ""
+        }
+      ]
     }
   ]
 }
