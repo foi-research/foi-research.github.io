@@ -395,6 +395,10 @@ const CMS = {
                             <img src="${im.image}" alt="${im.caption || ''}" loading="lazy"/>
                         </a>`).join('') + `</div>`;
                 }
+                if (e.files && e.files.length) {
+                    html += `<div class="event-files">` + e.files.map((f) =>
+                        `<a class="event-file" href="${f.url}" target="_blank" rel="noopener">&#x1F4C4; ${f.label}</a>`).join('') + `</div>`;
+                }
                 html += `</div>`; // close .event-item
             });
             html += `</div></div>`;

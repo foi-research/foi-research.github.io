@@ -1571,3 +1571,7 @@ h1, h2, h3, h4 {
 @media (max-width: 768px) {
     .float-figure, .team-float { float: none; width: 100%; max-width: 100%; margin: 1.4rem 0; }
 }
+/* Event file (PDF) links */
+.event-files { margin-top: 0.9rem; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.event-file { display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; font-size: 0.9rem; background: var(--blue-light); color: var(--blue-deep); padding: 0.5rem 0.9rem; border-radius: 8px; }
+.event-file:hover { background: var(--blue-accent); color: #fff; }

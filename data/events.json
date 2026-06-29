@@ -62,6 +62,44 @@
               ]
             }
           ]
+        },
+        {
+          "name": "Korean Association for Public Administration (KAPA) International Conference 2026",
+          "location": "Busan, South Korea",
+          "date": "22–24 June 2026",
+          "items": [
+            {
+              "type": "Invited Emerging Scholar Roundtable",
+              "title": "Opportunities for International Collaborative Research",
+              "lines": []
+            },
+            {
+              "type": "Invited Talk",
+              "title": "How Public Institutions Create Value for Society in Complex Governance Systems: Bridging Politics and Public Administration",
+              "lines": [
+                "Giovanni Esposito was invited as one of five international emerging scholars to present his research agenda on public administration, transparency, and comparative governance. The roundtable brought together researchers from Europe, North America, and Asia to discuss new directions for international collaborative research in public administration.",
+                "The presentation showcased the broader research programme underpinning TRANSACT, highlighting its practice-based approach to Freedom of Information implementation and its combination of randomized field experiments and computational social science. The event also provided the opportunity to strengthen collaborations with South Korean scholars and to advance preparations for the South Korean field experiment, developed in partnership with Inha University as part of the TRANSACT comparative research programme.",
+                "Participants: Ana-Maria Dimand (Florida State University), Andrew Sullivan (University of Central Florida), Ning Liu (City University of Hong Kong), Wenchi Wei (Tsinghua University), and Giovanni Esposito (Université libre de Bruxelles).",
+                "Organizers: Donwe Choi (Hanyang University) and Jinsol Park (Inha University)."
+              ]
+            }
+          ],
+          "images": [
+            {
+              "image": "assets/events/kapa-1.jpg",
+              "caption": "KAPA International Conference 2026, Busan"
+            },
+            {
+              "image": "assets/events/kapa-2.jpg",
+              "caption": "Emerging Scholar Roundtable, KAPA 2026"
+            }
+          ],
+          "files": [
+            {
+              "label": "Invited talk slides (PDF)",
+              "url": "assets/events/kapa-talk.pdf"
+            }
+          ]
         }
       ]
     },
@@ -136,7 +174,7 @@
               "caption": "PMRC 2025 — Conference dinner"
             },
             {
-              "image": "assets/events/pmrc-paper-1.jpg",
+              "image": "assets/events/pmrc-panel-2.jpg",
               "caption": "PMRC 2025, Seoul"
             }
           ]
