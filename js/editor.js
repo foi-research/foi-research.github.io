@@ -19,7 +19,8 @@
     const FOIEditor = {
         editing: false,
         token: null,
-        dirty: new Set(),          // set of file names with unsaved changes
+        dirty: new Set(),          // file names with unsaved changes (JSON or HTML)
+        staticEdits: {},           // { 'page.html': { 'page.html:stN': 'new html' } }
         _bound: false,
 
         // ---- boot ----
@@ -100,12 +101,13 @@
 
         // ---- make elements interactive ----
         decorate() {
-            // 1) text fields
-            document.querySelectorAll('[data-edit]').forEach(el => {
+            // 1) text fields (JSON-driven [data-edit] AND static HTML [data-estatic])
+            document.querySelectorAll('[data-edit],[data-estatic]').forEach(el => {
                 if (el._foiBound) return;
                 el._foiBound = true;
                 el.addEventListener('dblclick', (ev) => {
                     ev.preventDefault();
+                    ev.stopPropagation();
                     this.beginEdit(el);
                 });
             });
@@ -182,12 +184,23 @@
             el.addEventListener('keydown', onKey);
         },
         commitText(el) {
+            const newVal = this.innerHTMLClean(el);
+            if (newVal === el._origHTML) return;   // nothing actually changed
+
+            // static HTML text (lives in the .html file)
+            const sid = el.getAttribute('data-estatic');
+            if (sid) {
+                const file = sid.slice(0, sid.indexOf(':'));   // e.g. "team.html"
+                (this.staticEdits[file] = this.staticEdits[file] || {})[sid] = newVal;
+                this.markDirty(file);
+                return;
+            }
+
+            // JSON-driven text
             const spec = el.getAttribute('data-edit');
             const { file, keys } = this.splitSpec(spec);
             const data = window.CMS.dataCache[file];
             if (!data) return;
-            const newVal = this.innerHTMLClean(el);
-            if (newVal === el._origHTML) return;   // nothing actually changed
             this.setAt(data, keys, newVal);
             this.markDirty(file);
         },
@@ -282,17 +295,19 @@
             this.updateToolbar();
         },
 
-        // ---- save (commit dirty JSON files) ----
+        // ---- save (commit dirty JSON + HTML files) ----
         b64(str) { return btoa(unescape(encodeURIComponent(str))); },
+        b64decode(b64) { return decodeURIComponent(escape(atob(b64.replace(/\n/g, '')))); },
+        repoPath(file) { return file.endsWith('.json') ? 'data/' + file : file; },
         async ghGet(file) {
-            const r = await fetch(`https://api.github.com/repos/${REPO}/contents/data/${file}?ref=${BRANCH}`, {
+            const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${this.repoPath(file)}?ref=${BRANCH}`, {
                 headers: { Authorization: 'token ' + this.token, Accept: 'application/vnd.github+json' }
             });
             if (!r.ok) throw new Error(`GET ${file}: ${r.status}`);
             return r.json();
         },
         async ghPut(file, content, sha) {
-            const r = await fetch(`https://api.github.com/repos/${REPO}/contents/data/${file}`, {
+            const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${this.repoPath(file)}`, {
                 method: 'PUT',
                 headers: { Authorization: 'token ' + this.token, Accept: 'application/vnd.github+json' },
                 body: JSON.stringify({
@@ -308,6 +323,13 @@
             }
             return r.json();
         },
+        // surgically replace the inner HTML of the element carrying data-estatic="id"
+        patchStatic(html, id, newInner) {
+            const esc = id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const re = new RegExp('(<(\\w+)\\b[^>]*\\bdata-estatic="' + esc + '"[^>]*>)([\\s\\S]*?)(</\\2>)');
+            if (!re.test(html)) throw new Error('anchor not found for ' + id);
+            return html.replace(re, (m, open, tag, _inner, close) => open + newInner + close);
+        },
         async save() {
             if (!this.token) { this.login(() => this.save()); return; }
             if (this.dirty.size === 0) { this.flash('Nothing to save.'); return; }
@@ -316,9 +338,17 @@
             try {
                 for (const file of files) {
                     const meta = await this.ghGet(file);
-                    const content = JSON.stringify(window.CMS.dataCache[file], null, 2) + '\n';
+                    let content;
+                    if (file.endsWith('.json')) {
+                        content = JSON.stringify(window.CMS.dataCache[file], null, 2) + '\n';
+                    } else {
+                        content = this.b64decode(meta.content);
+                        const edits = this.staticEdits[file] || {};
+                        for (const id of Object.keys(edits)) content = this.patchStatic(content, id, edits[id]);
+                    }
                     await this.ghPut(file, content, meta.sha);
                     this.dirty.delete(file);
+                    delete this.staticEdits[file];
                     this.updateToolbar();
                 }
                 this.flash('✓ Saved! Live on the site in ~30–60s.', false, 6000);
