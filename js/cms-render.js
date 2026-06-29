@@ -202,8 +202,11 @@ const CMS = {
         el.setAttribute('data-edit-array', 'partners.json:items');
         el.innerHTML = list.map((n, i) => `
             <div class="partner-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
-                <h4 data-edit="partners.json:items.${i}.name">${n.name}</h4>
+                <h4>${n.link
+                    ? `<a href="${n.link}" target="_blank" rel="noopener"><span data-edit="partners.json:items.${i}.name">${n.name}</span></a>`
+                    : `<span data-edit="partners.json:items.${i}.name">${n.name}</span>`}</h4>
                 <p data-edit="partners.json:items.${i}.description">${n.description || ''}</p>
+                ${n.link ? `<a class="partner-link" href="${n.link}" target="_blank" rel="noopener">Visit website &rarr;</a>` : ''}
             </div>
         `).join('');
         this.done();
