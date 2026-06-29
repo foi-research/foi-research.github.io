@@ -1376,6 +1376,8 @@ h1, h2, h3, h4 {
    ============================================ */
 .nav-toggle { display: flex !important; }
 .nav-toggle { z-index: 1101; }
+/* navbar must sit ABOVE the backdrop so its drawer (a child) stays clickable */
+.navbar { z-index: 1100; }
 
 .nav-links {
     position: fixed;
