@@ -388,9 +388,24 @@ const CMS = {
                         </div>
                     </div>`;
                 });
-                html += `</div></div>`;
+                html += `</div>`; // close .event-contribs
+                if (e.images && e.images.length) {
+                    html += `<div class="event-photos">` + e.images.map((im) =>
+                        `<a class="event-photo" href="${im.image}" data-img="${im.image}" title="${im.caption || ''}">
+                            <img src="${im.image}" alt="${im.caption || ''}" loading="lazy"/>
+                        </a>`).join('') + `</div>`;
+                }
+                html += `</div>`; // close .event-item
             });
             html += `</div></div>`;
+            // scatter a photo between year blocks for visual breathing room
+            const ph = (data.photos || [])[yi];
+            if (ph) {
+                html += `<figure class="events-figure">
+                    <img src="${ph.image}" alt="${ph.caption || ''}" data-img="${ph.image}" loading="lazy"/>
+                    ${ph.caption ? `<figcaption>${ph.caption}</figcaption>` : ''}
+                </figure>`;
+            }
         });
         el.innerHTML = html;
         this.done();

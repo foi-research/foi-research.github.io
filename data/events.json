@@ -123,6 +123,16 @@
                 "TRANSACT organized a two-day international workshop bringing together leading scholars and practitioners working on Freedom of Information laws and transparency governance. The workshop combined research presentations, roundtables with civil society organizations, and collaborative sessions dedicated to designing comparative field experiments in Belgium, Romania, Switzerland, South Africa, and Uganda. It laid the foundations for the international research network that now supports the TRANSACT project."
               ]
             }
+          ],
+          "images": [
+            {
+              "image": "assets/events/ti-poster.jpg",
+              "caption": "Workshop programme"
+            },
+            {
+              "image": "assets/events/ti-group.jpg",
+              "caption": "Workshop participants, ULB"
+            }
           ]
         }
       ]
@@ -159,6 +169,16 @@
           ]
         }
       ]
+    }
+  ],
+  "photos": [
+    {
+      "image": "assets/events/workshop-1.jpg",
+      "caption": "International workshop “Transparency in Action”, Université libre de Bruxelles"
+    },
+    {
+      "image": "assets/events/workshop-2.jpg",
+      "caption": "Research presentations and roundtables, ULB"
     }
   ]
 }
