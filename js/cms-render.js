@@ -157,10 +157,13 @@ const CMS = {
     // =========================================
     memberCard(base, i, m) {
         return `
-            <div class="team-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
-                <h4 data-edit="${base}.${i}.name">${m.name}</h4>
-                ${m.role ? `<div class="team-card-role" data-edit="${base}.${i}.role">${m.role}</div>` : ''}
-                <div class="team-card-affiliation" data-edit="${base}.${i}.affiliation">${m.affiliation}</div>
+            <div class="team-card reveal reveal-delay-${(i % 4) + 1}${m.photo ? ' has-photo' : ''}" data-edit-index="${i}">
+                ${m.photo ? `<img class="team-photo" src="${m.photo}" alt="${m.name}" loading="lazy"/>` : ''}
+                <div class="team-card-body">
+                    <h4 data-edit="${base}.${i}.name">${m.name}</h4>
+                    ${m.role ? `<div class="team-card-role" data-edit="${base}.${i}.role">${m.role}</div>` : ''}
+                    <div class="team-card-affiliation" data-edit="${base}.${i}.affiliation">${m.affiliation}</div>
+                </div>
             </div>`;
     },
     async renderTeam() {

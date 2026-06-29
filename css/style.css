@@ -1530,3 +1530,7 @@ h1, h2, h3, h4 {
 /* Home intro */
 #cms-home-intro { max-width: 860px; }
 #cms-home-intro p { font-size: 1.08rem; line-height: 1.95; color: var(--gray-700); margin-bottom: 1.3rem; }
+/* Team member photo (headshot) */
+.team-card.has-photo { display: flex; align-items: center; gap: 1rem; text-align: left; }
+.team-photo { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; border: 2px solid var(--gray-200); }
+.team-card.has-photo .team-card-body { flex: 1; }
