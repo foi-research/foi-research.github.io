@@ -1514,3 +1514,10 @@ h1, h2, h3, h4 {
 .partner-link { display: inline-block; margin-top: 0.7rem; font-weight: 600; font-size: 0.9rem; }
 .partner-card h4 a { color: var(--blue-deep); }
 .partner-card h4 a:hover { color: var(--blue-accent); }
+/* Image lightbox */
+.img-lightbox { position: fixed; inset: 0; background: rgba(15,23,42,.86); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 2rem; }
+.img-lightbox.open { display: flex; }
+.img-lightbox img { max-width: 90vw; max-height: 88vh; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+.img-lightbox-close { position: absolute; top: 14px; right: 26px; color: #fff; font-size: 2.6rem; line-height: 1; cursor: pointer; }
+.img-popup { cursor: pointer; color: var(--blue-accent); border-bottom: 1px dotted currentColor; }
+.img-popup:hover { color: var(--blue-deep); }

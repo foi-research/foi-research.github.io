@@ -165,3 +165,26 @@ document.addEventListener('DOMContentLoaded', () => {
     backdrop.addEventListener('click', close);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
 });
+
+/* --- Image lightbox (click any [data-img] to view a photo popup) --- */
+document.addEventListener('DOMContentLoaded', () => {
+    let box;
+    const open = (src) => {
+        if (!box) {
+            box = document.createElement('div');
+            box.className = 'img-lightbox';
+            box.innerHTML = '<span class="img-lightbox-close" aria-label="Close">&times;</span><img alt=""/>';
+            document.body.appendChild(box);
+            box.addEventListener('click', (e) => {
+                if (e.target === box || e.target.classList.contains('img-lightbox-close')) box.classList.remove('open');
+            });
+        }
+        box.querySelector('img').src = src;
+        box.classList.add('open');
+    };
+    document.addEventListener('click', (e) => {
+        const a = e.target.closest('[data-img]');
+        if (a) { e.preventDefault(); open(a.getAttribute('data-img')); }
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && box) box.classList.remove('open'); });
+});
