@@ -138,14 +138,18 @@ const CMS = {
 
         const el = document.getElementById('cms-about-body');
         if (!el || !data.blocks) return;
+        // two figures floated into the running text (Word-style): chart near the top, map just below it
+        const chartFig = `<figure class="float-figure"><img src="assets/about/foi-adoption.jpg" alt="Adoption of access to information laws, 1950-2020" data-img="assets/about/foi-adoption.jpg" loading="lazy"/><figcaption>Adoption of access to information laws by regime, 1950&ndash;2020. Source: article19.org</figcaption></figure>`;
+        const mapFig = `<figure class="float-figure"><img src="assets/team/coverage-map.png" alt="Countries covered by the TRANSACT network" data-img="assets/team/coverage-map.png" loading="lazy"/><figcaption>Countries covered by the TRANSACT network</figcaption></figure>`;
         el.setAttribute('data-edit-array', 'about.json:blocks');
         el.innerHTML = data.blocks.map((b, i) => {
             const base = `about.json:blocks.${i}`;
-            if (b.type === 'h')  return `<h2 class="about-h2" data-edit-index="${i}" data-edit="${base}.text">${b.text}</h2>`;
-            if (b.type === 'h3') return `<h3 class="about-h3" data-edit-index="${i}" data-edit="${base}.text">${b.text}</h3>`;
-            if (b.type === 'ul') return `<ul class="about-ul" data-edit-index="${i}">${(b.items || []).map((it, j) =>
+            const pre = i === 0 ? chartFig : (i === 3 ? mapFig : '');
+            if (b.type === 'h')  return pre + `<h2 class="about-h2" data-edit-index="${i}" data-edit="${base}.text">${b.text}</h2>`;
+            if (b.type === 'h3') return pre + `<h3 class="about-h3" data-edit-index="${i}" data-edit="${base}.text">${b.text}</h3>`;
+            if (b.type === 'ul') return pre + `<ul class="about-ul" data-edit-index="${i}">${(b.items || []).map((it, j) =>
                 `<li data-edit="${base}.items.${j}">${it}</li>`).join('')}</ul>`;
-            return `<p data-edit-index="${i}" data-edit="${base}.text">${b.text}</p>`;
+            return pre + `<p data-edit-index="${i}" data-edit="${base}.text">${b.text}</p>`;
         }).join('');
 
         this.done();
