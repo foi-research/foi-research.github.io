@@ -80,6 +80,16 @@
                 "Authors: Giovanni Esposito, Vincent Mabillard, Lorenzo Cicatiello & Giuseppe Lucio Gaeta"
               ]
             }
+          ],
+          "images": [
+            {
+              "image": "assets/events/pmrc-paper-1.jpg",
+              "caption": "PMRC 2025, Seoul"
+            },
+            {
+              "image": "assets/events/pmrc-paper-2.jpg",
+              "caption": "PMRC 2025, Seoul"
+            }
           ]
         },
         {
@@ -95,6 +105,16 @@
                 "Discussants: Vincent Mabillard & Lorenzo Cicatiello"
               ]
             }
+          ],
+          "images": [
+            {
+              "image": "assets/events/icpp7-1.jpg",
+              "caption": "ICPP7, Chiang Mai"
+            },
+            {
+              "image": "assets/events/icpp7-2.jpg",
+              "caption": "ICPP7, Chiang Mai 2025"
+            }
           ]
         },
         {
@@ -108,6 +128,16 @@
               "lines": [
                 "Chairs and Discussants: Giovanni Esposito & Vincent Mabillard"
               ]
+            }
+          ],
+          "images": [
+            {
+              "image": "assets/events/pmrc-panel-1.jpg",
+              "caption": "PMRC 2025 — Conference dinner"
+            },
+            {
+              "image": "assets/events/pmrc-paper-1.jpg",
+              "caption": "PMRC 2025, Seoul"
             }
           ]
         },
