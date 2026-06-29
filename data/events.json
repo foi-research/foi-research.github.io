@@ -5,6 +5,21 @@
       "year": "2026",
       "events": [
         {
+          "name": "Italian Political Science Association (SISP)",
+          "location": "Trento, Italy",
+          "date": "3–5 September 2026",
+          "items": [
+            {
+              "type": "Paper",
+              "title": "Measuring the Effectiveness of Transparency Policy Design: A Global Audit Study of Freedom of Information Implementation",
+              "lines": [
+                "Authors: Giovanni Esposito & Maria Žuffová",
+                "Panel: 6.1 – Measuring Policy Design Dimensions: Effectiveness, Capacity, and Robustness"
+              ]
+            }
+          ]
+        },
+        {
           "name": "International Workshops on Public Policy (IWPP5)",
           "location": "Ottawa, Canada",
           "date": "7 July 2026",
@@ -23,42 +38,6 @@
               "lines": [
                 "Authors: Giovanni Esposito, Andrea Terlizzi, Igor Tkalec & Irene Cogliati Dezza",
                 "Session: T09W02 – Machine Learning, NLP & LLMs for Policy Issues"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "European Network for Public Administration (ENPA)",
-          "location": "Bucharest, Romania",
-          "date": "22–25 April 2026",
-          "items": [
-            {
-              "type": "Paper",
-              "title": "Comparative Field Experiments on Freedom of Information Implementation in Switzerland",
-              "lines": [
-                "Authors: Vincent Mabillard, Martial Pasquier, Dominique Hanni, Giuseppe Lucio Gaeta, Giovanni Esposito & Lorenzo Cicatiello"
-              ]
-            },
-            {
-              "type": "Paper",
-              "title": "“Everyone is Equal Before the Law”: Assessing Gendered Information Needs and Administrative Responsiveness",
-              "lines": [
-                "Authors: Julia Trautendorfer, Vincent Mabillard, Enrico Quaglia & Giovanni Esposito"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Italian Political Science Association (SISP)",
-          "location": "Trento, Italy",
-          "date": "3–5 September 2026",
-          "items": [
-            {
-              "type": "Paper",
-              "title": "Measuring the Effectiveness of Transparency Policy Design: A Global Audit Study of Freedom of Information Implementation",
-              "lines": [
-                "Authors: Giovanni Esposito & Maria Žuffová",
-                "Panel: 6.1 – Measuring Policy Design Dimensions: Effectiveness, Capacity, and Robustness"
               ]
             }
           ]
@@ -106,36 +85,33 @@
               "caption": "KAPA 2026, Busan"
             }
           ]
+        },
+        {
+          "name": "European Network for Public Administration (ENPA)",
+          "location": "Bucharest, Romania",
+          "date": "22–25 April 2026",
+          "items": [
+            {
+              "type": "Paper",
+              "title": "Comparative Field Experiments on Freedom of Information Implementation in Switzerland",
+              "lines": [
+                "Authors: Vincent Mabillard, Martial Pasquier, Dominique Hanni, Giuseppe Lucio Gaeta, Giovanni Esposito & Lorenzo Cicatiello"
+              ]
+            },
+            {
+              "type": "Paper",
+              "title": "“Everyone is Equal Before the Law”: Assessing Gendered Information Needs and Administrative Responsiveness",
+              "lines": [
+                "Authors: Julia Trautendorfer, Vincent Mabillard, Enrico Quaglia & Giovanni Esposito"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "year": "2025",
       "events": [
-        {
-          "name": "Public Management Research Conference (PMRC 2025)",
-          "location": "Seoul National University, South Korea",
-          "date": "25–28 June 2025",
-          "items": [
-            {
-              "type": "Paper",
-              "title": "Managing Transparency: A Systematic Literature Review on Barriers to Freedom of Information Laws (2004–2023)",
-              "lines": [
-                "Authors: Giovanni Esposito, Vincent Mabillard, Lorenzo Cicatiello & Giuseppe Lucio Gaeta"
-              ]
-            }
-          ],
-          "images": [
-            {
-              "image": "assets/events/pmrc-paper-1.jpg",
-              "caption": "PMRC 2025, Seoul"
-            },
-            {
-              "image": "assets/events/pmrc-paper-2.jpg",
-              "caption": "PMRC 2025, Seoul"
-            }
-          ]
-        },
         {
           "name": "7th International Conference on Public Policy (ICPP7)",
           "location": "Chiang Mai University, Thailand",
@@ -158,6 +134,30 @@
             {
               "image": "assets/events/icpp7-2.jpg",
               "caption": "ICPP7, Chiang Mai 2025"
+            }
+          ]
+        },
+        {
+          "name": "Public Management Research Conference (PMRC 2025)",
+          "location": "Seoul National University, South Korea",
+          "date": "25–28 June 2025",
+          "items": [
+            {
+              "type": "Paper",
+              "title": "Managing Transparency: A Systematic Literature Review on Barriers to Freedom of Information Laws (2004–2023)",
+              "lines": [
+                "Authors: Giovanni Esposito, Vincent Mabillard, Lorenzo Cicatiello & Giuseppe Lucio Gaeta"
+              ]
+            }
+          ],
+          "images": [
+            {
+              "image": "assets/events/pmrc-paper-1.jpg",
+              "caption": "PMRC 2025, Seoul"
+            },
+            {
+              "image": "assets/events/pmrc-paper-2.jpg",
+              "caption": "PMRC 2025, Seoul"
             }
           ]
         },
@@ -223,6 +223,20 @@
       "year": "2024",
       "events": [
         {
+          "name": "Invited Seminar — University of Padua",
+          "location": "Department of Political, Legal and International Studies (SPGI), Italy",
+          "date": "31 May 2024",
+          "items": [
+            {
+              "type": "Seminar",
+              "title": "Towards a Citizen Science Framework for Public Policy Evaluation: Lessons from an Experimental Study on Freedom of Information Laws in Belgium",
+              "lines": [
+                "Speaker: Giovanni Esposito"
+              ]
+            }
+          ]
+        },
+        {
           "name": "8th Global Conference on Transparency Research (GCTR)",
           "location": "Université libre de Bruxelles, Belgium",
           "date": "15–17 May 2024",
@@ -239,20 +253,6 @@
             {
               "label": "Visit the conference website",
               "url": "https://gctr-sbs.ulb.be"
-            }
-          ]
-        },
-        {
-          "name": "Invited Seminar — University of Padua",
-          "location": "Department of Political, Legal and International Studies (SPGI), Italy",
-          "date": "31 May 2024",
-          "items": [
-            {
-              "type": "Seminar",
-              "title": "Towards a Citizen Science Framework for Public Policy Evaluation: Lessons from an Experimental Study on Freedom of Information Laws in Belgium",
-              "lines": [
-                "Speaker: Giovanni Esposito"
-              ]
             }
           ]
         }
