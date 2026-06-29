@@ -74,6 +74,14 @@ const CMS = {
             `;
         }
 
+        // Intro paragraphs (TRANSACT overview)
+        const introEl = document.getElementById('cms-home-intro');
+        if (introEl && home.intro) {
+            introEl.setAttribute('data-edit-array', 'home.json:intro');
+            introEl.innerHTML = home.intro.map((p, i) =>
+                `<p data-edit-index="${i}" data-edit="home.json:intro.${i}">${p}</p>`).join('');
+        }
+
         // Research cards
         const cardsEl = document.getElementById('cms-research-cards');
         if (cardsEl && home.researchCards) {
@@ -128,12 +136,17 @@ const CMS = {
         const data = await this.fetchJSON('about.json');
         if (!data) return;
 
-        const bodyEl = document.getElementById('cms-about-body');
-        if (bodyEl && data.bodyParagraphs) {
-            bodyEl.setAttribute('data-edit-array', 'about.json:bodyParagraphs');
-            bodyEl.innerHTML = data.bodyParagraphs.map((p, i) =>
-                `<p data-edit-index="${i}" data-edit="about.json:bodyParagraphs.${i}">${p}</p>`).join('');
-        }
+        const el = document.getElementById('cms-about-body');
+        if (!el || !data.blocks) return;
+        el.setAttribute('data-edit-array', 'about.json:blocks');
+        el.innerHTML = data.blocks.map((b, i) => {
+            const base = `about.json:blocks.${i}`;
+            if (b.type === 'h')  return `<h2 class="about-h2" data-edit-index="${i}" data-edit="${base}.text">${b.text}</h2>`;
+            if (b.type === 'h3') return `<h3 class="about-h3" data-edit-index="${i}" data-edit="${base}.text">${b.text}</h3>`;
+            if (b.type === 'ul') return `<ul class="about-ul" data-edit-index="${i}">${(b.items || []).map((it, j) =>
+                `<li data-edit="${base}.items.${j}">${it}</li>`).join('')}</ul>`;
+            return `<p data-edit-index="${i}" data-edit="${base}.text">${b.text}</p>`;
+        }).join('');
 
         this.done();
     },

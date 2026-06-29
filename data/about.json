@@ -1,9 +1,105 @@
 {
-  "bodyParagraphs": [
-    "Freedom of Information (FOI) laws are a cornerstone of democratic governance. They give citizens, journalists, and civil society organizations the right to access government-held information and to hold public authorities accountable.",
-    "Yet, in practice, FOI laws often fail to deliver the transparency formally promised by legislation. Public administrations may respond fully, provide only partial information, refuse access, delay responses, or fail to respond at all.",
-    "TRANSACT studies this gap between formal transparency rights and everyday administrative practice. The project examines how FOI laws are implemented through concrete interactions between citizens and bureaucrats, and how these interactions are shaped by request characteristics, bureaucratic discretion, and broader political, administrative, and socio-economic contexts.",
-    "The project combines randomized field experiments with computational analysis of large-scale FOI platform data. It covers several national and supranational settings, including Belgium, Romania, Switzerland, South Africa, South Korea, Canada, and the European Union platform AskTheEU.",
-    "By explaining when and why FOI laws work in practice, TRANSACT aims to advance research on transparency governance, democratic accountability, and citizen–state relations."
+  "blocks": [
+    {
+      "type": "p",
+      "text": "Freedom of Information (FOI) laws are among the most important instruments of democratic governance. They grant citizens, journalists, researchers, and civil society organizations the legal right to access information held by public authorities, enabling public scrutiny, informed participation, and government accountability."
+    },
+    {
+      "type": "p",
+      "text": "Over the past three decades, FOI laws have spread rapidly around the world and are now recognized as a cornerstone of open government. Yet, despite their widespread adoption, many public administrations fail to provide the level of transparency promised by legislation. Requests may receive incomplete responses, be refused without adequate justification, or simply go unanswered. This persistent gap between the legal right to information and its practical implementation remains one of the major challenges facing contemporary democracies."
+    },
+    {
+      "type": "p",
+      "text": "TRANSACT (Transparency in Action) seeks to explain why this implementation gap exists and under which conditions Freedom of Information laws effectively promote transparency. By combining experimental and computational approaches, the project investigates how interactions between citizens and public administrations shape transparency outcomes across different institutional contexts."
+    },
+    {
+      "type": "h",
+      "text": "Research Questions"
+    },
+    {
+      "type": "p",
+      "text": "TRANSACT addresses four central research questions:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Why do public authorities respond differently to similar Freedom of Information requests?",
+        "How do the characteristics of information requests influence bureaucratic responsiveness?",
+        "How do political, administrative, technological, and socio-economic contexts shape the implementation of FOI laws?",
+        "How can experimental and computational methods improve our understanding of transparency in practice?"
+      ]
+    },
+    {
+      "type": "h",
+      "text": "A Practice-Based Perspective on Transparency"
+    },
+    {
+      "type": "p",
+      "text": "Existing research has often explained Freedom of Information implementation from legal, political, or organizational perspectives. TRANSACT builds on these traditions while proposing a new way of understanding transparency."
+    },
+    {
+      "type": "p",
+      "text": "Rather than viewing FOI laws simply as legal rules or administrative procedures, TRANSACT conceptualizes their implementation as an everyday social practice emerging through interactions between citizens and public officials. Whether transparency succeeds therefore depends not only on legislation itself but also on how requests are formulated, how bureaucrats exercise discretion, and the institutional and societal contexts in which these interactions take place."
+    },
+    {
+      "type": "p",
+      "text": "By integrating insights from political science, public administration, sociology, and public management, the project develops a practice-based framework capable of explaining why similar legal systems often produce very different transparency outcomes."
+    },
+    {
+      "type": "h",
+      "text": "Research Design"
+    },
+    {
+      "type": "p",
+      "text": "TRANSACT combines two complementary methodological approaches."
+    },
+    {
+      "type": "h3",
+      "text": "Randomized Field Experiments"
+    },
+    {
+      "type": "p",
+      "text": "The project conducts large-scale randomized field experiments by submitting standardized Freedom of Information requests to public administrations. By systematically varying characteristics such as requester identity, request wording, topic sensitivity, and legal framing, these experiments identify the causal mechanisms shaping bureaucratic responsiveness."
+    },
+    {
+      "type": "h3",
+      "text": "Computational Analysis"
+    },
+    {
+      "type": "p",
+      "text": "TRANSACT also analyses thousands of Freedom of Information requests submitted through digital transparency platforms. Using computational social science techniques—including natural language processing and large language models—the project investigates patterns of disclosure, administrative behaviour, and citizen engagement at scale."
+    },
+    {
+      "type": "p",
+      "text": "Together, these approaches combine the internal validity of experiments with the external validity of large-scale observational data, providing a comprehensive understanding of how transparency policies operate in practice."
+    },
+    {
+      "type": "h",
+      "text": "Comparative Perspective"
+    },
+    {
+      "type": "p",
+      "text": "TRANSACT develops one of the largest comparative research programmes on Freedom of Information implementation currently underway."
+    },
+    {
+      "type": "p",
+      "text": "The project brings together evidence from:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Belgium",
+        "Romania",
+        "Switzerland",
+        "South Africa",
+        "South Korea",
+        "Canada",
+        "European Union institutions (AskTheEU)"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "These cases represent diverse administrative traditions and political systems, enabling comparative analyses of how transparency policies operate across different institutional environments. Through close collaboration with international academic partners and civil society organizations, TRANSACT contributes to the development of a global research network dedicated to strengthening transparency, democratic accountability, and citizens’ right of access to public information."
+    }
   ]
 }

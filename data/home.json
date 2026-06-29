@@ -1,15 +1,15 @@
 {
   "hero": {
     "badge": "CEPAP &mdash; Universit&eacute; libre de Bruxelles",
-    "title": "Putting <span class=\"accent\">Transparency</span> to the Test",
-    "description": "We study Freedom of Information laws through field experiments and citizen science. Our research measures the gap between formal adoption of transparency legislation and its real-world implementation across countries and institutions.",
+    "title": "<span class=\"accent\">TRANSACT</span> &ndash; Transparency in Action",
+    "description": "Explaining why Freedom of Information laws succeed or fail in practice",
     "primaryBtn": {
-      "text": "Explore TRANSACT &rarr;",
-      "link": "about.html"
-    },
-    "secondaryBtn": {
       "text": "Our Publications",
       "link": "publications.html"
+    },
+    "secondaryBtn": {
+      "text": "The Team",
+      "link": "team.html"
     }
   },
   "researchCards": [
@@ -32,5 +32,12 @@
       "link": "about.html"
     }
   ],
-  "teamPreview": "[Team description to be defined — this section will introduce the research group and its members.]"
+  "teamPreview": "[Team description to be defined — this section will introduce the research group and its members.]",
+  "intro": [
+    "Freedom of Information (FOI) laws are a cornerstone of democratic governance. They give citizens, journalists, and civil society organizations the right to access government-held information and to hold public authorities accountable.",
+    "Yet, in practice, FOI laws often fail to deliver the transparency formally promised by legislation. Public administrations may respond fully, provide only partial information, refuse access, delay responses, or fail to respond at all.",
+    "TRANSACT studies this gap between formal transparency rights and everyday administrative practice. The project examines how FOI laws are implemented through concrete interactions between citizens and bureaucrats, and how these interactions are shaped by request characteristics, bureaucratic discretion, and broader political, administrative, and socio-economic contexts.",
+    "The project combines randomized field experiments with computational analysis of large-scale FOI platform data. It covers several national and supranational settings, including Belgium, Romania, Switzerland, South Africa, South Korea, Canada, and the European Union platform AskTheEU.",
+    "By explaining when and why FOI laws work in practice, TRANSACT aims to advance research on transparency governance, democratic accountability, and citizen–state relations."
+  ]
 }
