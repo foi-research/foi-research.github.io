@@ -132,6 +132,14 @@
             {
               "image": "assets/events/ti-group.jpg",
               "caption": "Workshop participants, ULB"
+            },
+            {
+              "image": "assets/events/workshop-1.jpg",
+              "caption": "International workshop “Transparency in Action”, Université libre de Bruxelles"
+            },
+            {
+              "image": "assets/events/workshop-2.jpg",
+              "caption": "Research presentations and roundtables, ULB"
             }
           ]
         }
@@ -171,14 +179,5 @@
       ]
     }
   ],
-  "photos": [
-    {
-      "image": "assets/events/workshop-1.jpg",
-      "caption": "International workshop “Transparency in Action”, Université libre de Bruxelles"
-    },
-    {
-      "image": "assets/events/workshop-2.jpg",
-      "caption": "Research presentations and roundtables, ULB"
-    }
-  ]
+  "photos": []
 }
