@@ -1,20 +1,27 @@
 {
-  "items": [
+  "intro": "The TRANSACT research programme contributes to the growing literature on transparency governance, FOI laws, public policy implementation, and democratic accountability.",
+  "groups": [
     {
-      "title": "Toward a Citizen Science Framework for Public Policy Evaluation: Lessons from a Field Experiment on Freedom of Information Laws in Belgium",
-      "authors": "Esposito, G., Cicatiello, L., Mabillard, V., &amp; Gaeta, G. L.",
-      "year": 2024,
-      "venue": "Evaluation (Sage), Vol. 30(4), pp. 464&ndash;487",
-      "status": "published",
-      "showOnHome": true
+      "heading": "Peer-Reviewed Articles",
+      "items": [
+        {
+          "citation": "Mabillard, V., Esposito, G., Cicatiello, L., Gaeta, G. L., & Pasquier, M. (2025). Barriers to Freedom of Information: Insights from an Experiment in Belgium. International Journal of Public Administration, 48(8), 519–531.",
+          "link": "https://doi.org/10.1080/01900692.2024.2378329"
+        },
+        {
+          "citation": "Esposito, G., Cicatiello, L., Mabillard, V., & Gaeta, G. L. (2024). Toward a Citizen Science Framework for Public Policy Evaluation: Lessons from a Field Experiment on Freedom of Information Laws in Belgium. Evaluation, 30(4), 464–487.",
+          "link": "https://doi.org/10.1177/13563890241270195"
+        }
+      ]
     },
     {
-      "title": "[Publication title]",
-      "authors": "[Author 1, Author 2, ...]",
-      "year": 2026,
-      "venue": "[Journal / Conference]",
-      "status": "in-progress",
-      "showOnHome": true
+      "heading": "Working Papers",
+      "items": [
+        {
+          "citation": "Mabillard, V., Esposito, G., & Pasquier, M. (2025). Evaluating Transparency Policies: A Focus on Freedom of Information Laws. Working Paper, ULB Solvay Brussels School of Economics and Management 25 (006), 1-31",
+          "link": ""
+        }
+      ]
     }
   ]
 }

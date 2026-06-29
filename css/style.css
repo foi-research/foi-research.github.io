@@ -1481,3 +1481,33 @@ h1, h2, h3, h4 {
 .partner-card p { color: var(--gray-700); line-height: 1.75; }
 #cms-partners-intro { margin-bottom: 2.2rem; max-width: 840px; }
 #cms-partners-intro p { font-size: 1.05rem; line-height: 1.85; color: var(--gray-700); }
+
+/* ============================================
+   PUBLICATIONS (grouped citation list)
+   ============================================ */
+#cms-publications-intro { max-width: 840px; margin-bottom: 2.2rem; }
+#cms-publications-intro p { font-size: 1.05rem; line-height: 1.85; color: var(--gray-700); }
+.pub-group { margin-bottom: 2.8rem; }
+.pub-ref { background: #fff; border: 1px solid var(--gray-200); border-radius: 10px; padding: 1.2rem 1.4rem; margin-bottom: 0.9rem; }
+.pub-citation { color: var(--gray-800); line-height: 1.7; margin: 0 0 0.4rem; }
+.pub-link { font-size: 0.9rem; word-break: break-word; }
+
+/* ============================================
+   MEDIA & OUTREACH (photo gallery + outreach blocks)
+   ============================================ */
+#cms-media-intro { max-width: 840px; margin-bottom: 2.2rem; }
+#cms-media-intro p { font-size: 1.05rem; line-height: 1.85; color: var(--gray-700); }
+.media-gallery { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.8rem; }
+.media-photo {
+    position: relative; display: block; width: 260px; border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(0,0,0,.08);
+    transition: transform .25s, box-shadow .25s;
+}
+.media-photo:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,.16); }
+.media-photo img { width: 100%; height: 200px; object-fit: cover; display: block; }
+.media-photo-cap { display: block; padding: 0.6rem 0.8rem; font-size: 0.85rem; font-weight: 600; color: var(--blue-deep); background: #fff; }
+.media-sections { display: flex; flex-direction: column; gap: 1.4rem; }
+.media-block { background: #fff; border: 1px solid var(--gray-200); border-radius: 12px; padding: 1.6rem 1.75rem; }
+.media-block-title { font-family: var(--font-heading); font-size: 1.2rem; color: var(--blue-deep); margin: 0.3rem 0 0.7rem; }
+.media-block-desc { color: var(--gray-700); line-height: 1.75; margin-bottom: 0.8rem; }
+.media-block-link { font-weight: 600; font-size: 0.92rem; }

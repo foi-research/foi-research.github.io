@@ -215,19 +215,40 @@ const CMS = {
     async renderMedias() {
         const data = await this.fetchJSON('medias.json');
         if (!data) return;
-        const el = document.getElementById('cms-medias');
-        if (!el) return;
-        const list = data.items || data;
-        el.setAttribute('data-edit-array', 'medias.json:items');
-        el.innerHTML = list.map((m, i) => `
-            <div class="event-item reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
-                <div class="event-date" data-edit="medias.json:items.${i}.date">${m.date}</div>
-                <h4><span data-edit="medias.json:items.${i}.title">${m.title}</span></h4>
-                ${m.outlet ? `<div class="event-location" data-edit="medias.json:items.${i}.outlet">${m.outlet}</div>` : ''}
-                <p class="event-description" data-edit="medias.json:items.${i}.description">${m.description || ''}</p>
-                ${m.link ? `<a href="${m.link}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">Open &rarr;</a>` : ''}
-            </div>
-        `).join('');
+
+        const introEl = document.getElementById('cms-media-intro');
+        if (introEl && data.intro !== undefined) {
+            introEl.innerHTML = `<p data-edit="medias.json:intro">${data.intro}</p>`;
+        }
+
+        // photo gallery (each photo links to a section/project)
+        const gEl = document.getElementById('cms-media-gallery');
+        if (gEl) {
+            const gallery = data.gallery || [];
+            gEl.setAttribute('data-edit-array', 'medias.json:gallery');
+            gEl.innerHTML = gallery.map((p, i) => `
+                <a class="media-photo" href="${p.link || '#'}" data-edit-index="${i}">
+                    <img src="${p.image}" alt="${p.alt || ''}" loading="lazy"/>
+                    ${p.caption ? `<span class="media-photo-cap" data-edit="medias.json:gallery.${i}.caption">${p.caption}</span>` : ''}
+                </a>`).join('');
+        }
+
+        // outreach sections (text + external link)
+        const sEl = document.getElementById('cms-media-sections');
+        if (sEl) {
+            const sections = data.sections || [];
+            sEl.setAttribute('data-edit-array', 'medias.json:sections');
+            sEl.innerHTML = sections.map((x, i) => {
+                const b = `medias.json:sections.${i}`;
+                return `<div class="media-block" data-edit-index="${i}">
+                    <span class="contrib-type" data-edit="${b}.category">${x.category}</span>
+                    <h4 class="media-block-title" data-edit="${b}.title">${x.title}</h4>
+                    <p class="media-block-desc" data-edit="${b}.description">${x.description}</p>
+                    ${x.link ? `<a class="media-block-link" href="${x.link}" target="_blank" rel="noopener"><span data-edit="${b}.linkText">${x.linkText || 'Open'}</span> &rarr;</a>` : ''}
+                </div>`;
+            }).join('');
+        }
+
         this.done();
     },
 
@@ -235,46 +256,29 @@ const CMS = {
     // PUBLICATIONS PAGE
     // =========================================
     async renderPublications() {
-        const [pubs, funding] = await Promise.all([
-            this.fetchJSON('publications.json'),
-            this.fetchJSON('funding.json')
-        ]);
+        const data = await this.fetchJSON('publications.json');
+        if (!data) return;
 
-        // Publications list
-        const pubsEl = document.getElementById('cms-publications');
-        if (pubsEl && pubs) {
-            const pubList = pubs.items || pubs;
-            const arrPath = pubs.items ? 'publications.json:items' : 'publications.json:';
-            pubsEl.setAttribute('data-edit-array', arrPath);
-            pubsEl.innerHTML = pubList.map((p, i) => `
-                <div class="pub-item reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
-                    <div class="pub-year" data-edit="${arrPath}.${i}.year">${p.year}</div>
-                    <div class="pub-content">
-                        <h4><span data-edit="${arrPath}.${i}.title">${p.title}</span> <span class="pub-badge ${p.status}">${this.statusLabel(p.status)}</span></h4>
-                        <div class="pub-authors" data-edit="${arrPath}.${i}.authors">${p.authors}</div>
-                        <div class="pub-venue" data-edit="${arrPath}.${i}.venue">${p.venue}</div>
-                    </div>
-                </div>
-            `).join('');
+        const introEl = document.getElementById('cms-publications-intro');
+        if (introEl && data.intro !== undefined) {
+            introEl.innerHTML = `<p data-edit="publications.json:intro">${data.intro}</p>`;
         }
 
-        // Funding
-        const fundingEl = document.getElementById('cms-funding');
-        if (fundingEl && funding) {
-            const fundList = funding.items || funding;
-            const fPath = funding.items ? 'funding.json:items' : 'funding.json:';
-            fundingEl.setAttribute('data-edit-array', fPath);
-            fundingEl.innerHTML = fundList.map((f, i) => `
-                <div class="project-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
-                    <div class="project-card-icon" data-edit="${fPath}.${i}.icon">${f.icon}</div>
-                    <h4 data-edit="${fPath}.${i}.name">${f.name}</h4>
-                    <p data-edit="${fPath}.${i}.description">${f.description}</p>
-                    <div class="project-card-tags">
-                        ${f.tags.map(t => `<span class="project-card-tag">${t}</span>`).join('')}
-                    </div>
+        const el = document.getElementById('cms-publications');
+        if (!el) return;
+        el.innerHTML = (data.groups || []).map((g, gi) => {
+            const base = `publications.json:groups.${gi}.items`;
+            return `<div class="pub-group">
+                <h3 class="team-members-title" data-edit="publications.json:groups.${gi}.heading">${g.heading}</h3>
+                <div data-edit-array="${base}">
+                    ${g.items.map((it, i) => `
+                        <div class="pub-ref" data-edit-index="${i}">
+                            <p class="pub-citation" data-edit="${base}.${i}.citation">${it.citation}</p>
+                            ${it.link ? `<a class="pub-link" href="${it.link}" target="_blank" rel="noopener">${it.link}</a>` : ''}
+                        </div>`).join('')}
                 </div>
-            `).join('');
-        }
+            </div>`;
+        }).join('');
 
         this.done();
     },

@@ -1,11 +1,41 @@
 {
-  "items": [
+  "intro": "TRANSACT is committed to making research accessible beyond academia. Through collaborations with journalists, civic technology organizations, and international transparency networks, the project seeks to foster public debate on Freedom of Information (FOI), promote evidence-based policymaking, and strengthen collaboration between researchers and civil society.",
+  "gallery": [
     {
-      "date": "2025",
-      "outlet": "Outlet name",
-      "title": "Title of the media item",
-      "link": "https://",
-      "description": "Short description of the press coverage, talk, interview or public engagement. Double-click to edit, or use + Add item."
+      "image": "assets/media/img_4634.jpg",
+      "caption": "TRANSACT",
+      "alt": "TRANSACT",
+      "link": "about.html"
+    }
+  ],
+  "sections": [
+    {
+      "category": "National Media",
+      "title": "Belgian National Press (Le Soir)",
+      "description": "Following the Belgian field experiment on Freedom of Information implementation, Giovanni Esposito was interviewed by the Belgian national newspaper Le Soir. The article presented the main findings of the research and discussed their implications for transparency, democratic accountability, and citizens’ access to public information. By bringing the results to a national audience, the interview helped stimulate public debate on administrative transparency in Belgium.",
+      "linkText": "85 communes cultivent le secret sur leurs caméras de surveillance",
+      "link": "https://www.lesoir.be/628246/article/2024-10-10/85-communes-cultivent-le-secret-sur-leurs-cameras-de-surveillance-cartes"
+    },
+    {
+      "category": "Research Videos",
+      "title": "CivicSciTV Network",
+      "description": "To accompany the publication of the article Toward a Citizen Science Framework for Public Policy Evaluation in Evaluation, an explanatory video was produced by the CivicSciTV Network. The video presents the Belgian field experiment in an accessible format and explains how experimental research can be used to evaluate Freedom of Information laws. The video was subsequently used to promote the international workshop Transparency in Action – International Perspectives from Experimental Research on Freedom of Information Laws, held at Université libre de Bruxelles in March 2025. It also served to introduce the TRANSACT research programme to scholars and practitioners interested in replicating the experiment in other countries.",
+      "linkText": "Watch the video",
+      "link": "https://www.youtube.com/watch?v=yUM5xr79MZg"
+    },
+    {
+      "category": "International Outreach",
+      "title": "Webinar with MySociety",
+      "description": "The research was further disseminated through an international webinar organized in collaboration with MySociety, the UK-based organization behind the Alaveteli open-source platform used by Freedom of Information websites worldwide. The webinar brought together researchers, journalists, transparency advocates, and civic technology practitioners to discuss experimental approaches to evaluating FOI implementation and to explore opportunities for international collaboration. It contributed to expanding the TRANSACT research network and strengthening partnerships with scholars and civil society organizations working on transparency and democratic accountability.",
+      "linkText": "Watch the webinar",
+      "link": "https://www.youtube.com/watch?v=f9uRb-ldU40"
+    },
+    {
+      "category": "International Policy Engagement",
+      "title": "International Right to Information Stress Test (IDUAI 2025)",
+      "description": "Following the dissemination of the Belgian Freedom of Information field experiment, Giovanni Esposito was invited by the Centre for Law and Democracy (CLD) to coordinate Belgium’s participation in the International Right to Information Stress Test, an initiative developed for the International Day for Universal Access to Information (IDUAI). The project was supported by UNESCO, the Global Forum for Media Development (GFMD), and the Global Investigative Journalism Network (GIJN), bringing together researchers, journalists, and civil society organizations to evaluate the practical implementation of Freedom of Information laws around the world. The Belgian assessment formed part of a global comparative study conducted through the Freedom of Information Advocates Network (FOIAnet). The findings contributed to the 2025 Global Right to Information Stress Test Report, published on 28 September 2025 for the International Day for Universal Access to Information. This collaboration illustrates how TRANSACT research informs international transparency initiatives and contributes to evidence-based assessments of Freedom of Information implementation worldwide.",
+      "linkText": "Read the report",
+      "link": "https://www.law-democracy.org/launch-of-report-on-global-right-to-information-stress-test/"
     }
   ]
 }
