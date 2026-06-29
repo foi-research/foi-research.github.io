@@ -1578,3 +1578,14 @@ h1, h2, h3, h4 {
 .event-links { margin-top: 0.9rem; }
 .event-link { display: inline-flex; align-items: center; font-weight: 600; font-size: 0.92rem; color: var(--blue-accent); }
 .event-link:hover { color: var(--blue-deep); }
+/* Slides preview card (PowerPoint) */
+.slide-card { position: relative; display: inline-block; width: 230px; border-radius: 10px; overflow: hidden; border: 1px solid var(--gray-200); box-shadow: 0 6px 22px rgba(0,0,0,.10); cursor: pointer; vertical-align: top; }
+.slide-card img { width: 100%; display: block; }
+.slide-overlay { position: absolute; left: 0; right: 0; top: 0; bottom: 38px; display: flex; align-items: center; justify-content: center; background: rgba(15,23,42,.55); color: #fff; font-weight: 700; letter-spacing: .03em; opacity: 0; transition: opacity .2s; }
+.slide-card:hover .slide-overlay { opacity: 1; }
+.slide-label { display: block; padding: .55rem .75rem; font-size: .85rem; font-weight: 600; color: var(--blue-deep); background: #fff; }
+/* PDF lightbox (scrollable) */
+.pdf-lightbox { position: fixed; inset: 0; background: rgba(15,23,42,.85); display: none; z-index: 2000; padding: 4vh 4vw; }
+.pdf-lightbox.open { display: block; }
+.pdf-lightbox iframe { width: 100%; height: 100%; border: 0; border-radius: 8px; background: #fff; }
+.pdf-close { position: absolute; top: 8px; right: 24px; color: #fff; font-size: 2.6rem; line-height: 1; cursor: pointer; z-index: 2001; }

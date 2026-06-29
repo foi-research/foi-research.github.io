@@ -188,3 +188,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && box) box.classList.remove('open'); });
 });
+
+/* --- PDF / slides lightbox (click a [data-pdf] to open a scrollable preview) --- */
+document.addEventListener('DOMContentLoaded', () => {
+    let box;
+    const open = (src) => {
+        if (!box) {
+            box = document.createElement('div');
+            box.className = 'pdf-lightbox';
+            box.innerHTML = '<span class="pdf-close" aria-label="Close">&times;</span><iframe title="PDF preview"></iframe>';
+            document.body.appendChild(box);
+            box.addEventListener('click', (e) => {
+                if (e.target === box || e.target.classList.contains('pdf-close')) {
+                    box.classList.remove('open');
+                    box.querySelector('iframe').src = 'about:blank';
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+        box.querySelector('iframe').src = src;
+        box.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    };
+    document.addEventListener('click', (e) => {
+        const a = e.target.closest('[data-pdf]');
+        if (a) { e.preventDefault(); open(a.getAttribute('data-pdf')); }
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && box && box.classList.contains('open')) {
+            box.classList.remove('open'); box.querySelector('iframe').src = 'about:blank'; document.body.style.overflow = '';
+        }
+    });
+});

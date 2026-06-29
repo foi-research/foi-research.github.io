@@ -401,7 +401,13 @@ const CMS = {
                 }
                 if (e.files && e.files.length) {
                     html += `<div class="event-files">` + e.files.map((f) =>
-                        `<a class="event-file" href="${f.url}" target="_blank" rel="noopener">&#x1F4C4; ${f.label}</a>`).join('') + `</div>`;
+                        f.thumb
+                          ? `<a class="slide-card" href="${f.url}" data-pdf="${f.url}" title="PowerPoint">
+                                <img src="${f.thumb}" alt="${f.label}" loading="lazy"/>
+                                <span class="slide-overlay">PowerPoint</span>
+                                <span class="slide-label">${f.label}</span>
+                             </a>`
+                          : `<a class="event-file" href="${f.url}" target="_blank" rel="noopener">&#x1F4C4; ${f.label}</a>`).join('') + `</div>`;
                 }
                 if (e.links && e.links.length) {
                     html += `<div class="event-links">` + e.links.map((l) =>
