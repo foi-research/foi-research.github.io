@@ -1,6 +1,12 @@
 /* ============================================
    FOI Research Group — CMS Rendering Engine
    Loads JSON data and renders page content
+
+   Inline-editing annotations:
+     data-edit="FILE:dot.path"          -> editable scalar text (bound to JSON field)
+     data-edit-array="FILE:dot.path"    -> a container whose children are array items
+     data-edit-index="N"                -> marks one array item (enables delete/reorder/add)
+   These attributes are inert unless js/editor.js is active (edit mode).
    ============================================ */
 
 const CMS = {
@@ -9,7 +15,7 @@ const CMS = {
     async fetchJSON(file) {
         if (this.dataCache[file]) return this.dataCache[file];
         try {
-            const resp = await fetch('data/' + file);
+            const resp = await fetch('data/' + file, { cache: 'no-store' });
             if (!resp.ok) throw new Error('Failed to load ' + file);
             const data = await resp.json();
             this.dataCache[file] = data;
@@ -26,6 +32,18 @@ const CMS = {
         document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
             window.__cmsRevealObserver.observe(el);
         });
+    },
+
+    // Notify the inline editor (if loaded) that fresh content is in the DOM
+    notifyEditor() {
+        if (window.FOIEditor && typeof window.FOIEditor.refresh === 'function') {
+            window.FOIEditor.refresh();
+        }
+    },
+
+    done() {
+        this.observeReveals();
+        this.notifyEditor();
     },
 
     // =========================================
@@ -45,13 +63,13 @@ const CMS = {
             heroEl.innerHTML = `
                 <div class="hero-badge">
                     <div class="hero-badge-dot"></div>
-                    <span>${h.badge}</span>
+                    <span data-edit="home.json:hero.badge">${h.badge}</span>
                 </div>
-                <h1>${h.title}</h1>
-                <p class="hero-description">${h.description}</p>
+                <h1 data-edit="home.json:hero.title">${h.title}</h1>
+                <p class="hero-description" data-edit="home.json:hero.description">${h.description}</p>
                 <div class="hero-actions">
-                    <a href="${h.primaryBtn.link}" class="btn btn-primary">${h.primaryBtn.text}</a>
-                    <a href="${h.secondaryBtn.link}" class="btn btn-outline">${h.secondaryBtn.text}</a>
+                    <a href="${h.primaryBtn.link}" class="btn btn-primary"><span data-edit="home.json:hero.primaryBtn.text">${h.primaryBtn.text}</span></a>
+                    <a href="${h.secondaryBtn.link}" class="btn btn-outline"><span data-edit="home.json:hero.secondaryBtn.text">${h.secondaryBtn.text}</span></a>
                 </div>
             `;
         }
@@ -59,11 +77,12 @@ const CMS = {
         // Research cards
         const cardsEl = document.getElementById('cms-research-cards');
         if (cardsEl && home.researchCards) {
+            cardsEl.setAttribute('data-edit-array', 'home.json:researchCards');
             cardsEl.innerHTML = home.researchCards.map((card, i) => `
-                <a href="${card.link}" class="home-card reveal reveal-delay-${i + 1}">
-                    <div class="home-card-icon">${card.icon}</div>
-                    <h3>${card.title}</h3>
-                    <p>${card.description}</p>
+                <a href="${card.link}" class="home-card reveal reveal-delay-${i + 1}" data-edit-index="${i}">
+                    <div class="home-card-icon" data-edit="home.json:researchCards.${i}.icon">${card.icon}</div>
+                    <h3 data-edit="home.json:researchCards.${i}.title">${card.title}</h3>
+                    <p data-edit="home.json:researchCards.${i}.description">${card.description}</p>
                     <span class="card-arrow">Learn more &rarr;</span>
                 </a>
             `).join('');
@@ -91,7 +110,7 @@ const CMS = {
         if (teamEl && home.teamPreview) {
             teamEl.innerHTML = `
                 <div class="reveal reveal-delay-1">
-                    <p style="font-size: 1.05rem; color: var(--gray-600); max-width: 720px; line-height: 1.8; margin-bottom: 1.5rem;">
+                    <p style="font-size: 1.05rem; color: var(--gray-600); max-width: 720px; line-height: 1.8; margin-bottom: 1.5rem;" data-edit="home.json:teamPreview">
                         ${home.teamPreview}
                     </p>
                     <a href="team.html" class="btn btn-secondary btn-sm">Meet the team &rarr;</a>
@@ -99,7 +118,7 @@ const CMS = {
             `;
         }
 
-        this.observeReveals();
+        this.done();
     },
 
     // =========================================
@@ -112,15 +131,17 @@ const CMS = {
         // Mission
         const missionText = document.getElementById('cms-about-mission');
         if (missionText && data.mission) {
-            missionText.innerHTML = data.mission.map(p => `<p>${p}</p>`).join('');
+            missionText.setAttribute('data-edit-array', 'about.json:mission');
+            missionText.innerHTML = data.mission.map((p, i) => `<p data-edit-index="${i}" data-edit="about.json:mission.${i}">${p}</p>`).join('');
         }
 
         const missionHighlights = document.getElementById('cms-about-highlights');
         if (missionHighlights && data.highlights) {
-            missionHighlights.innerHTML = data.highlights.map(h => `
-                <div class="highlight-card">
-                    <h4>${h.title}</h4>
-                    <p>${h.text}</p>
+            missionHighlights.setAttribute('data-edit-array', 'about.json:highlights');
+            missionHighlights.innerHTML = data.highlights.map((h, i) => `
+                <div class="highlight-card" data-edit-index="${i}">
+                    <h4 data-edit="about.json:highlights.${i}.title">${h.title}</h4>
+                    <p data-edit="about.json:highlights.${i}.text">${h.text}</p>
                 </div>
             `).join('');
         }
@@ -128,20 +149,22 @@ const CMS = {
         // Legal
         const legalText = document.getElementById('cms-about-legal');
         if (legalText && data.legal) {
-            legalText.innerHTML = data.legal.map(p => `<p>${p}</p>`).join('');
+            legalText.setAttribute('data-edit-array', 'about.json:legal');
+            legalText.innerHTML = data.legal.map((p, i) => `<p data-edit-index="${i}" data-edit="about.json:legal.${i}">${p}</p>`).join('');
         }
 
         const legalCards = document.getElementById('cms-about-legal-cards');
         if (legalCards && data.legalCards) {
-            legalCards.innerHTML = data.legalCards.map(c => `
-                <div class="highlight-card">
-                    <h4>${c.title}</h4>
-                    <p>${c.text}</p>
+            legalCards.setAttribute('data-edit-array', 'about.json:legalCards');
+            legalCards.innerHTML = data.legalCards.map((c, i) => `
+                <div class="highlight-card" data-edit-index="${i}">
+                    <h4 data-edit="about.json:legalCards.${i}.title">${c.title}</h4>
+                    <p data-edit="about.json:legalCards.${i}.text">${c.text}</p>
                 </div>
             `).join('');
         }
 
-        this.observeReveals();
+        this.done();
     },
 
     // =========================================
@@ -157,14 +180,16 @@ const CMS = {
             const pi = data.pi;
             piEl.innerHTML = `
                 <div class="team-pi reveal reveal-delay-1">
-                    <div class="team-pi-photo">${pi.initials}</div>
+                    <div class="team-pi-photo" data-edit="team.json:pi.initials">${pi.initials}</div>
                     <div class="team-pi-info">
-                        <h3>${pi.name}</h3>
-                        <div class="team-pi-role">${pi.role}</div>
-                        <div class="team-pi-affiliation">${pi.affiliation}</div>
-                        ${pi.bio.map(b => `<p class="team-pi-bio">${b}</p>`).join('')}
+                        <h3 data-edit="team.json:pi.name">${pi.name}</h3>
+                        <div class="team-pi-role" data-edit="team.json:pi.role">${pi.role}</div>
+                        <div class="team-pi-affiliation" data-edit="team.json:pi.affiliation">${pi.affiliation}</div>
+                        <div data-edit-array="team.json:pi.bio">
+                            ${pi.bio.map((b, i) => `<p class="team-pi-bio" data-edit-index="${i}" data-edit="team.json:pi.bio.${i}">${b}</p>`).join('')}
+                        </div>
                         <div class="team-pi-links">
-                            <a href="mailto:${pi.email}" class="team-link">&#x2709; Email</a>
+                            <a href="mailto:${pi.email}" class="team-link">&#x2709; <span data-edit="team.json:pi.email">${pi.email}</span></a>
                             ${pi.website ? `<a href="${pi.website}" target="_blank" rel="noopener" class="team-link">&#x1F3DB; CEPAP</a>` : ''}
                         </div>
                     </div>
@@ -175,11 +200,12 @@ const CMS = {
         // Core
         const coreEl = document.getElementById('cms-team-core');
         if (coreEl && data.core) {
+            coreEl.setAttribute('data-edit-array', 'team.json:core');
             coreEl.innerHTML = data.core.map((m, i) => `
-                <div class="team-card reveal reveal-delay-${(i % 4) + 1}">
-                    <h4>${m.name}</h4>
-                    <div class="team-card-role">${m.role}</div>
-                    <div class="team-card-affiliation">${m.affiliation}</div>
+                <div class="team-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
+                    <h4 data-edit="team.json:core.${i}.name">${m.name}</h4>
+                    <div class="team-card-role" data-edit="team.json:core.${i}.role">${m.role}</div>
+                    <div class="team-card-affiliation" data-edit="team.json:core.${i}.affiliation">${m.affiliation}</div>
                 </div>
             `).join('');
         }
@@ -187,16 +213,17 @@ const CMS = {
         // Partners
         const partnersEl = document.getElementById('cms-team-partners');
         if (partnersEl && data.partners) {
+            partnersEl.setAttribute('data-edit-array', 'team.json:partners');
             partnersEl.innerHTML = data.partners.map((m, i) => `
-                <div class="team-card reveal reveal-delay-${(i % 4) + 1}">
-                    <h4>${m.name}</h4>
-                    <div class="team-card-role">${m.role}</div>
-                    <div class="team-card-affiliation">${m.affiliation}</div>
+                <div class="team-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
+                    <h4 data-edit="team.json:partners.${i}.name">${m.name}</h4>
+                    <div class="team-card-role" data-edit="team.json:partners.${i}.role">${m.role}</div>
+                    <div class="team-card-affiliation" data-edit="team.json:partners.${i}.affiliation">${m.affiliation}</div>
                 </div>
             `).join('');
         }
 
-        this.observeReveals();
+        this.done();
     },
 
     // =========================================
@@ -212,13 +239,15 @@ const CMS = {
         const pubsEl = document.getElementById('cms-publications');
         if (pubsEl && pubs) {
             const pubList = pubs.items || pubs;
+            const arrPath = pubs.items ? 'publications.json:items' : 'publications.json:';
+            pubsEl.setAttribute('data-edit-array', arrPath);
             pubsEl.innerHTML = pubList.map((p, i) => `
-                <div class="pub-item reveal reveal-delay-${(i % 4) + 1}">
-                    <div class="pub-year">${p.year}</div>
+                <div class="pub-item reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
+                    <div class="pub-year" data-edit="${arrPath}.${i}.year">${p.year}</div>
                     <div class="pub-content">
-                        <h4>${p.title} <span class="pub-badge ${p.status}">${this.statusLabel(p.status)}</span></h4>
-                        <div class="pub-authors">${p.authors}</div>
-                        <div class="pub-venue">${p.venue}</div>
+                        <h4><span data-edit="${arrPath}.${i}.title">${p.title}</span> <span class="pub-badge ${p.status}">${this.statusLabel(p.status)}</span></h4>
+                        <div class="pub-authors" data-edit="${arrPath}.${i}.authors">${p.authors}</div>
+                        <div class="pub-venue" data-edit="${arrPath}.${i}.venue">${p.venue}</div>
                     </div>
                 </div>
             `).join('');
@@ -228,11 +257,13 @@ const CMS = {
         const fundingEl = document.getElementById('cms-funding');
         if (fundingEl && funding) {
             const fundList = funding.items || funding;
+            const fPath = funding.items ? 'funding.json:items' : 'funding.json:';
+            fundingEl.setAttribute('data-edit-array', fPath);
             fundingEl.innerHTML = fundList.map((f, i) => `
-                <div class="project-card reveal reveal-delay-${(i % 4) + 1}">
-                    <div class="project-card-icon">${f.icon}</div>
-                    <h4>${f.name}</h4>
-                    <p>${f.description}</p>
+                <div class="project-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
+                    <div class="project-card-icon" data-edit="${fPath}.${i}.icon">${f.icon}</div>
+                    <h4 data-edit="${fPath}.${i}.name">${f.name}</h4>
+                    <p data-edit="${fPath}.${i}.description">${f.description}</p>
                     <div class="project-card-tags">
                         ${f.tags.map(t => `<span class="project-card-tag">${t}</span>`).join('')}
                     </div>
@@ -240,7 +271,7 @@ const CMS = {
             `).join('');
         }
 
-        this.observeReveals();
+        this.done();
     },
 
     // =========================================
@@ -255,15 +286,15 @@ const CMS = {
         if (featuredEl && data.featured) {
             const f = data.featured;
             featuredEl.innerHTML = `
-                <div class="project-featured-label">${f.label}</div>
-                <h3>${f.title}</h3>
-                <p class="tagline">${f.tagline}</p>
-                <p>${f.description}</p>
-                <div class="project-featured-stats">
-                    ${f.stats.map(s => `
-                        <div class="pf-stat">
-                            <span class="pf-stat-num">${s.number}</span>
-                            <span class="pf-stat-label">${s.label}</span>
+                <div class="project-featured-label" data-edit="projects.json:featured.label">${f.label}</div>
+                <h3 data-edit="projects.json:featured.title">${f.title}</h3>
+                <p class="tagline" data-edit="projects.json:featured.tagline">${f.tagline}</p>
+                <p data-edit="projects.json:featured.description">${f.description}</p>
+                <div class="project-featured-stats" data-edit-array="projects.json:featured.stats">
+                    ${f.stats.map((s, i) => `
+                        <div class="pf-stat" data-edit-index="${i}">
+                            <span class="pf-stat-num" data-edit="projects.json:featured.stats.${i}.number">${s.number}</span>
+                            <span class="pf-stat-label" data-edit="projects.json:featured.stats.${i}.label">${s.label}</span>
                         </div>
                     `).join('')}
                 </div>
@@ -274,11 +305,12 @@ const CMS = {
         // Grid
         const gridEl = document.getElementById('cms-projects-grid');
         if (gridEl && data.grid) {
+            gridEl.setAttribute('data-edit-array', 'projects.json:grid');
             gridEl.innerHTML = data.grid.map((p, i) => `
-                <div class="project-card reveal reveal-delay-${(i % 4) + 1}">
-                    <div class="project-card-icon">${p.icon}</div>
-                    <h4>${p.title}</h4>
-                    <p>${p.description}</p>
+                <div class="project-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
+                    <div class="project-card-icon" data-edit="projects.json:grid.${i}.icon">${p.icon}</div>
+                    <h4 data-edit="projects.json:grid.${i}.title">${p.title}</h4>
+                    <p data-edit="projects.json:grid.${i}.description">${p.description}</p>
                     <div class="project-card-tags">
                         ${p.tags.map(t => `<span class="project-card-tag">${t}</span>`).join('')}
                     </div>
@@ -286,7 +318,7 @@ const CMS = {
             `).join('');
         }
 
-        this.observeReveals();
+        this.done();
     },
 
     // =========================================
@@ -300,16 +332,18 @@ const CMS = {
         if (!el) return;
 
         const eventList = data.items || data;
+        const ePath = data.items ? 'events.json:items' : 'events.json:';
+        el.setAttribute('data-edit-array', ePath);
         el.innerHTML = eventList.map((e, i) => `
-            <div class="event-item reveal reveal-delay-${(i % 4) + 1}">
-                <div class="event-date">${e.date}</div>
-                <h4>${e.title}</h4>
-                <div class="event-location">${e.location}</div>
-                <p class="event-description">${e.description}</p>
+            <div class="event-item reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
+                <div class="event-date" data-edit="${ePath}.${i}.date">${e.date}</div>
+                <h4 data-edit="${ePath}.${i}.title">${e.title}</h4>
+                <div class="event-location" data-edit="${ePath}.${i}.location">${e.location}</div>
+                <p class="event-description" data-edit="${ePath}.${i}.description">${e.description}</p>
             </div>
         `).join('');
 
-        this.observeReveals();
+        this.done();
     },
 
     // =========================================
@@ -321,29 +355,31 @@ const CMS = {
 
         const academicEl = document.getElementById('cms-network-academic');
         if (academicEl && data.academic) {
+            academicEl.setAttribute('data-edit-array', 'network.json:academic');
             academicEl.innerHTML = data.academic.map((n, i) => `
-                <div class="network-card reveal reveal-delay-${(i % 4) + 1}">
-                    <div class="network-card-flag">${n.flag}</div>
-                    <h4>${n.name}</h4>
-                    <div class="network-card-country">${n.country}</div>
-                    <p>${n.description}</p>
+                <div class="network-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
+                    <div class="network-card-flag" data-edit="network.json:academic.${i}.flag">${n.flag}</div>
+                    <h4 data-edit="network.json:academic.${i}.name">${n.name}</h4>
+                    <div class="network-card-country" data-edit="network.json:academic.${i}.country">${n.country}</div>
+                    <p data-edit="network.json:academic.${i}.description">${n.description}</p>
                 </div>
             `).join('');
         }
 
         const civilEl = document.getElementById('cms-network-civil');
         if (civilEl && data.civil_society) {
+            civilEl.setAttribute('data-edit-array', 'network.json:civil_society');
             civilEl.innerHTML = data.civil_society.map((n, i) => `
-                <div class="network-card reveal reveal-delay-${(i % 4) + 1}">
-                    <div class="network-card-flag">${n.flag}</div>
-                    <h4>${n.name}</h4>
-                    <div class="network-card-country">${n.country}</div>
-                    <p>${n.description}</p>
+                <div class="network-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
+                    <div class="network-card-flag" data-edit="network.json:civil_society.${i}.flag">${n.flag}</div>
+                    <h4 data-edit="network.json:civil_society.${i}.name">${n.name}</h4>
+                    <div class="network-card-country" data-edit="network.json:civil_society.${i}.country">${n.country}</div>
+                    <p data-edit="network.json:civil_society.${i}.description">${n.description}</p>
                 </div>
             `).join('');
         }
 
-        this.observeReveals();
+        this.done();
     },
 
     // =========================================
@@ -360,35 +396,35 @@ const CMS = {
                     <div class="contact-item-icon">&#x1F3DB;</div>
                     <div class="contact-item-text">
                         <h4>Research Centre</h4>
-                        <p>${data.centre}</p>
+                        <p data-edit="contact.json:centre">${data.centre}</p>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-item-icon">&#x1F4CD;</div>
                     <div class="contact-item-text">
                         <h4>Address</h4>
-                        <p>${data.address}</p>
+                        <p data-edit="contact.json:address">${data.address}</p>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-item-icon">&#x2709;</div>
                     <div class="contact-item-text">
                         <h4>Email</h4>
-                        <p><a href="mailto:${data.email}">${data.email}</a></p>
+                        <p><a href="mailto:${data.email}"><span data-edit="contact.json:email">${data.email}</span></a></p>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-item-icon">&#x1F4DE;</div>
                     <div class="contact-item-text">
                         <h4>Phone</h4>
-                        <p>${data.phone}</p>
+                        <p data-edit="contact.json:phone">${data.phone}</p>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-item-icon">&#x1F310;</div>
                     <div class="contact-item-text">
                         <h4>CEPAP Website</h4>
-                        <p><a href="${data.website}" target="_blank" rel="noopener noreferrer">${data.websiteLabel}</a></p>
+                        <p><a href="${data.website}" target="_blank" rel="noopener noreferrer"><span data-edit="contact.json:websiteLabel">${data.websiteLabel}</span></a></p>
                     </div>
                 </div>
             `;
@@ -410,7 +446,7 @@ const CMS = {
             `;
         }
 
-        this.observeReveals();
+        this.done();
     },
 
     // =========================================
@@ -425,15 +461,17 @@ const CMS = {
         if (overviewEl && data.overview) {
             const o = data.overview;
             overviewEl.innerHTML = `
-                <div class="project-featured-label">${o.label}</div>
-                <h3>${o.title}</h3>
-                <p class="tagline">${o.tagline}</p>
-                ${o.paragraphs.map(p => `<p>${p}</p>`).join('')}
-                <div class="project-featured-stats">
-                    ${o.stats.map(s => `
-                        <div class="pf-stat">
-                            <span class="pf-stat-num">${s.number}</span>
-                            <span class="pf-stat-label">${s.label}</span>
+                <div class="project-featured-label" data-edit="transact.json:overview.label">${o.label}</div>
+                <h3 data-edit="transact.json:overview.title">${o.title}</h3>
+                <p class="tagline" data-edit="transact.json:overview.tagline">${o.tagline}</p>
+                <div data-edit-array="transact.json:overview.paragraphs">
+                    ${o.paragraphs.map((p, i) => `<p data-edit-index="${i}" data-edit="transact.json:overview.paragraphs.${i}">${p}</p>`).join('')}
+                </div>
+                <div class="project-featured-stats" data-edit-array="transact.json:overview.stats">
+                    ${o.stats.map((s, i) => `
+                        <div class="pf-stat" data-edit-index="${i}">
+                            <span class="pf-stat-num" data-edit="transact.json:overview.stats.${i}.number">${s.number}</span>
+                            <span class="pf-stat-label" data-edit="transact.json:overview.stats.${i}.label">${s.label}</span>
                         </div>
                     `).join('')}
                 </div>
@@ -443,12 +481,13 @@ const CMS = {
         // Methodology steps
         const stepsEl = document.getElementById('cms-transact-steps');
         if (stepsEl && data.methodology) {
-            stepsEl.innerHTML = data.methodology.map(m => `
-                <div class="method-step">
-                    <div class="method-step-num">${m.step}</div>
+            stepsEl.setAttribute('data-edit-array', 'transact.json:methodology');
+            stepsEl.innerHTML = data.methodology.map((m, i) => `
+                <div class="method-step" data-edit-index="${i}">
+                    <div class="method-step-num" data-edit="transact.json:methodology.${i}.step">${m.step}</div>
                     <div class="method-step-content">
-                        <h4>${m.title}</h4>
-                        <p>${m.description}</p>
+                        <h4 data-edit="transact.json:methodology.${i}.title">${m.title}</h4>
+                        <p data-edit="transact.json:methodology.${i}.description">${m.description}</p>
                     </div>
                 </div>
             `).join('');
@@ -457,10 +496,11 @@ const CMS = {
         // Profiles
         const profilesEl = document.getElementById('cms-transact-profiles');
         if (profilesEl && data.profiles) {
-            profilesEl.innerHTML = data.profiles.map(p => `
-                <div class="treatment-item">
-                    <div class="treatment-letter">${p.letter}</div>
-                    <span><strong>${p.label}</strong> &mdash; ${p.description}</span>
+            profilesEl.setAttribute('data-edit-array', 'transact.json:profiles');
+            profilesEl.innerHTML = data.profiles.map((p, i) => `
+                <div class="treatment-item" data-edit-index="${i}">
+                    <div class="treatment-letter" data-edit="transact.json:profiles.${i}.letter">${p.letter}</div>
+                    <span><strong data-edit="transact.json:profiles.${i}.label">${p.label}</strong> &mdash; <span data-edit="transact.json:profiles.${i}.description">${p.description}</span></span>
                 </div>
             `).join('');
         }
@@ -468,12 +508,13 @@ const CMS = {
         // Findings
         const findingsEl = document.getElementById('cms-transact-findings');
         if (findingsEl && data.findings) {
+            findingsEl.setAttribute('data-edit-array', 'transact.json:findings');
             findingsEl.innerHTML = data.findings.map((f, i) => `
-                <div class="finding-card reveal reveal-delay-${(i % 4) + 1}">
-                    <div class="finding-card-icon">${f.icon}</div>
-                    ${f.stat ? `<span class="finding-stat">${f.stat}</span>` : ''}
-                    <h4>${f.title}</h4>
-                    <p>${f.description}</p>
+                <div class="finding-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
+                    <div class="finding-card-icon" data-edit="transact.json:findings.${i}.icon">${f.icon}</div>
+                    ${f.stat ? `<span class="finding-stat" data-edit="transact.json:findings.${i}.stat">${f.stat}</span>` : ''}
+                    <h4 data-edit="transact.json:findings.${i}.title">${f.title}</h4>
+                    <p data-edit="transact.json:findings.${i}.description">${f.description}</p>
                 </div>
             `).join('');
         }
@@ -481,11 +522,12 @@ const CMS = {
         // Expansion
         const expansionEl = document.getElementById('cms-transact-expansion');
         if (expansionEl && data.expansion) {
+            expansionEl.setAttribute('data-edit-array', 'transact.json:expansion');
             expansionEl.innerHTML = data.expansion.map((e, i) => `
-                <div class="project-card reveal reveal-delay-${(i % 4) + 1}">
-                    <div class="project-card-icon">${e.icon}</div>
-                    <h4>${e.country}</h4>
-                    <p>${e.description}</p>
+                <div class="project-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
+                    <div class="project-card-icon" data-edit="transact.json:expansion.${i}.icon">${e.icon}</div>
+                    <h4 data-edit="transact.json:expansion.${i}.country">${e.country}</h4>
+                    <p data-edit="transact.json:expansion.${i}.description">${e.description}</p>
                     <div class="project-card-tags">
                         ${e.tags.map(t => `<span class="project-card-tag">${t}</span>`).join('')}
                     </div>
@@ -493,7 +535,7 @@ const CMS = {
             `).join('');
         }
 
-        this.observeReveals();
+        this.done();
     },
 
     // =========================================
@@ -530,3 +572,6 @@ document.addEventListener('DOMContentLoaded', () => {
         renderers[page]();
     }
 });
+
+// Expose for the inline editor
+window.CMS = CMS;
