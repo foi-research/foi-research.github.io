@@ -399,6 +399,10 @@ const CMS = {
                     html += `<div class="event-files">` + e.files.map((f) =>
                         `<a class="event-file" href="${f.url}" target="_blank" rel="noopener">&#x1F4C4; ${f.label}</a>`).join('') + `</div>`;
                 }
+                if (e.links && e.links.length) {
+                    html += `<div class="event-links">` + e.links.map((l) =>
+                        `<a class="event-link" href="${l.url}" target="_blank" rel="noopener">${l.label} &rarr;</a>`).join('') + `</div>`;
+                }
                 if (e.trailingImages && e.trailingImages.length) {
                     html += `<div class="event-photos">` + e.trailingImages.map((im) =>
                         `<a class="event-photo" href="${im.image}" data-img="${im.image}" title="${im.caption || ''}">

@@ -1575,3 +1575,6 @@ h1, h2, h3, h4 {
 .event-files { margin-top: 0.9rem; display: flex; flex-wrap: wrap; gap: 0.6rem; }
 .event-file { display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; font-size: 0.9rem; background: var(--blue-light); color: var(--blue-deep); padding: 0.5rem 0.9rem; border-radius: 8px; }
 .event-file:hover { background: var(--blue-accent); color: #fff; }
+.event-links { margin-top: 0.9rem; }
+.event-link { display: inline-flex; align-items: center; font-weight: 600; font-size: 0.92rem; color: var(--blue-accent); }
+.event-link:hover { color: var(--blue-deep); }
