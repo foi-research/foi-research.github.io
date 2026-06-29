@@ -1,13 +1,6 @@
 {
   "intro": "TRANSACT is committed to making research accessible beyond academia. Through collaborations with journalists, civic technology organizations, and international transparency networks, the project seeks to foster public debate on Freedom of Information (FOI), promote evidence-based policymaking, and strengthen collaboration between researchers and civil society.",
-  "gallery": [
-    {
-      "image": "assets/media/img_4634.jpg",
-      "caption": "TRANSACT",
-      "alt": "TRANSACT",
-      "link": "about.html"
-    }
-  ],
+  "gallery": [],
   "sections": [
     {
       "category": "National Media",
