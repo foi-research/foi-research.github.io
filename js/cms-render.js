@@ -190,15 +190,19 @@ const CMS = {
     async renderPartners() {
         const data = await this.fetchJSON('partners.json');
         if (!data) return;
+
+        const introEl = document.getElementById('cms-partners-intro');
+        if (introEl && data.intro !== undefined) {
+            introEl.innerHTML = `<p data-edit="partners.json:intro">${data.intro}</p>`;
+        }
+
         const el = document.getElementById('cms-partners');
         if (!el) return;
-        const list = data.items || data;
+        const list = data.items || [];
         el.setAttribute('data-edit-array', 'partners.json:items');
         el.innerHTML = list.map((n, i) => `
-            <div class="network-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
-                ${n.flag ? `<div class="network-card-flag" data-edit="partners.json:items.${i}.flag">${n.flag}</div>` : ''}
+            <div class="partner-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
                 <h4 data-edit="partners.json:items.${i}.name">${n.name}</h4>
-                ${n.country ? `<div class="network-card-country" data-edit="partners.json:items.${i}.country">${n.country}</div>` : ''}
                 <p data-edit="partners.json:items.${i}.description">${n.description || ''}</p>
             </div>
         `).join('');
@@ -328,22 +332,44 @@ const CMS = {
     async renderEvents() {
         const data = await this.fetchJSON('events.json');
         if (!data) return;
-
         const el = document.getElementById('cms-events');
         if (!el) return;
+        el.removeAttribute('data-edit-array');
 
-        const eventList = data.items || data;
-        const ePath = data.items ? 'events.json:items' : 'events.json:';
-        el.setAttribute('data-edit-array', ePath);
-        el.innerHTML = eventList.map((e, i) => `
-            <div class="event-item reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
-                <div class="event-date" data-edit="${ePath}.${i}.date">${e.date}</div>
-                <h4 data-edit="${ePath}.${i}.title">${e.title}</h4>
-                <div class="event-location" data-edit="${ePath}.${i}.location">${e.location}</div>
-                <p class="event-description" data-edit="${ePath}.${i}.description">${e.description}</p>
-            </div>
-        `).join('');
-
+        let html = '';
+        if (data.intro !== undefined) {
+            html += `<p class="events-intro" data-edit="events.json:intro">${data.intro}</p>`;
+        }
+        (data.years || []).forEach((y, yi) => {
+            html += `<div class="events-year reveal">
+                <h3 class="events-year-title" data-edit="events.json:years.${yi}.year">${y.year}</h3>
+                <div data-edit-array="events.json:years.${yi}.events">`;
+            (y.events || []).forEach((e, ei) => {
+                const base = `events.json:years.${yi}.events.${ei}`;
+                html += `<div class="event-item" data-edit-index="${ei}">
+                    <h4 class="event-venue" data-edit="${base}.name">${e.name}</h4>
+                    <div class="event-meta">
+                        <span class="event-location" data-edit="${base}.location">${e.location}</span>
+                        <span class="event-dot">&middot;</span>
+                        <span class="event-date" data-edit="${base}.date">${e.date}</span>
+                    </div>
+                    <div class="event-contribs" data-edit-array="${base}.items">`;
+                (e.items || []).forEach((it, ii) => {
+                    const ib = `${base}.items.${ii}`;
+                    html += `<div class="event-contrib" data-edit-index="${ii}">
+                        ${it.type ? `<span class="contrib-type" data-edit="${ib}.type">${it.type}</span>` : ''}
+                        <div class="contrib-title" data-edit="${ib}.title">${it.title}</div>
+                        <div class="contrib-lines" data-edit-array="${ib}.lines">
+                            ${(it.lines || []).map((ln, li) =>
+                                `<div class="contrib-line" data-edit-index="${li}" data-edit="${ib}.lines.${li}">${ln}</div>`).join('')}
+                        </div>
+                    </div>`;
+                });
+                html += `</div></div>`;
+            });
+            html += `</div></div>`;
+        });
+        el.innerHTML = html;
         this.done();
     },
 

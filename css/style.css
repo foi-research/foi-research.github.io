@@ -1442,3 +1442,42 @@ h1, h2, h3, h4 {
     color: var(--blue-deep);
     margin: 1.75rem 0 1.1rem;
 }
+
+/* ============================================
+   EVENTS (structured: year > venue > contributions)
+   ============================================ */
+#cms-events { display: block; }
+.events-intro { max-width: 840px; font-size: 1.05rem; line-height: 1.85; color: var(--gray-700); margin-bottom: 2.5rem; }
+.events-year { margin-bottom: 3rem; }
+.events-year-title {
+    font-family: var(--font-heading); font-size: 1.8rem; color: var(--blue-deep);
+    margin: 0 0 1.3rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--gold); display: inline-block;
+}
+.event-item {
+    background: #fff; border: 1px solid var(--gray-200); border-radius: 12px;
+    padding: 1.5rem 1.75rem; margin-bottom: 1.1rem;
+}
+.event-venue { font-family: var(--font-heading); font-size: 1.2rem; color: var(--blue-deep); margin: 0 0 0.3rem; }
+.event-meta { font-size: 0.9rem; color: var(--gray-500); margin-bottom: 1.1rem; }
+.event-dot { margin: 0 0.45rem; }
+.event-contribs { display: flex; flex-direction: column; gap: 1.1rem; }
+.event-contrib { border-left: 3px solid var(--blue-accent); padding-left: 1rem; }
+.contrib-type {
+    display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--blue-accent); margin-bottom: 0.3rem;
+}
+.contrib-title { font-weight: 600; color: var(--gray-800); line-height: 1.5; margin-bottom: 0.4rem; }
+.contrib-line { font-size: 0.92rem; color: var(--gray-600); line-height: 1.65; }
+
+/* ============================================
+   PARTNERS cards
+   ============================================ */
+#cms-partners { display: block; }
+.partner-card {
+    background: #fff; border: 1px solid var(--gray-200); border-radius: 12px;
+    padding: 1.6rem 1.75rem; margin-bottom: 1.1rem;
+}
+.partner-card h4 { font-family: var(--font-heading); font-size: 1.25rem; color: var(--blue-deep); margin: 0 0 0.6rem; }
+.partner-card p { color: var(--gray-700); line-height: 1.75; }
+#cms-partners-intro { margin-bottom: 2.2rem; max-width: 840px; }
+#cms-partners-intro p { font-size: 1.05rem; line-height: 1.85; color: var(--gray-700); }

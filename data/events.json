@@ -1,34 +1,164 @@
 {
-  "items": [
+  "intro": "TRANSACT actively contributes to the international research community through workshops, conference presentations, invited lectures, and the organization of scientific panels. These activities foster collaboration, disseminate research findings, and strengthen an international network dedicated to Freedom of Information (FOI), transparency, and democratic governance.",
+  "years": [
     {
-      "date": "2026 &mdash; Ottawa, Canada",
-      "title": "IWPP5 &mdash; International Workshop on Public Policy",
-      "location": "Ottawa, Canada",
-      "description": "Presenting the paper &ldquo;Selective Transparency at Scale: Topic Modeling, Sentiment Analysis, and Multinomial Evidence on FOI Responsiveness&rdquo; in Track T09W02 &mdash; Machine Learning, NLP and LLMs for Policy Issues."
+      "year": "2026",
+      "events": [
+        {
+          "name": "International Workshops on Public Policy (IWPP5)",
+          "location": "Ottawa, Canada",
+          "date": "7 July 2026",
+          "items": [
+            {
+              "type": "Paper",
+              "title": "Selective Transparency at Scale: An LLM-Augmented NLP Pipeline for Auditable Evidence on FOI Responsiveness",
+              "lines": [
+                "Authors: Enrico Quaglia, Vincent Mabillard & Giovanni Esposito",
+                "Session: T09W02 – Machine Learning, NLP & LLMs for Policy Issues"
+              ]
+            },
+            {
+              "type": "Paper",
+              "title": "What Comes Before the Agenda-Setting? An Appraisal-Based Model of Citizen Engagement with Policy Information",
+              "lines": [
+                "Authors: Giovanni Esposito, Andrea Terlizzi, Igor Tkalec & Irene Cogliati Dezza",
+                "Session: T09W02 – Machine Learning, NLP & LLMs for Policy Issues"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "European Network for Public Administration (ENPA)",
+          "location": "Bucharest, Romania",
+          "date": "22–25 April 2026",
+          "items": [
+            {
+              "type": "Paper",
+              "title": "Comparative Field Experiments on Freedom of Information Implementation in Switzerland",
+              "lines": [
+                "Authors: Vincent Mabillard, Martial Pasquier, Dominique Hanni, Giuseppe Lucio Gaeta, Giovanni Esposito & Lorenzo Cicatiello"
+              ]
+            },
+            {
+              "type": "Paper",
+              "title": "“Everyone is Equal Before the Law”: Assessing Gendered Information Needs and Administrative Responsiveness",
+              "lines": [
+                "Authors: Julia Trautendorfer, Vincent Mabillard, Enrico Quaglia & Giovanni Esposito"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Italian Political Science Association (SISP)",
+          "location": "Trento, Italy",
+          "date": "3–5 September 2026",
+          "items": [
+            {
+              "type": "Paper",
+              "title": "Measuring the Effectiveness of Transparency Policy Design: A Global Audit Study of Freedom of Information Implementation",
+              "lines": [
+                "Authors: Giovanni Esposito & Maria Žuffová",
+                "Panel: 6.1 – Measuring Policy Design Dimensions: Effectiveness, Capacity, and Robustness"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "date": "2026 &mdash; Ottawa, Canada",
-      "title": "GCTR 2026 &mdash; Global Conference on Transparency Research",
-      "location": "Ottawa, Canada",
-      "description": "Biennial Global Conference on Transparency Research, bringing together scholars, policymakers, and practitioners to discuss the latest advances in transparency and accountability research worldwide."
+      "year": "2025",
+      "events": [
+        {
+          "name": "Public Management Research Conference (PMRC 2025)",
+          "location": "Seoul National University, South Korea",
+          "date": "25–28 June 2025",
+          "items": [
+            {
+              "type": "Paper",
+              "title": "Managing Transparency: A Systematic Literature Review on Barriers to Freedom of Information Laws (2004–2023)",
+              "lines": [
+                "Authors: Giovanni Esposito, Vincent Mabillard, Lorenzo Cicatiello & Giuseppe Lucio Gaeta"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "7th International Conference on Public Policy (ICPP7)",
+          "location": "Chiang Mai University, Thailand",
+          "date": "2–4 July 2025",
+          "items": [
+            {
+              "type": "Organized Panel",
+              "title": "Design, Implementation, and Challenges of Transparency Policies",
+              "lines": [
+                "Chair: Giovanni Esposito",
+                "Discussants: Vincent Mabillard & Lorenzo Cicatiello"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Public Management Research Conference (PMRC 2025)",
+          "location": "Seoul National University, South Korea",
+          "date": "25–28 June 2025",
+          "items": [
+            {
+              "type": "Organized Panel",
+              "title": "Transparency",
+              "lines": [
+                "Chairs and Discussants: Giovanni Esposito & Vincent Mabillard"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "International Workshop",
+          "location": "Université libre de Bruxelles (Belgium)",
+          "date": "27–28 March 2025",
+          "items": [
+            {
+              "type": "",
+              "title": "Transparency in Action – International Perspectives from Experimental Research on Freedom of Information Laws",
+              "lines": [
+                "TRANSACT organized a two-day international workshop bringing together leading scholars and practitioners working on Freedom of Information laws and transparency governance. The workshop combined research presentations, roundtables with civil society organizations, and collaborative sessions dedicated to designing comparative field experiments in Belgium, Romania, Switzerland, South Africa, and Uganda. It laid the foundations for the international research network that now supports the TRANSACT project."
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "date": "March 27&ndash;28, 2025 &mdash; ULB, Brussels",
-      "title": "International Research Meeting on FOI",
-      "location": "Universit&eacute; libre de Bruxelles, Belgium",
-      "description": "Two-day international research meeting on Freedom of Information, hosted at ULB Brussels. Gathered 49 participants from more than 10 countries. Funded by the FNRS (Fonds de la Recherche Scientifique)."
-    },
-    {
-      "date": "May 2024 &mdash; Brussels",
-      "title": "GCTR 2024 &mdash; Global Conference on Transparency Research",
-      "location": "Brussels, Belgium",
-      "description": "Co-organised the 2024 edition of the Global Conference on Transparency Research, held in Brussels. Presented findings on FOI implementation and responsiveness from our Belgian field experiment and platform analysis."
-    },
-    {
-      "date": "2023 &mdash; Brussels, Belgium",
-      "title": "TRANSACT Belgian Field Experiment",
-      "location": "Brussels, Belgium",
-      "description": "Launch and execution of the TRANSACT field experiment across all 581 Belgian municipalities. FOI requests sent between March 13&ndash;15, 2023; data collection officially closed on May 10, 2023."
+      "year": "2024",
+      "events": [
+        {
+          "name": "8th Global Conference on Transparency Research (GCTR)",
+          "location": "Université libre de Bruxelles, Belgium",
+          "date": "15–17 May 2024",
+          "items": [
+            {
+              "type": "Organized Panel",
+              "title": "Public Policy Perspectives on Transparency and Open Government",
+              "lines": [
+                "Chairs: Giovanni Esposito & Andrea Terlizzi"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Invited Seminar — University of Padua",
+          "location": "Department of Political, Legal and International Studies (SPGI), Italy",
+          "date": "31 May 2024",
+          "items": [
+            {
+              "type": "Seminar",
+              "title": "Towards a Citizen Science Framework for Public Policy Evaluation: Lessons from an Experimental Study on Freedom of Information Laws in Belgium",
+              "lines": [
+                "Speaker: Giovanni Esposito"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
