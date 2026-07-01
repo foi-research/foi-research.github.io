@@ -140,11 +140,11 @@ const CMS = {
         if (!el || !data.blocks) return;
         // two figures floated into the running text (Word-style): chart near the top, map just below it
         const chartFig = `<figure class="float-figure"><img src="assets/about/foi-adoption.jpg" alt="Adoption of access to information laws, 1950-2020" data-img="assets/about/foi-adoption.jpg" loading="lazy"/><figcaption>Adoption of access to information laws by regime, 1950&ndash;2020. Source: article19.org</figcaption></figure>`;
-        const mapFig = `<figure class="float-figure"><img src="assets/team/coverage-map.png" alt="Countries covered by the TRANSACT network" data-img="assets/team/coverage-map.png" loading="lazy"/><figcaption>Countries covered by the TRANSACT network</figcaption></figure>`;
+        const mapFig = `<figure class="float-figure float-left"><img src="assets/team/coverage-map.png" alt="Countries covered by the TRANSACT network" data-img="assets/team/coverage-map.png" loading="lazy"/><figcaption>Countries covered by the TRANSACT network</figcaption></figure>`;
         el.setAttribute('data-edit-array', 'about.json:blocks');
         el.innerHTML = data.blocks.map((b, i) => {
             const base = `about.json:blocks.${i}`;
-            const pre = i === 0 ? chartFig : (i === 3 ? mapFig : '');
+            const pre = i === 0 ? chartFig : (i === 10 ? mapFig : '');
             if (b.type === 'h')  return pre + `<h2 class="about-h2" data-edit-index="${i}" data-edit="${base}.text">${b.text}</h2>`;
             if (b.type === 'h3') return pre + `<h3 class="about-h3" data-edit-index="${i}" data-edit="${base}.text">${b.text}</h3>`;
             if (b.type === 'ul') return pre + `<ul class="about-ul" data-edit-index="${i}">${(b.items || []).map((it, j) =>
@@ -159,10 +159,16 @@ const CMS = {
     // TEAM PAGE  (grouped: PI, Co-PI, Advisory Board, Research Team,
     //             Local Research Teams [subgroups], Collaborators)
     // =========================================
+    initials(name) {
+        return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join('').toUpperCase();
+    },
     memberCard(base, i, m) {
+        const avatar = m.photo
+            ? `<img class="team-photo" src="${m.photo}" alt="${m.name}" loading="lazy"/>`
+            : `<div class="team-photo team-avatar" aria-hidden="true">${this.initials(m.name)}</div>`;
         return `
-            <div class="team-card reveal reveal-delay-${(i % 4) + 1}${m.photo ? ' has-photo' : ''}" data-edit-index="${i}">
-                ${m.photo ? `<img class="team-photo" src="${m.photo}" alt="${m.name}" loading="lazy"/>` : ''}
+            <div class="team-card reveal reveal-delay-${(i % 4) + 1} has-photo" data-edit-index="${i}">
+                ${avatar}
                 <div class="team-card-body">
                     <h4 data-edit="${base}.${i}.name">${m.name}</h4>
                     ${m.role ? `<div class="team-card-role" data-edit="${base}.${i}.role">${m.role}</div>` : ''}
