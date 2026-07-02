@@ -140,7 +140,7 @@ const CMS = {
         if (!el || !data.blocks) return;
         // two figures floated into the running text (Word-style): chart near the top, map just below it
         const chartFig = `<figure class="float-figure"><img src="assets/about/foi-adoption.jpg" alt="Adoption of access to information laws, 1950-2020" data-img="assets/about/foi-adoption.jpg" loading="lazy"/><figcaption>Adoption of access to information laws by regime, 1950&ndash;2020. Source: article19.org</figcaption></figure>`;
-        const mapFig = `<figure class="float-figure"><img src="assets/team/coverage-map.png" alt="Countries covered by the TRANSACT network" data-img="assets/team/coverage-map.png" loading="lazy"/><figcaption>Countries covered by the TRANSACT network</figcaption></figure>`;
+        const mapFig = `<figure class="float-figure map-fig"><img src="assets/team/coverage-map.png" alt="Countries covered by the TRANSACT network" data-img="assets/team/coverage-map.png" loading="lazy"/><figcaption>Countries covered by the TRANSACT network</figcaption></figure>`;
         el.setAttribute('data-edit-array', 'about.json:blocks');
         el.innerHTML = data.blocks.map((b, i) => {
             const base = `about.json:blocks.${i}`;
