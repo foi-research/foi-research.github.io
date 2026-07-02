@@ -148,6 +148,13 @@
               "lines": [
                 "Authors: Giovanni Esposito, Vincent Mabillard, Lorenzo Cicatiello & Giuseppe Lucio Gaeta"
               ]
+            },
+            {
+              "type": "Organized Panel",
+              "title": "Transparency",
+              "lines": [
+                "Chairs and Discussants: Giovanni Esposito & Vincent Mabillard"
+              ]
             }
           ],
           "images": [
@@ -158,23 +165,7 @@
             {
               "image": "assets/events/pmrc-paper-2.jpg",
               "caption": "PMRC 2025, Seoul"
-            }
-          ]
-        },
-        {
-          "name": "Public Management Research Conference (PMRC 2025)",
-          "location": "Seoul National University, South Korea",
-          "date": "25–28 June 2025",
-          "items": [
-            {
-              "type": "Organized Panel",
-              "title": "Transparency",
-              "lines": [
-                "Chairs and Discussants: Giovanni Esposito & Vincent Mabillard"
-              ]
-            }
-          ],
-          "images": [
+            },
             {
               "image": "assets/events/pmrc-panel-1.jpg",
               "caption": "PMRC 2025 — Conference dinner"
