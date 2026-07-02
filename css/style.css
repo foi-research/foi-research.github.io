@@ -1521,8 +1521,9 @@ h1, h2, h3, h4 {
 .img-lightbox-close { position: absolute; top: 14px; right: 26px; color: #fff; font-size: 2.6rem; line-height: 1; cursor: pointer; }
 .img-popup { cursor: pointer; color: var(--blue-accent); border-bottom: 1px dotted currentColor; }
 .img-popup:hover { color: var(--blue-deep); }
-/* About (block content) */
-#cms-about-body { max-width: 860px; }
+/* About (block content) — fill the content-container width so text wraps around the right-floated figures (no dead whitespace on the right) */
+#cms-about-body { max-width: none; }
+#cms-about-body p, #cms-about-body ul { max-width: 100%; }
 .about-h2 { font-family: var(--font-heading); font-size: 1.6rem; color: var(--blue-deep); margin: 2.4rem 0 1rem; }
 .about-h3 { font-family: var(--font-heading); font-size: 1.2rem; color: var(--blue-deep); font-weight: 600; margin: 1.6rem 0 0.7rem; }
 .about-ul { margin: 0 0 1.4rem 1.3rem; }
