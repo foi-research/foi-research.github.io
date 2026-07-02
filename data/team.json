@@ -51,8 +51,7 @@
         {
           "name": "Enrico Quaglia",
           "affiliation": "University of Genoa, Italy",
-          "role": "Research Assistant",
-          "photo": "assets/team/quaglia.jpg"
+          "role": "Research Assistant"
         },
         {
           "name": "Lise Delfosse",
@@ -68,7 +67,8 @@
         {
           "name": "Aurore Neuray",
           "affiliation": "Université libre de Bruxelles (ULB), Belgium",
-          "role": "Logistics and Project Support"
+          "role": "Logistics and Project Support",
+          "photo": "assets/team/neuray.jpg"
         }
       ]
     },
