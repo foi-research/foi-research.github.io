@@ -17,7 +17,8 @@
         {
           "name": "Vincent Mabillard",
           "affiliation": "Université libre de Bruxelles (ULB), Belgium",
-          "role": "Solvay Brussels School of Economics and Management"
+          "role": "Solvay Brussels School of Economics and Management",
+          "photo": "assets/team/mabillard.jpg"
         }
       ]
     },
@@ -27,17 +28,20 @@
         {
           "name": "Giuseppe Lucio Gaeta",
           "affiliation": "University of Naples “L’Orientale”, Italy",
-          "role": ""
+          "role": "",
+          "photo": "assets/team/gaeta.jpg"
         },
         {
           "name": "Lorenzo Cicatiello",
           "affiliation": "University of Naples “L’Orientale”, Italy",
-          "role": ""
+          "role": "",
+          "photo": "assets/team/cicatiello.jpg"
         },
         {
           "name": "Ben Worthy",
           "affiliation": "Birkbeck, University of London, United Kingdom",
-          "role": ""
+          "role": "",
+          "photo": "assets/team/worthy.jpg"
         }
       ]
     },
@@ -47,12 +51,14 @@
         {
           "name": "Enrico Quaglia",
           "affiliation": "University of Genoa, Italy",
-          "role": "Research Assistant"
+          "role": "Research Assistant",
+          "photo": "assets/team/quaglia.jpg"
         },
         {
           "name": "Lise Delfosse",
           "affiliation": "Université libre de Bruxelles (ULB), Belgium",
-          "role": "Research Assistant"
+          "role": "Research Assistant",
+          "photo": "assets/team/delfosse.jpg"
         },
         {
           "name": "Adrian Sabau",
@@ -75,12 +81,14 @@
             {
               "name": "Monica Ardeleanu",
               "affiliation": "University of Bucharest, Romania",
-              "role": ""
+              "role": "",
+              "photo": "assets/team/ardeleanu.jpg"
             },
             {
               "name": "Raluca Onufreiciuc",
               "affiliation": "University of Suceava, Romania; Paris Panthéon-Assas University, France",
-              "role": ""
+              "role": "",
+              "photo": "assets/team/onufreiciuc.jpg"
             }
           ]
         },
@@ -90,12 +98,14 @@
             {
               "name": "Martial Pasquier",
               "affiliation": "University of Lausanne (UNIL), Switzerland",
-              "role": ""
+              "role": "",
+              "photo": "assets/team/pasquier.jpg"
             },
             {
               "name": "Dominique Hanni",
               "affiliation": "University of Lausanne (UNIL), Switzerland",
-              "role": ""
+              "role": "",
+              "photo": "assets/team/hanni.jpg"
             }
           ]
         }
@@ -107,27 +117,32 @@
         {
           "name": "Julia Trautendorfer",
           "affiliation": "Johannes Kepler University Linz, Austria",
-          "role": ""
+          "role": "",
+          "photo": "assets/team/trautendorfer.jpg"
         },
         {
           "name": "Igor Tkalec",
           "affiliation": "University College London (UCL), United Kingdom",
-          "role": ""
+          "role": "",
+          "photo": "assets/team/tkalec.jpg"
         },
         {
           "name": "Irene Cogliati Dezza",
           "affiliation": "Université libre de Bruxelles (ULB), Belgium",
-          "role": ""
+          "role": "",
+          "photo": "assets/team/cogliati-dezza.jpg"
         },
         {
           "name": "Andrea Terlizzi",
           "affiliation": "University of Florence, Italy",
-          "role": ""
+          "role": "",
+          "photo": "assets/team/terlizzi.jpg"
         },
         {
           "name": "Maria Žuffová",
           "affiliation": "European University Institute, Italy",
-          "role": ""
+          "role": "",
+          "photo": "assets/team/zuffova.jpg"
         }
       ]
     }
