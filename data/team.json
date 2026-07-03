@@ -57,8 +57,7 @@
         {
           "name": "Lise Delfosse",
           "affiliation": "Université libre de Bruxelles (ULB), Belgium",
-          "role": "Research Assistant",
-          "photo": "assets/team/delfosse.jpg"
+          "role": "Research Assistant"
         },
         {
           "name": "Adrian Sabau",
@@ -69,8 +68,7 @@
         {
           "name": "Aurore Neuray",
           "affiliation": "Université libre de Bruxelles (ULB), Belgium",
-          "role": "Logistics and Project Support",
-          "photo": "assets/team/neuray.jpg"
+          "role": "Logistics and Project Support"
         }
       ]
     },
