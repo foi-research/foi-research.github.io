@@ -61,10 +61,10 @@ const CMS = {
         if (heroEl && home.hero) {
             const h = home.hero;
             heroEl.innerHTML = `
-                <div class="hero-badge">
+                ${h.badge ? `<div class="hero-badge">
                     <div class="hero-badge-dot"></div>
                     <span data-edit="home.json:hero.badge">${h.badge}</span>
-                </div>
+                </div>` : ''}
                 <h1 data-edit="home.json:hero.title">${h.title}</h1>
                 <p class="hero-description" data-edit="home.json:hero.description">${h.description}</p>
                 <div class="hero-actions">
@@ -138,13 +138,13 @@ const CMS = {
 
         const el = document.getElementById('cms-about-body');
         if (!el || !data.blocks) return;
-        // two figures floated into the running text (Word-style): chart near the top, map just below it
+        // two figures stacked & floated right at the top (Word-style): map on top, chart just below it, spaced
         const chartFig = `<figure class="float-figure"><img src="assets/about/foi-adoption.jpg" alt="Adoption of access to information laws, 1950-2020" data-img="assets/about/foi-adoption.jpg" loading="lazy"/><figcaption>Adoption of access to information laws by regime, 1950&ndash;2020. Source: article19.org</figcaption></figure>`;
-        const mapFig = `<figure class="float-figure map-fig"><img src="assets/team/coverage-map.png" alt="Countries covered by the TRANSACT network" data-img="assets/team/coverage-map.png" loading="lazy"/><figcaption>Countries covered by the TRANSACT network</figcaption></figure>`;
+        const mapFig = `<figure class="float-figure map-fig" style="margin-bottom:2rem;"><img src="assets/team/coverage-map.png" alt="Countries covered by the TRANSACT network" data-img="assets/team/coverage-map.png" loading="lazy"/><figcaption>Countries covered by the TRANSACT network</figcaption></figure>`;
         el.setAttribute('data-edit-array', 'about.json:blocks');
         el.innerHTML = data.blocks.map((b, i) => {
             const base = `about.json:blocks.${i}`;
-            const pre = i === 0 ? chartFig : (i === 10 ? mapFig : '');
+            const pre = i === 0 ? (mapFig + chartFig) : '';
             if (b.type === 'h')  return pre + `<h2 class="about-h2" data-edit-index="${i}" data-edit="${base}.text">${b.text}</h2>`;
             if (b.type === 'h3') return pre + `<h3 class="about-h3" data-edit-index="${i}" data-edit="${base}.text">${b.text}</h3>`;
             if (b.type === 'ul') return pre + `<ul class="about-ul" data-edit-index="${i}">${(b.items || []).map((it, j) =>
@@ -228,6 +228,9 @@ const CMS = {
         el.setAttribute('data-edit-array', 'partners.json:items');
         el.innerHTML = list.map((n, i) => `
             <div class="partner-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
+                ${n.logo ? `<div class="partner-logo">${n.link
+                    ? `<a href="${n.link}" target="_blank" rel="noopener"><img src="${n.logo}" alt="${n.name} logo" data-img="partners.json:items.${i}.logo" loading="lazy"/></a>`
+                    : `<img src="${n.logo}" alt="${n.name} logo" data-img="partners.json:items.${i}.logo" loading="lazy"/>`}</div>` : ''}
                 <h4>${n.link
                     ? `<a href="${n.link}" target="_blank" rel="noopener"><span data-edit="partners.json:items.${i}.name">${n.name}</span></a>`
                     : `<span data-edit="partners.json:items.${i}.name">${n.name}</span>`}</h4>

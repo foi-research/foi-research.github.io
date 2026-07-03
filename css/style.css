@@ -1477,6 +1477,8 @@ h1, h2, h3, h4 {
     background: #fff; border: 1px solid var(--gray-200); border-radius: 12px;
     padding: 1.6rem 1.75rem; margin-bottom: 1.1rem;
 }
+.partner-logo { margin: 0 0 1rem; }
+.partner-logo img { height: 46px; width: auto; max-width: 220px; object-fit: contain; display: block; }
 .partner-card h4 { font-family: var(--font-heading); font-size: 1.25rem; color: var(--blue-deep); margin: 0 0 0.6rem; }
 .partner-card p { color: var(--gray-700); line-height: 1.75; }
 #cms-partners-intro { margin-bottom: 2.2rem; max-width: 840px; }
