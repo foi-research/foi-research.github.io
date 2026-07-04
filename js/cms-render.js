@@ -138,13 +138,13 @@ const CMS = {
 
         const el = document.getElementById('cms-about-body');
         if (!el || !data.blocks) return;
-        // two figures floated right at different heights: map high (block 0), chart lower (block 2)
+        // two figures floated right at different heights: map high (block 0), chart lower (block 3)
         const chartFig = `<figure class="float-figure"><img src="assets/about/foi-adoption.jpg" alt="Adoption of access to information laws, 1950-2020" data-img="assets/about/foi-adoption.jpg" loading="lazy"/><figcaption>Adoption of access to information laws by regime, 1950&ndash;2020. Source: article19.org</figcaption></figure>`;
         const mapFig = `<figure class="float-figure map-fig"><img src="assets/team/coverage-map.png" alt="Countries covered by the TRANSACT network" data-img="assets/team/coverage-map.png" loading="lazy"/><figcaption>Countries covered by the TRANSACT network</figcaption></figure>`;
         el.setAttribute('data-edit-array', 'about.json:blocks');
         el.innerHTML = data.blocks.map((b, i) => {
             const base = `about.json:blocks.${i}`;
-            const pre = i === 0 ? mapFig : (i === 2 ? chartFig : '');
+            const pre = i === 0 ? mapFig : (i === 3 ? chartFig : '');
             if (b.type === 'h')  return pre + `<h2 class="about-h2" data-edit-index="${i}" data-edit="${base}.text">${b.text}</h2>`;
             if (b.type === 'h3') return pre + `<h3 class="about-h3" data-edit-index="${i}" data-edit="${base}.text">${b.text}</h3>`;
             if (b.type === 'ul') return pre + `<ul class="about-ul" data-edit-index="${i}">${(b.items || []).map((it, j) =>
