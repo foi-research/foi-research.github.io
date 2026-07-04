@@ -143,6 +143,38 @@
                 add.addEventListener('click', (ev) => { ev.preventDefault(); this.addItem(spec); });
                 container.appendChild(add);
             });
+
+            // 3) figure position controls (move a floated image up/down through the text)
+            document.querySelectorAll('[data-fig-index]').forEach(fig => {
+                const idx = parseInt(fig.getAttribute('data-fig-index'), 10);
+                const bar = document.createElement('div');
+                bar.className = 'foi-ctl foi-fig-ctl';
+                bar.innerHTML =
+                    '<button title="Move image up" data-act="up">↑ move</button>' +
+                    '<button title="Move image down" data-act="down">↓ move</button>';
+                bar.addEventListener('click', (ev) => {
+                    const act = ev.target.getAttribute('data-act');
+                    if (!act) return;
+                    ev.preventDefault(); ev.stopPropagation();
+                    this.moveFigure(idx, act === 'up' ? -1 : 1);
+                });
+                if (getComputedStyle(fig).position === 'static') fig.style.position = 'relative';
+                fig.appendChild(bar);
+            });
+        },
+
+        // ---- figure position ----
+        moveFigure(idx, dir) {
+            const data = window.CMS.dataCache['about.json'];
+            const figs = data && data.figures;
+            if (!Array.isArray(figs) || !figs[idx]) return;
+            const maxA = (data.blocks ? data.blocks.length : 1) - 1;
+            const cur = figs[idx].anchor | 0;
+            const next = Math.max(0, Math.min(maxA, cur + dir));
+            if (next === cur) return;   // already at the edge
+            figs[idx].anchor = next;
+            this.markDirty('about.json');
+            this.rerender();
         },
 
         // read an element's editable HTML, ignoring any injected control bars
@@ -423,6 +455,11 @@
             .foi-item-ctl button[data-act="del"]{background:#ef4444;color:#fff;}
             .foi-add-btn{display:inline-flex;align-items:center;margin:14px auto 0;cursor:pointer;border:2px dashed #2563eb;
                 background:rgba(37,99,235,.06);color:#2563eb;border-radius:10px;padding:10px 18px;font:700 14px/1 system-ui;}
+            body.foi-editing [data-fig-index]{outline:1px dashed rgba(245,158,11,.6);outline-offset:3px;}
+            .foi-fig-ctl{position:absolute;top:6px;left:6px;display:flex;gap:4px;z-index:60;
+                background:rgba(15,23,42,.92);padding:4px;border-radius:9px;}
+            .foi-fig-ctl button{cursor:pointer;border:0;background:#f59e0b;color:#0f172a;border-radius:6px;height:26px;padding:0 9px;
+                font:700 12px/1 system-ui;display:flex;align-items:center;justify-content:center;}
             `;
             const st = document.createElement('style');
             st.textContent = css;

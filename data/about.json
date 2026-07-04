@@ -1,4 +1,18 @@
 {
+  "figures": [
+    {
+      "img": "assets/team/coverage-map.png",
+      "alt": "Countries covered by the TRANSACT network",
+      "caption": "Countries covered by the TRANSACT network",
+      "anchor": 0
+    },
+    {
+      "img": "assets/about/foi-adoption.jpg",
+      "alt": "Adoption of access to information laws, 1950-2020",
+      "caption": "Adoption of access to information laws by regime, 1950–2020. Source: article19.org",
+      "anchor": 2
+    }
+  ],
   "blocks": [
     {
       "type": "p",

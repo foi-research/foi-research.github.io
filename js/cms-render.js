@@ -138,13 +138,26 @@ const CMS = {
 
         const el = document.getElementById('cms-about-body');
         if (!el || !data.blocks) return;
-        // two figures floated right at different heights: map high (block 0), chart lower (block 2)
-        const chartFig = `<figure class="float-figure"><img src="assets/about/foi-adoption.jpg" alt="Adoption of access to information laws, 1950-2020" data-img="assets/about/foi-adoption.jpg" loading="lazy"/><figcaption>Adoption of access to information laws by regime, 1950&ndash;2020. Source: article19.org</figcaption></figure>`;
-        const mapFig = `<figure class="float-figure map-fig"><img src="assets/team/coverage-map.png" alt="Countries covered by the TRANSACT network" data-img="assets/team/coverage-map.png" loading="lazy"/><figcaption>Countries covered by the TRANSACT network</figcaption></figure>`;
+        const nBlocks = data.blocks.length;
+        // figures are DATA-DRIVEN (about.json.figures = [{img, alt, caption, anchor}]).
+        // Each floats right, injected before the block at its `anchor` index (clamped).
+        // A figure anchored at block 0 gets `map-fig` = its top edge aligns with the first text line.
+        const figs = (data.figures || []).map((f, idx) => ({
+            idx, f, anchor: Math.max(0, Math.min(nBlocks - 1, (f.anchor | 0)))
+        }));
+        const figHTML = ({ f, idx, anchor }) => {
+            const topCls = anchor === 0 ? ' map-fig' : '';
+            return `<figure class="float-figure${topCls}" data-fig-index="${idx}">`
+                + `<img src="${f.img}" alt="${f.alt || f.caption || ''}" data-img="${f.img}" loading="lazy"/>`
+                + (f.caption ? `<figcaption>${f.caption}</figcaption>` : '')
+                + `</figure>`;
+        };
+        const byAnchor = {};
+        figs.forEach(fg => { (byAnchor[fg.anchor] = byAnchor[fg.anchor] || []).push(figHTML(fg)); });
         el.setAttribute('data-edit-array', 'about.json:blocks');
         el.innerHTML = data.blocks.map((b, i) => {
             const base = `about.json:blocks.${i}`;
-            const pre = i === 0 ? mapFig : (i === 2 ? chartFig : '');
+            const pre = (byAnchor[i] || []).join('');
             if (b.type === 'h')  return pre + `<h2 class="about-h2" data-edit-index="${i}" data-edit="${base}.text">${b.text}</h2>`;
             if (b.type === 'h3') return pre + `<h3 class="about-h3" data-edit-index="${i}" data-edit="${base}.text">${b.text}</h3>`;
             if (b.type === 'ul') return pre + `<ul class="about-ul" data-edit-index="${i}">${(b.items || []).map((it, j) =>
