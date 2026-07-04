@@ -1573,7 +1573,8 @@ h1, h2, h3, h4 {
 /* make each team group a block-formatting context so cards wrap beside the float cleanly (no overlap/abrupt break) */
 .team-group { overflow: hidden; }
 /* keep headings from butting against the floated image */
-#cms-about-body .about-h2, #cms-about-body .about-h3 { clear: none; }
+#cms-about-body .about-h2 { clear: right; }
+#cms-about-body .about-h3 { clear: none; }
 @media (max-width: 768px) {
     .float-figure, .team-float { float: none; width: 100%; max-width: 100%; margin: 1.4rem 0; }
 }
