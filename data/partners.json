@@ -11,7 +11,8 @@
       "name": "MySociety",
       "logo": "assets/partners/mysociety.png",
       "description": "MySociety is a UK-based non-profit organization that develops digital technologies to strengthen democracy and civic participation. It created and maintains Alaveteli, the world’s leading open-source platform for Freedom of Information requests, currently used by dozens of transparency websites worldwide.",
-      "link": "https://www.mysociety.org"
+      "link": "https://www.mysociety.org",
+      "logoScale": 0.77
     },
     {
       "name": "LoiTransparence.ch",
