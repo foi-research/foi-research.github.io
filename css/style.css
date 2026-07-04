@@ -1606,4 +1606,4 @@ h1, h2, h3, h4 {
 .home-foi-figure { width: 300px; max-width: 40%; }
 @media (max-width: 768px) { .home-foi-figure { float: none; width: 100%; max-width: 100%; margin: 1.4rem 0; } }
 /* Align the About coverage-map top with the "Research Design" heading (which has 2.4rem top margin) */
-.float-figure.map-fig { margin-top: 2.4rem; }
+.float-figure.map-fig { margin-top: 0.4rem; }
