@@ -5,7 +5,8 @@
       "name": "Transparencia.be",
       "logo": "assets/partners/transparencia.png",
       "description": "Transparencia.be is Belgium’s leading Freedom of Information platform. Built on the open-source Alaveteli software, it enables citizens to submit, publish, and track FOI requests to Belgian public authorities, promoting government transparency and civic participation.",
-      "link": "https://transparencia.be"
+      "link": "https://transparencia.be",
+      "logoScale": 1.15
     },
     {
       "name": "MySociety",
