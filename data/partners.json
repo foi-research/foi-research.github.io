@@ -6,20 +6,21 @@
       "logo": "assets/partners/transparencia.png",
       "description": "Transparencia.be is Belgium’s leading Freedom of Information platform. Built on the open-source Alaveteli software, it enables citizens to submit, publish, and track FOI requests to Belgian public authorities, promoting government transparency and civic participation.",
       "link": "https://transparencia.be",
-      "logoScale": 1.15
+      "logoScale": 0.805
     },
     {
       "name": "MySociety",
       "logo": "assets/partners/mysociety.png",
       "description": "MySociety is a UK-based non-profit organization that develops digital technologies to strengthen democracy and civic participation. It created and maintains Alaveteli, the world’s leading open-source platform for Freedom of Information requests, currently used by dozens of transparency websites worldwide.",
       "link": "https://www.mysociety.org",
-      "logoScale": 0.7
+      "logoScale": 0.49
     },
     {
       "name": "LoiTransparence.ch",
       "logo": "assets/partners/loitransparence.jpg",
       "description": "LoiTransparence.ch is Switzerland’s national Freedom of Information platform. It supports citizens and journalists in exercising their right of access to public information while promoting transparency and accountability within Swiss public administrations.",
-      "link": "https://loitransparence.ch"
+      "link": "https://loitransparence.ch",
+      "logoScale": 0.7
     }
   ]
 }

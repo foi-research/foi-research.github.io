@@ -241,16 +241,17 @@ const CMS = {
         el.setAttribute('data-edit-array', 'partners.json:items');
         el.innerHTML = list.map((n, i) => {
             const logoStyle = n.logoScale ? ` style="height:${Math.round(64 * n.logoScale)}px"` : '';
+            const logoHTML = n.logo ? `<div class="partner-logo">${n.link
+                    ? `<a href="${n.link}" target="_blank" rel="noopener"><img src="${n.logo}"${logoStyle} alt="${n.name} logo" data-img="partners.json:items.${i}.logo" loading="lazy"/></a>`
+                    : `<img src="${n.logo}"${logoStyle} alt="${n.name} logo" data-img="partners.json:items.${i}.logo" loading="lazy"/>`}</div>` : '';
             return `
             <div class="partner-card reveal reveal-delay-${(i % 4) + 1}" data-edit-index="${i}">
-                ${n.logo ? `<div class="partner-logo">${n.link
-                    ? `<a href="${n.link}" target="_blank" rel="noopener"><img src="${n.logo}"${logoStyle} alt="${n.name} logo" data-img="partners.json:items.${i}.logo" loading="lazy"/></a>`
-                    : `<img src="${n.logo}"${logoStyle} alt="${n.name} logo" data-img="partners.json:items.${i}.logo" loading="lazy"/>`}</div>` : ''}
                 <h4>${n.link
                     ? `<a href="${n.link}" target="_blank" rel="noopener"><span data-edit="partners.json:items.${i}.name">${n.name}</span></a>`
                     : `<span data-edit="partners.json:items.${i}.name">${n.name}</span>`}</h4>
                 <p data-edit="partners.json:items.${i}.description">${n.description || ''}</p>
                 ${n.link ? `<a class="partner-link" href="${n.link}" target="_blank" rel="noopener">Visit website &rarr;</a>` : ''}
+                ${logoHTML}
             </div>
         `;
         }).join('');
