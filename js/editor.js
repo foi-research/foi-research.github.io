@@ -26,9 +26,28 @@
         // ---- boot ----
         init() {
             this.token = localStorage.getItem(TOKEN_KEY) || null;
+            // PRIVATE editor: the public must NOT see the Edit button.
+            // Show it only if already logged in (token stored on this device)
+            // OR the URL explicitly asks for it via #edit (first-login entry point).
+            const wantsEdit = /(?:^|[#&])edit\b/i.test(location.hash || '');
+            if (!this.token && !wantsEdit) return;   // anonymous visitor -> no editor UI at all
             this.injectStyles();
             this.buildToolbar();
             this.updateToolbar();
+            if (this.token) this.verifyAccess();     // logged in but not a repo editor -> hide
+        },
+
+        // Hide the editor for anyone who is logged in but lacks write access to the repo
+        // (i.e. everyone except ricosan / repo collaborators). SAVE is already GitHub-enforced;
+        // this just avoids showing a useless Edit button to a stray logged-in visitor.
+        async verifyAccess() {
+            try {
+                const repo = await fetch('https://api.github.com/repos/' + REPO, {
+                    headers: { Authorization: 'token ' + this.token, Accept: 'application/vnd.github+json' }
+                }).then(r => (r.ok ? r.json() : null));
+                const canPush = !!(repo && repo.permissions && repo.permissions.push);
+                if (!canPush && this.bar) this.bar.style.display = 'none';
+            } catch (e) { /* offline / API hiccup: leave the bar, save stays GitHub-protected */ }
         },
 
         // ---- JSON path helpers ----
