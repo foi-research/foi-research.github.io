@@ -1476,9 +1476,15 @@ h1, h2, h3, h4 {
 .partner-card {
     background: #fff; border: 1px solid var(--gray-200); border-radius: 12px;
     padding: 1.6rem 1.75rem; margin-bottom: 1.1rem;
+    position: relative;
 }
-.partner-logo { margin: 1.1rem 0 0; }
+/* desktop: logo tucked into the bottom-right corner */
+.partner-logo { position: absolute; right: 1.75rem; bottom: 1.5rem; margin: 0; }
 .partner-logo img { height: 64px; width: auto; max-width: 300px; object-fit: contain; display: block; }
+/* mobile: logo drops into normal flow, below the "Visit website" link */
+@media (max-width: 768px) {
+    .partner-logo { position: static; margin: 1.1rem 0 0; }
+}
 .partner-card h4 { font-family: var(--font-heading); font-size: 1.25rem; color: var(--blue-deep); margin: 0 0 0.6rem; }
 .partner-card p { color: var(--gray-700); line-height: 1.75; }
 #cms-partners-intro { margin-bottom: 2.2rem; max-width: 840px; }
