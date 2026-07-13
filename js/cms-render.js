@@ -169,7 +169,7 @@ const CMS = {
     },
 
     // =========================================
-    // TEAM PAGE  (grouped: PI, Co-PI, Advisory Board, Research Team,
+    // TEAM PAGE  (grouped: PI, Co-PI, Research Team,
     //             Local Research Teams [subgroups], Collaborators)
     // =========================================
     initials(name) {

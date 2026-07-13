@@ -23,29 +23,6 @@
       ]
     },
     {
-      "heading": "Advisory Board",
-      "members": [
-        {
-          "name": "Giuseppe Lucio Gaeta",
-          "affiliation": "University of Naples “L’Orientale”, Italy",
-          "role": "",
-          "photo": "assets/team/gaeta.jpg"
-        },
-        {
-          "name": "Lorenzo Cicatiello",
-          "affiliation": "University of Naples “L’Orientale”, Italy",
-          "role": "",
-          "photo": "assets/team/cicatiello.jpg"
-        },
-        {
-          "name": "Ben Worthy",
-          "affiliation": "Birkbeck, University of London, United Kingdom",
-          "role": "",
-          "photo": "assets/team/worthy.jpg"
-        }
-      ]
-    },
-    {
       "heading": "Research Team",
       "members": [
         {
@@ -57,7 +34,8 @@
         {
           "name": "Lise Delfosse",
           "affiliation": "Université libre de Bruxelles (ULB), Belgium",
-          "role": "Research Assistant"
+          "role": "Research Assistant",
+          "photo": "assets/team/delfosse.jpg"
         },
         {
           "name": "Adrian Sabau",
@@ -143,6 +121,24 @@
           "affiliation": "European University Institute, Italy",
           "role": "",
           "photo": "assets/team/zuffova.jpg"
+        },
+        {
+          "name": "Giuseppe Lucio Gaeta",
+          "affiliation": "University of Naples “L’Orientale”, Italy",
+          "role": "",
+          "photo": "assets/team/gaeta.jpg"
+        },
+        {
+          "name": "Lorenzo Cicatiello",
+          "affiliation": "University of Naples “L’Orientale”, Italy",
+          "role": "",
+          "photo": "assets/team/cicatiello.jpg"
+        },
+        {
+          "name": "Ben Worthy",
+          "affiliation": "Birkbeck, University of London, United Kingdom",
+          "role": "",
+          "photo": "assets/team/worthy.jpg"
         }
       ]
     }
