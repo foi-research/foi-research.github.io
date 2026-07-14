@@ -1,15 +1,15 @@
 {
   "figures": [
     {
-      "img": "assets/team/coverage-map.png",
-      "alt": "Countries covered by the TRANSACT network",
-      "caption": "Countries covered by the TRANSACT network",
+      "img": "assets/about/foi-map-2025.png",
+      "alt": "Worldwide adoption of FOI laws, 2025",
+      "caption": "<span style=\"font-style:normal\">Worldwide adoption of FOI laws (2025)</span><br><span style=\"font-style:italic\">Source: www.article19.org</span>",
       "anchor": 0
     },
     {
-      "img": "assets/about/foi-adoption.jpg",
-      "alt": "Adoption of access to information laws, 1950-2020",
-      "caption": "Adoption of access to information laws by regime, 1950–2020. Source: article19.org",
+      "img": "assets/about/foi-adoption-regime.png",
+      "alt": "Year of adoption of access to information laws by political regime, 1950–2020",
+      "caption": "<span style=\"font-style:normal\">Year of adoption of access to information laws and political regime (democratic vs. non-democratic) when legislation was introduced, 1950–2020</span><br><span style=\"font-style:italic\">Source: www.article19.org</span>",
       "anchor": 2
     }
   ],
