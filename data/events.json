@@ -79,7 +79,7 @@
           ],
           "files": [
             {
-              "label": "Invited talk slides",
+              "label": "Presentation slides",
               "url": "assets/events/kapa-talk.pdf",
               "thumb": "assets/events/kapa-talk-thumb.png",
               "kind": "slides"

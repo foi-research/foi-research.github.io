@@ -1481,6 +1481,9 @@ h1, h2, h3, h4 {
 /* desktop: logo tucked into the bottom-right corner */
 .partner-logo { position: absolute; right: 1.75rem; bottom: 1.5rem; margin: 0; }
 .partner-logo img { height: 64px; width: auto; max-width: 300px; object-fit: contain; display: block; }
+/* per-partner vertical nudges: push logos down so they don't overlap long description text */
+.partner-card[data-edit-index="0"] .partner-logo { bottom: 0.6rem; }   /* Transparencia.be: clears the last text line */
+.partner-card[data-edit-index="2"] .partner-logo { bottom: 1.2rem; }   /* LoiTransparence.ch: ~5px lower */
 /* mobile: logo drops into normal flow, below the "Visit website" link */
 @media (max-width: 768px) {
     .partner-logo { position: static; margin: 1.1rem 0 0; }
@@ -1597,6 +1600,9 @@ h1, h2, h3, h4 {
 .slide-overlay { position: absolute; left: 0; right: 0; top: 0; bottom: 38px; display: flex; align-items: center; justify-content: center; background: rgba(15,23,42,.55); color: #fff; font-weight: 700; letter-spacing: .03em; opacity: 0; transition: opacity .2s; }
 .slide-card:hover .slide-overlay { opacity: 1; }
 .slide-label { display: block; padding: .55rem .75rem; font-size: .85rem; font-weight: 600; color: var(--blue-deep); background: #fff; }
+/* slide-card sitting inside the photo row: match the 150px photo height so it lines up beside them */
+.event-photos .slide-card { width: auto; }
+.event-photos .slide-card img { height: 150px; width: auto; }
 /* PDF lightbox (scrollable) */
 .pdf-lightbox { position: fixed; inset: 0; background: rgba(15,23,42,.85); display: none; z-index: 2000; padding: 4vh 4vw; }
 .pdf-lightbox.open { display: block; }

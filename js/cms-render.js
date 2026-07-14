@@ -419,21 +419,23 @@ const CMS = {
                     </div>`;
                 });
                 html += `</div>`; // close .event-contribs
-                if (e.images && e.images.length) {
-                    html += `<div class="event-photos">` + e.images.map((im) =>
-                        `<a class="event-photo" href="${im.image}" data-img="${im.image}" title="${im.caption || ''}">
+                // Photos and slide-card files share ONE row so slides sit next to the photos.
+                const photoRow = [];
+                if (e.images) photoRow.push(...e.images.map((im) =>
+                    `<a class="event-photo" href="${im.image}" data-img="${im.image}" title="${im.caption || ''}">
                             <img src="${im.image}" alt="${im.caption || ''}" loading="lazy"/>
-                        </a>`).join('') + `</div>`;
-                }
-                if (e.files && e.files.length) {
-                    html += `<div class="event-files">` + e.files.map((f) =>
-                        f.thumb
-                          ? `<a class="slide-card" href="${f.url}" data-pdf="${f.url}" title="PowerPoint">
+                        </a>`));
+                if (e.files) photoRow.push(...e.files.filter((f) => f.thumb).map((f) =>
+                    `<a class="slide-card" href="${f.url}" data-pdf="${f.url}" title="PowerPoint">
                                 <img src="${f.thumb}" alt="${f.label}" loading="lazy"/>
                                 <span class="slide-overlay">PowerPoint</span>
                                 <span class="slide-label">${f.label}</span>
-                             </a>`
-                          : `<a class="event-file" href="${f.url}" target="_blank" rel="noopener">&#x1F4C4; ${f.label}</a>`).join('') + `</div>`;
+                             </a>`));
+                if (photoRow.length) html += `<div class="event-photos">` + photoRow.join('') + `</div>`;
+                const plainFiles = (e.files || []).filter((f) => !f.thumb);
+                if (plainFiles.length) {
+                    html += `<div class="event-files">` + plainFiles.map((f) =>
+                        `<a class="event-file" href="${f.url}" target="_blank" rel="noopener">&#x1F4C4; ${f.label}</a>`).join('') + `</div>`;
                 }
                 if (e.links && e.links.length) {
                     html += `<div class="event-links">` + e.links.map((l) =>
