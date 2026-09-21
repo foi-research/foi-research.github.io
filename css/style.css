@@ -1027,6 +1027,12 @@ h1, h2, h3, h4 {
     gap: 1.25rem;
 }
 
+/* Local Research Teams: fixed 2-up so a country with a single member keeps the
+   same card width as one with two (auto-fit would stretch a lone card full-width). */
+.team-subheading + .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
 .team-card {
     background: var(--white);
     border-radius: 10px;
@@ -1349,7 +1355,7 @@ h1, h2, h3, h4 {
     .project-featured-stats { gap: 1rem; }
     .pf-stat { padding: 0.75rem 1rem; }
 
-    .projects-grid, .findings-grid, .team-grid, .network-grid, .home-cards { grid-template-columns: 1fr; }
+    .projects-grid, .findings-grid, .team-grid, .team-subheading + .team-grid, .network-grid, .home-cards { grid-template-columns: 1fr; }
 
     .events-timeline { padding-left: 2rem; }
 
