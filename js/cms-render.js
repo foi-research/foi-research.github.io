@@ -121,7 +121,7 @@ const CMS = {
                     <p style="font-size: 1.05rem; color: var(--gray-600); max-width: 720px; line-height: 1.8; margin-bottom: 1.5rem;" data-edit="home.json:teamPreview">
                         ${home.teamPreview}
                     </p>
-                    <a href="team.html" class="btn btn-secondary btn-sm">Meet the team &rarr;</a>
+                    <a href="/team" class="btn btn-secondary btn-sm">Meet the team &rarr;</a>
                 </div>
             `;
         }

@@ -5,11 +5,11 @@
     "description": "Explaining why Freedom of Information laws succeed or fail in practice",
     "primaryBtn": {
       "text": "Our Publications",
-      "link": "publications.html"
+      "link": "/publications"
     },
     "secondaryBtn": {
       "text": "The Team",
-      "link": "team.html"
+      "link": "/team"
     }
   },
   "researchCards": [
@@ -17,19 +17,19 @@
       "icon": "&#x1F3AF;",
       "title": "TRANSACT",
       "description": "Our flagship field experiment testing FOI responsiveness across all 581 Belgian municipalities, using five randomised requester profiles and citizen science methodology.",
-      "link": "about.html"
+      "link": "/about"
     },
     {
       "icon": "&#x1F4CA;",
       "title": "Transparencia.be Analysis",
       "description": "Computational text analysis of 4,266 citizen FOI requests from Belgium&rsquo;s national transparency platform, using topic modeling, sentiment analysis, and multinomial regression.",
-      "link": "publications.html"
+      "link": "/publications"
     },
     {
       "icon": "&#x1F30D;",
       "title": "International Expansion",
       "description": "Extending TRANSACT methodology to Switzerland, Romania, South Africa, and Uganda &mdash; building comparative evidence on FOI implementation across legal frameworks.",
-      "link": "about.html"
+      "link": "/about"
     }
   ],
   "teamPreview": "[Team description to be defined — this section will introduce the research group and its members.]",
