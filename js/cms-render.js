@@ -294,6 +294,10 @@ const CMS = {
                     <h4 class="media-block-title" data-edit="${b}.title">${x.title}</h4>
                     <p class="media-block-desc" data-edit="${b}.description">${x.description}</p>
                     ${x.link ? `<a class="media-block-link" href="${x.link}" target="_blank" rel="noopener"><span data-edit="${b}.linkText">${x.linkText || 'Open'}</span> &rarr;</a>` : ''}
+                    ${x.links ? `${x.linksLabel ? `<p class="media-block-label" data-edit="${b}.linksLabel">${x.linksLabel}</p>` : ''}
+                    <ul class="media-block-links" data-edit-array="${b}.links">${x.links.map((l, j) => `
+                        <li data-edit-index="${j}"><a class="media-block-link" href="${l.link}" target="_blank" rel="noopener"><span data-edit="${b}.links.${j}.linkText">${l.linkText || 'Open'}</span> &rarr;</a></li>`).join('')}
+                    </ul>` : ''}
                 </div>`;
             }).join('');
         }

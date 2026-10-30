@@ -29,6 +29,26 @@
       "description": "Following the dissemination of the Belgian Freedom of Information field experiment, Giovanni Esposito was invited by the Centre for Law and Democracy (CLD) to coordinate Belgium’s participation in the International Right to Information Stress Test, an initiative developed for the International Day for Universal Access to Information (IDUAI). The project was supported by UNESCO, the Global Forum for Media Development (GFMD), and the Global Investigative Journalism Network (GIJN), bringing together researchers, journalists, and civil society organizations to evaluate the practical implementation of Freedom of Information laws around the world. The Belgian assessment formed part of a global comparative study conducted through the Freedom of Information Advocates Network (FOIAnet). The findings contributed to the 2025 Global Right to Information Stress Test Report, published on 28 September 2025 for the International Day for Universal Access to Information. This collaboration illustrates how TRANSACT research informs international transparency initiatives and contributes to evidence-based assessments of Freedom of Information implementation worldwide.",
       "linkText": "Read the report",
       "link": "https://www.law-democracy.org/launch-of-report-on-global-right-to-information-stress-test/"
+    },
+    {
+      "category": "National Media",
+      "title": "Swiss Press and Media Coverage",
+      "description": "The findings of the TRANSACT field experiment in Switzerland attracted attention from the Swiss press and were featured in several newspapers belonging to the CH Media group, as well as in La Liberté. The research findings were also disseminated through LoiTransparence.ch, one of TRANSACT's civil society partners.<br><br>Together, these publications helped bring the findings to a broader audience and stimulate public discussion on administrative transparency, the implementation of Freedom of Information legislation, and citizens' access to official documents in Switzerland.",
+      "linksLabel": "Media coverage and publications:",
+      "links": [
+        {
+          "linkText": "CH Media – Gemeinden als Dunkelkammern (30 October 2026)",
+          "link": "assets/media/ch-media-2026-10-30.pdf"
+        },
+        {
+          "linkText": "La Liberté – Communes cachottières (30 October 2026)",
+          "link": "assets/media/la-liberte-2026-10-30.pdf"
+        },
+        {
+          "linkText": "LoiTransparence.ch – Deux communes sur trois refusent les demandes d’accès",
+          "link": "https://www.oeffentlichkeitsgesetz.ch/francais/2026/10/deux-communes-sur-trois-refusent-les-demandes-dacces/"
+        }
+      ]
     }
   ]
 }
