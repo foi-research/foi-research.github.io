@@ -241,7 +241,9 @@ const CMS = {
         el.setAttribute('data-edit-array', 'partners.json:items');
         el.innerHTML = list.map((n, i) => {
             const logoStyle = n.logoScale ? ` style="height:${Math.round(64 * n.logoScale)}px"` : '';
-            const logoHTML = n.logo ? `<div class="partner-logo">${n.link
+            // per-partner vertical nudge comes from the data (logoBottom), so reordering partners can't break it
+            // no link = no "Visit website" row to sit beside, so the logo goes in normal flow below the text
+            const logoHTML = n.logo ? `<div class="partner-logo${n.link ? '' : ' inflow'}"${n.link && n.logoBottom ? ` style="bottom:${n.logoBottom}"` : ''}>${n.link
                     ? `<a href="${n.link}" target="_blank" rel="noopener"><img src="${n.logo}"${logoStyle} alt="${n.name} logo" data-img="partners.json:items.${i}.logo" loading="lazy"/></a>`
                     : `<img src="${n.logo}"${logoStyle} alt="${n.name} logo" data-img="partners.json:items.${i}.logo" loading="lazy"/>`}</div>` : '';
             return `
@@ -287,17 +289,25 @@ const CMS = {
         if (sEl) {
             const sections = data.sections || [];
             sEl.setAttribute('data-edit-array', 'medias.json:sections');
-            sEl.innerHTML = sections.map((x, i) => {
-                const b = `medias.json:sections.${i}`;
-                return `<div class="media-block" data-edit-index="${i}">
-                    <span class="contrib-type" data-edit="${b}.category">${x.category}</span>
-                    <h4 class="media-block-title" data-edit="${b}.title">${x.title}</h4>
-                    <p class="media-block-desc" data-edit="${b}.description">${x.description}</p>
+            // one block body (title + text + link or link list); `b` = its data path
+            const body = (x, b) => `
+                    ${x.title ? `<h4 class="media-block-title" data-edit="${b}.title">${x.title}</h4>` : ''}
+                    ${x.description ? `<p class="media-block-desc" data-edit="${b}.description">${x.description}</p>` : ''}
                     ${x.link ? `<a class="media-block-link" href="${x.link}" target="_blank" rel="noopener"><span data-edit="${b}.linkText">${x.linkText || 'Open'}</span> &rarr;</a>` : ''}
                     ${x.links ? `${x.linksLabel ? `<p class="media-block-label" data-edit="${b}.linksLabel">${x.linksLabel}</p>` : ''}
                     <ul class="media-block-links" data-edit-array="${b}.links">${x.links.map((l, j) => `
                         <li data-edit-index="${j}"><a class="media-block-link" href="${l.link}" target="_blank" rel="noopener"><span data-edit="${b}.links.${j}.linkText">${l.linkText || 'Open'}</span> &rarr;</a></li>`).join('')}
-                    </ul>` : ''}
+                    </ul>` : ''}`;
+            sEl.innerHTML = sections.map((x, i) => {
+                const b = `medias.json:sections.${i}`;
+                // a section may group several sub-blocks in one box (`parts`, e.g. Belgian + Swiss press)
+                const inner = x.parts
+                    ? `<div data-edit-array="${b}.parts">${x.parts.map((p, k) =>
+                        `<div class="media-part" data-edit-index="${k}">${body(p, `${b}.parts.${k}`)}</div>`).join('')}</div>`
+                    : body(x, b);
+                return `<div class="media-block" data-edit-index="${i}">
+                    <span class="contrib-type" data-edit="${b}.category">${x.category}</span>
+                    ${inner}
                 </div>`;
             }).join('');
         }

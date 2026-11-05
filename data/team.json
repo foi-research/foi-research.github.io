@@ -55,6 +55,28 @@
       "heading": "Local Research Teams",
       "subgroups": [
         {
+          "subheading": "Armenia",
+          "members": [
+            {
+              "name": "Anzhela Amirjanyan",
+              "affiliation": "Université libre de Bruxelles (ULB), Belgium",
+              "role": "",
+              "photo": "assets/team/amirjanyan.jpg"
+            }
+          ]
+        },
+        {
+          "subheading": "Canada",
+          "members": [
+            {
+              "name": "Philippe Dubois",
+              "affiliation": "École nationale d’administration publique (ENAP), Université du Québec, Canada",
+              "role": "",
+              "photo": "assets/team/dubois.jpg"
+            }
+          ]
+        },
+        {
           "subheading": "Romania",
           "members": [
             {
@@ -72,6 +94,17 @@
           ]
         },
         {
+          "subheading": "South Korea",
+          "members": [
+            {
+              "name": "Danbee Lee",
+              "affiliation": "Seoul National University of Science and Technology, South Korea",
+              "role": "",
+              "photo": "assets/team/lee.jpg"
+            }
+          ]
+        },
+        {
           "subheading": "Switzerland",
           "members": [
             {
@@ -85,28 +118,6 @@
               "affiliation": "University of Lausanne (UNIL), Switzerland",
               "role": "",
               "photo": "assets/team/hanni.jpg"
-            }
-          ]
-        },
-        {
-          "subheading": "South Korea",
-          "members": [
-            {
-              "name": "Danbee Lee",
-              "affiliation": "Seoul National University of Science and Technology, South Korea",
-              "role": "",
-              "photo": "assets/team/lee.jpg"
-            }
-          ]
-        },
-        {
-          "subheading": "Canada",
-          "members": [
-            {
-              "name": "Philippe Dubois",
-              "affiliation": "École nationale d’administration publique (ENAP), Université du Québec, Canada",
-              "role": "",
-              "photo": "assets/team/dubois.jpg"
             }
           ]
         }

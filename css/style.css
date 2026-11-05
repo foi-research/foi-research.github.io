@@ -1487,12 +1487,11 @@ h1, h2, h3, h4 {
 /* desktop: logo tucked into the bottom-right corner */
 .partner-logo { position: absolute; right: 1.75rem; bottom: 1.5rem; margin: 0; }
 .partner-logo img { height: 64px; width: auto; max-width: 300px; object-fit: contain; display: block; }
-/* per-partner vertical nudges: push logos down so they don't overlap long description text */
-.partner-card[data-edit-index="0"] .partner-logo { bottom: 0.6rem; }   /* Transparencia.be: clears the last text line */
-.partner-card[data-edit-index="2"] .partner-logo { bottom: 1.2rem; }   /* LoiTransparence.ch: ~5px lower */
+/* per-partner vertical nudges live in partners.json (logoBottom) so the order can change freely */
+.partner-logo.inflow { position: static; display: flex; justify-content: flex-end; margin-top: 0.9rem; }
 /* mobile: logo drops into normal flow, below the "Visit website" link */
 @media (max-width: 768px) {
-    .partner-logo { position: static; margin: 1.1rem 0 0; }
+    .partner-logo { position: static !important; margin: 1.1rem 0 0; }
 }
 .partner-card h4 { font-family: var(--font-heading); font-size: 1.25rem; color: var(--blue-deep); margin: 0 0 0.6rem; }
 .partner-card p { color: var(--gray-700); line-height: 1.75; }
@@ -1528,6 +1527,7 @@ h1, h2, h3, h4 {
 .media-block-title { font-family: var(--font-heading); font-size: 1.2rem; color: var(--blue-deep); margin: 0.3rem 0 0.7rem; }
 .media-block-desc { color: var(--gray-700); line-height: 1.75; margin-bottom: 0.8rem; }
 .media-block-link { font-weight: 600; font-size: 0.92rem; }
+.media-part + .media-part { border-top: 1px solid var(--gray-200); margin-top: 1.4rem; padding-top: 1.2rem; }
 .media-block-label { font-weight: 600; color: var(--blue-deep); margin: 0.2rem 0 0.4rem; }
 .media-block-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.35rem; }
 .partner-link { display: inline-block; margin-top: 0.7rem; font-weight: 600; font-size: 0.9rem; }

@@ -2,11 +2,19 @@
   "intro": "TRANSACT works closely with leading civil society organizations promoting transparency, access to information, and democratic accountability. These partnerships support the design of field experiments, facilitate access to Freedom of Information (FOI) platforms and data, and help translate research findings into policy and practice.",
   "items": [
     {
-      "name": "Transparencia.be",
-      "logo": "assets/partners/transparencia.png",
-      "description": "Transparencia.be is Belgium’s leading Freedom of Information platform. Built on the open-source Alaveteli software, it enables citizens to submit, publish, and track FOI requests to Belgian public authorities, promoting government transparency and civic participation.",
-      "link": "https://transparencia.be",
-      "logoScale": 0.805
+      "name": "LoiTransparence.ch",
+      "logo": "assets/partners/loitransparence.jpg",
+      "description": "LoiTransparence.ch is Switzerland’s national Freedom of Information platform. It supports citizens and journalists in exercising their right of access to public information while promoting transparency and accountability within Swiss public administrations.",
+      "link": "https://loitransparence.ch",
+      "logoScale": 0.595,
+      "logoBottom": "1.2rem"
+    },
+    {
+      "name": "MITK Educational and Youth Initiative NGO – Armenia",
+      "logo": "assets/partners/mitk.jpg",
+      "description": "Founded in 2018, MITK Educational and Youth Initiative NGO is an Armenian civil society organisation dedicated to youth empowerment, civic engagement, and strengthening local democracy. Based in Armavir Province, the organisation promotes community development and active citizen participation in public affairs.<br><br>Within TRANSACT, MITK has supported the implementation of the Freedom of Information audit in Armenia, contributing to research on administrative transparency and public authorities' responsiveness to citizens' information requests.",
+      "link": "",
+      "logoScale": 1.4
     },
     {
       "name": "MySociety",
@@ -16,11 +24,12 @@
       "logoScale": 0.49
     },
     {
-      "name": "LoiTransparence.ch",
-      "logo": "assets/partners/loitransparence.jpg",
-      "description": "LoiTransparence.ch is Switzerland’s national Freedom of Information platform. It supports citizens and journalists in exercising their right of access to public information while promoting transparency and accountability within Swiss public administrations.",
-      "link": "https://loitransparence.ch",
-      "logoScale": 0.595
+      "name": "Transparencia.be",
+      "logo": "assets/partners/transparencia.png",
+      "description": "Transparencia.be is Belgium’s leading Freedom of Information platform. Built on the open-source Alaveteli software, it enables citizens to submit, publish, and track FOI requests to Belgian public authorities, promoting government transparency and civic participation.",
+      "link": "https://transparencia.be",
+      "logoScale": 0.805,
+      "logoBottom": "0.6rem"
     }
   ]
 }
